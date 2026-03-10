@@ -1,224 +1,505 @@
+'use client';
+
 import React from 'react';
-import { Mail, Phone, MapPin, Code, Layers, Server, Terminal, ChevronRight, Award, Users, BookOpen, Globe, Briefcase, Zap } from 'lucide-react';
-import hero from "../public/assets/images/hero.png";
-const PortfolioLandingPage = () => {
-  const experiences = [
-    {
-      company: "Edge Digital",
-      role: "Lead Web Developer",
-      period: "2020 — 2025",
-      desc: "Architected the OnePeople online ecosystem and delivered mission-critical COVID-19 campaign sites for Singapore. Engineered nationwide centralized APIs and optimized AWS serverless infrastructure for high-traffic scalability.",
-      tags: ['React.js', 'Express.js', 'AWS Lambda', 'Serverless', 'QA Specialist'],
-      highlight: true
-    },
-    {
-      company: "Breakthrough4business",
-      role: "Web Developer",
-      period: "2017 — 2019",
-      desc: "Built the 'B4B Academy' social platform from the ground up. Focused on social networking features, user engagement modules, and managed EC2 Ubuntu server environments.",
-      tags: ['CodeIgniter', 'PHP', 'jQuery', 'AWS EC2', 'Ubuntu'],
-      highlight: false
-    },
-    {
-      company: "Leentech Network Solution",
-      role: "Junior Programmer",
-      period: "2016 — 2017",
-      desc: "Developed custom e-commerce solutions using Magento and raw PHP. Pioneered the transition to mobile-first development using Ionic and jQuery Mobile.",
-      tags: ['Magento', 'PHP', 'Ionic', 'jQuery Mobile'],
-      highlight: false
-    },
-    {
-      company: "Colegio De Amore",
-      role: "IT Admin Staff",
-      period: "2014 — 2016",
-      desc: "Managed the campus-wide LAN infrastructure and digitized student record systems. Provided technical leadership for internal networking and hardware maintenance.",
-      tags: ['LAN Networking', 'System Admin', 'Database Management'],
-      highlight: false
-    }
-  ];
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import {
+  Mail, Phone, MapPin, Award, ExternalLink,
+  Code2, Globe, Shield, ArrowRight, ChevronRight,
+  Users, BookOpen, X, Maximize2
+} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import hero from '../public/assets/images/hero.png';
+import imgOximeter from '../public/assets/images/oximiter.png';
+import imgStayprepared from '../public/assets/images/stayprepared.png';
+import imgByobclean from '../public/assets/images/byobclean.png';
+import imgStaymasked from '../public/assets/images/staymasked.png';
+import imgStaywell from '../public/assets/images/staywell.png';
+import imgOnepeople from '../public/assets/images/onepeopleonline.png';
+import imgKnights from '../public/assets/images/knightstemplar.png';
+import imgTemasek2022 from '../public/assets/images/temasek_2022.png';
+import imgTemasek2025 from '../public/assets/images/temasek_2025.png';
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+const experiences = [
+  {
+    company: 'Edge Digital',
+    role: 'Lead Web Developer',
+    period: '2020 — 2025',
+    desc: 'Architected the OnePeople civic ecosystem and delivered mission-critical COVID-19 campaign sites for Singapore. Engineered nationwide APIs and optimized AWS serverless infrastructure for high-traffic scalability.',
+    tags: ['React.js', 'Node.js', 'AWS Lambda', 'QA Lead'],
+    highlight: true,
+  },
+  {
+    company: 'Breakthrough4business',
+    role: 'Web Developer',
+    period: '2017 — 2019',
+    desc: 'Built the B4B Academy social platform from scratch. Delivered social networking modules and managed EC2 Ubuntu server environments.',
+    tags: ['PHP', 'Laravel', 'jQuery', 'AWS EC2'],
+    highlight: false,
+  },
+  {
+    company: 'Leentech Network Solution',
+    role: 'Junior Programmer',
+    period: '2016 — 2017',
+    desc: 'Developed custom Magento e-commerce solutions and pioneered mobile-first development using Ionic.',
+    tags: ['Magento', 'PHP', 'Ionic', 'jQuery Mobile'],
+    highlight: false,
+  },
+];
+
+const projects = [
+  {
+    category: 'WordPress',
+    icon: <Globe size={11} />,
+    badge: 'bg-gold/10 text-gold border-gold/20',
+    items: [
+      { title: 'Oximiter', url: 'https://web.archive.org/web/20210625034815/https://stayprepared.sg/oximeter/', desc: 'COVID-19 pulse oximeter e-commerce site for Singapore.', image: imgOximeter },
+      { title: 'StayPrepared', url: 'https://web.archive.org/web/20210625034815/https://stayprepared.sg/oximeter/', desc: 'Singapore health & wellness platform.', image: imgStayprepared },
+      { title: 'BYOBClean', url: 'https://web.archive.org/web/20210620040304/https://stayprepared.sg/byobclean/', desc: 'Eco-conscious cleaning product configurator.', image: imgByobclean },
+      { title: 'Staymasked', url: 'https://web.archive.org/web/20220630102230/https://stayprepared.sg/staymasked/', desc: 'National mask distribution initiative portal.', image: imgStaymasked },
+      { title: 'Mouth Gargle', url: 'https://web.archive.org/web/20230401044153/https://stayprepared.sg/staywell/', desc: 'Preventative health solution platform.', image: imgStaywell },
+    ],
+  },
+  {
+    category: 'ReactJS / Node.js',
+    icon: <Code2 size={11} />,
+    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    items: [
+      { title: 'OnePeople Online', url: 'https://onepeople.online/', desc: 'Civic engagement ecosystem built for the Singapore government.', image: imgOnepeople },
+    ],
+  },
+  {
+    category: 'Laravel',
+    icon: <Code2 size={11} />,
+    badge: 'bg-red-500/10 text-red-400 border-red-500/20',
+    items: [
+      { title: 'The Knights Templar', url: 'https://web.archive.org/web/20220310161843/https://theknightstemplar.info/', desc: 'Historic chivalric order member portal and portal.', image: imgKnights },
+    ],
+  },
+  {
+    category: 'QA / Quality Assurance',
+    icon: <Shield size={11} />,
+    badge: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
+    items: [
+      { title: 'Temasek Review', url: 'https://www.temasekreview.com.sg/', desc: 'QA Specialist for flagship corporate digital publications.', image: imgTemasek2022 },
+      { title: 'Temasek Review 2023', url: 'https://tr23.temasekreview.com.sg/', desc: 'Ensuring zero-defect delivery on high-profile stakeholder platforms.', image: imgTemasek2025 },
+    ],
+  },
+];
+
+// ─── Shared Components ─────────────────────────────────────────────────────────
+
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex items-end gap-6 mb-12"
+    >
+      <div>
+        <span className="font-barlow text-[12px] font-bold tracking-[0.3em] uppercase text-gold">{eyebrow}</span>
+        <h2 className="font-bebas text-[48px] md:text-[64px] text-ink tracking-wide leading-none mt-1">{title}</h2>
+      </div>
+      <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent mb-3" />
+    </motion.div>
+  );
+}
+
+function ImageModal({ image, title, onClose }: { image: any; title: string; onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-blue-500/30">
-      {/* Ambient Background */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#020617]/60 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white group-hover:rotate-12 transition-all">JS</div>
-            <span className="text-xl font-bold text-white tracking-tighter">Salazar<span className="text-blue-500">.</span></span>
-          </div>
-          <div className="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-            <a href="#experience" className="hover:text-blue-400 transition-colors">Experience</a>
-            <a href="#stack" className="hover:text-blue-400 transition-colors">Stack</a>
-            <a href="#leadership" className="hover:text-blue-400 transition-colors">Leadership</a>
-            <a href="#contact" className="px-6 py-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all">Hire Me</a>
-          </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[200] bg-void/90 backdrop-blur-md flex items-center justify-center p-4 md:p-12"
+    >
+      <div
+        className="absolute inset-0 cursor-zoom-out"
+        onClick={onClose}
+      />
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="relative max-w-7xl w-full max-h-full bg-card rounded-sm border border-gold/20 shadow-2xl overflow-hidden pointer-events-auto"
+      >
+        <div className="absolute top-0 left-0 right-0 p-6 bg-gradient-to-b from-void/90 to-transparent z-[210] flex items-center justify-between">
+          <h3 className="font-bebas text-2xl text-ink tracking-wide">{title}</h3>
+          <button
+            onClick={onClose}
+            className="p-2 bg-gold text-void rounded-sm hover:brightness-110 transition-all shadow-lg"
+          >
+            <X size={20} />
+          </button>
         </div>
-      </nav>
 
-      <main>
-        {/* Hero Section */}
-        <section className="pt-48 pb-24 px-6">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
-                <Zap size={14} /> Full-Stack Specialist
-              </div>
-              <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.85] tracking-tight">
-                John Carlo <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Salazar.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed border-l border-blue-500/30 pl-6">
-                A Lead Web Developer driving business growth through modern code and legacy-hardened experience. Based in the Philippines, operating globally.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-3 px-5 py-3 bg-white/5 border border-white/10 rounded-2xl">
-                  <MapPin size={18} className="text-blue-500" />
-                  <span className="text-sm font-semibold text-slate-200">Trece Martires City, PH</span>
-                </div>
-                <div className="flex items-center gap-3 px-5 py-3 bg-white/5 border border-white/10 rounded-2xl">
-                  <Award size={18} className="text-emerald-500" />
-                  <span className="text-sm font-semibold text-slate-200">10+ Years Experience</span>
-                </div>
-              </div>
+        <div className="relative w-full aspect-video md:aspect-[16/9] overflow-y-auto bg-void/50 mt-16">
+          <Image
+            src={image}
+            alt={title}
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-contain"
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+function Header() {
+  return (
+    <nav className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
+      <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="flex items-center gap-3"
+        >
+          <div className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void">
+            JS
+          </div>
+          <span className="font-barlow text-xl font-bold tracking-tight text-ink">SALAZAR</span>
+        </motion.div>
+
+        <div className="hidden md:flex items-center gap-8">
+          {['Experience', 'Portfolio', 'Stack'].map((item, i) => (
+            <motion.a
+              key={item}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              href={`#${item.toLowerCase()}`}
+              className="text-[11px] font-bold tracking-[0.2em] uppercase text-ash hover:text-gold transition-colors"
+            >
+              {item}
+            </motion.a>
+          ))}
+          <motion.a
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            href="mailto:johncarlosacrosalazar@gmail.com"
+            className="px-6 py-2.5 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm hover:brightness-110 transition-all"
+          >
+            Hire Me
+          </motion.a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+
+function Hero() {
+  return (
+    <section className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-[#0C0C0C]" />
+      <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-gold to-transparent z-[1]" />
+
+      <div className="max-w-7xl mx-auto w-full px-8 py-16 grid lg:grid-cols-2 gap-16 items-center flex-1 relative z-[2]">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-0.5 bg-gold" />
+            <span className="font-barlow text-sm font-bold tracking-[0.3em] uppercase text-gold">
+              Lead Web Developer
+            </span>
+          </div>
+
+          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight text-ink mb-2">
+            John Carlo
+          </h1>
+          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight mb-8 gold-stroke">
+            Salazar.
+          </h1>
+
+          <p className="text-lg leading-relaxed text-ash max-w-lg mb-10 border-l-4 border-gold pl-6">
+            10+ years engineering high-performance ecosystems for Singapore and Philippines. Specialist in React, Node.js, and Enterprise QA.
+          </p>
+
+          <div className="flex flex-wrap gap-8 mb-12">
+            <div className="flex items-center gap-3 text-steel text-sm">
+              <MapPin size={18} className="text-gold" />
+              <span className="font-medium">Trece Martires, PH</span>
             </div>
-            <div className="lg:col-span-5 relative hidden lg:block">
-               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative group">
-                  <img src={hero.src} alt="Hero" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent opacity-40"></div>
-               </div>
+            <div className="flex items-center gap-3 text-steel text-sm">
+              <Award size={18} className="text-gold" />
+              <span className="font-medium">10+ Years Exp</span>
             </div>
           </div>
-        </section>
 
-        {/* Experience Section - All Roles Included */}
-        <section id="experience" className="py-32 px-6 bg-white/[0.01] border-y border-white/5">
-          <div className="max-w-5xl mx-auto">
-            <div className="mb-20">
-              <h2 className="text-5xl font-black text-white tracking-tighter mb-4">Professional Path</h2>
-              <div className="h-1 w-20 bg-blue-600 rounded-full"></div>
+          <div className="flex flex-wrap gap-5">
+            <a href="#portfolio" className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/10">
+              View Work <ArrowRight size={18} />
+            </a>
+            <a href="mailto:johncarlosacrosalazar@gmail.com" className="inline-flex items-center gap-3 px-10 py-4 border border-white/20 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold transition-all">
+              <Mail size={18} /> Contact
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative hidden lg:flex justify-end h-[600px]"
+        >
+          <div className="absolute inset-0 bg-card/50 translate-x-6 translate-y-6 rounded-sm border border-white/5" />
+          <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl">
+            <Image
+              src={hero}
+              alt="John Carlo Salazar"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60" />
+            <div className="absolute bottom-6 left-6">
+              <p className="font-barlow text-xs font-bold tracking-[0.4em] text-gold uppercase">Systems Architect</p>
             </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
-            <div className="relative space-y-12">
-              {/* Timeline Connector Line */}
-              <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-blue-600 via-slate-800 to-transparent hidden md:block"></div>
+// ─── Experience ───────────────────────────────────────────────────────────────
 
-              {experiences.map((exp, i) => (
-                <div key={i} className="relative pl-0 md:pl-16 group">
-                  {/* Timeline Dot */}
-                  <div className={`absolute left-0 top-2 w-10 h-10 rounded-full border-4 border-[#020617] z-10 items-center justify-center hidden md:flex ${exp.highlight ? 'bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'bg-slate-800'}`}>
-                    {exp.highlight ? <Briefcase size={16} className="text-white" /> : <div className="w-2 h-2 bg-slate-500 rounded-full" />}
-                  </div>
+function Experience() {
+  return (
+    <section id="experience" className="bg-void py-24 px-8">
+      <div className="max-w-5xl mx-auto w-full">
+        <SectionHeading eyebrow="Chronicle" title="Career Path" />
+        <div className="space-y-6">
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className={`p-10 rounded-sm border-l-4 transition-all hover:bg-card/40 ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
+                }`}
+            >
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                <div>
+                  <span className="font-barlow text-[10px] font-bold tracking-widest uppercase text-gold/60">{exp.period}</span>
+                  <h3 className="font-barlow text-3xl font-bold text-ink mt-1 tracking-tight">{exp.company}</h3>
+                  <p className="text-sm font-bold text-gold uppercase tracking-widest mt-1">{exp.role}</p>
+                </div>
+                {exp.highlight && (
+                  <span className="px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-[10px] font-bold uppercase tracking-widest rounded-sm h-fit">
+                    ★ Priority
+                  </span>
+                )}
+              </div>
+              <p className="text-ash leading-relaxed mb-6">{exp.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {exp.tags.map(tag => (
+                  <span key={tag} className="px-3 py-1 bg-white/[0.05] text-steel-light text-[10px] font-bold uppercase tracking-widest rounded-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-                  <div className={`p-8 rounded-[2.5rem] border transition-all duration-500 ${exp.highlight ? 'bg-blue-600/[0.03] border-blue-500/20 hover:border-blue-500/40' : 'bg-white/[0.02] border-white/5 hover:border-white/10'}`}>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                      <div>
-                        <span className={`text-xs font-black uppercase tracking-widest ${exp.highlight ? 'text-blue-500' : 'text-slate-500'}`}>{exp.period}</span>
-                        <h3 className="text-3xl font-bold text-white mt-1 group-hover:text-blue-400 transition-colors">{exp.company}</h3>
-                        <p className="text-blue-500/80 font-mono text-sm font-bold uppercase tracking-tighter mt-1">{exp.role}</p>
+// ─── Projects ─────────────────────────────────────────────────────────────────
+
+function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
+  return (
+    <section id="portfolio" className="bg-dark py-24 px-8">
+      <div className="max-w-7xl mx-auto w-full">
+        <SectionHeading eyebrow="Showcase" title="Selected Work" />
+        <div className="grid gap-8">
+          {projects.map((group, gi) => (
+            <div key={gi} className="space-y-8">
+              <div className="flex items-center gap-6">
+                <span className={`inline-flex items-center gap-2 px-4 py-2 font-barlow text-xs font-bold tracking-widest uppercase rounded-sm border ${group.badge}`}>
+                  {group.icon}{group.category}
+                </span>
+                <div className="flex-1 h-px bg-white/5" />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {group.items.map((project, pi) => (
+                  <motion.div
+                    key={pi}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -10 }}
+                    viewport={{ once: true }}
+                    className="group bg-card/30 border border-white/5 rounded-sm overflow-hidden transition-all hover:bg-card/50 hover:border-gold/20 shadow-2xl"
+                  >
+                    <div className="relative h-56 bg-void/50 overflow-hidden">
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
+                      )}
+
+                      {/* Overlay Controls */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-80" />
+
+                      <div className="absolute top-4 right-4 flex gap-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        {project.image && (
+                          <button
+                            onClick={() => onPreview(project.image, project.title)}
+                            className="p-2.5 bg-ink text-void rounded-sm hover:bg-gold transition-colors shadow-lg"
+                            title="Preview Image"
+                          >
+                            <Maximize2 size={16} />
+                          </button>
+                        )}
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          className="p-2.5 bg-gold text-void rounded-sm hover:brightness-110 transition-colors shadow-lg"
+                          title="Visit Website"
+                        >
+                          <ExternalLink size={16} />
+                        </a>
                       </div>
-                      {exp.highlight && <div className="px-4 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-full h-fit">Current / Featured</div>}
                     </div>
-                    <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-3xl">
-                      {exp.desc}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tags.map(tag => (
-                        <span key={tag} className="px-4 py-1.5 bg-white/5 text-slate-300 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-wider group-hover:border-blue-500/30 transition-all">
-                          {tag}
-                        </span>
-                      ))}
+
+                    <div className="p-8">
+                      <h3 className="font-barlow text-2xl font-bold text-ink mb-2 group-hover:text-gold transition-colors">{project.title}</h3>
+                      <p className="text-sm text-ash line-clamp-2 leading-relaxed">{project.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Stack ────────────────────────────────────────────────────────────────────
+
+function Stack() {
+  return (
+    <section id="stack" className="bg-void py-24 px-8">
+      <div className="max-w-7xl mx-auto w-full">
+        <SectionHeading eyebrow="Capabilities" title="Technical Stack" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {[
+                { label: 'Frontend', items: ['React / Next.js', 'Tailwind CSS', 'Framer Motion', 'TS'] },
+                { label: 'Backend', items: ['Node.js', 'Laravel', 'PHP', 'AWS Lambda'] },
+                { label: 'E-Commerce', items: ['WordPress', 'WooCommerce', 'Magento'] },
+                { label: 'Quality', items: ['Manual/Auto QA', 'CI/CD', 'Git Ops'] },
+              ].map(cat => (
+                <div key={cat.label}>
+                  <h4 className="font-barlow text-sm font-bold text-gold tracking-widest uppercase mb-4">{cat.label}</h4>
+                  <ul className="space-y-3">
+                    {cat.items.map(it => (
+                      <li key={it} className="flex items-center gap-3 text-ink/70">
+                        <div className="w-1 h-1 bg-gold/50 rounded-full" />
+                        <span className="text-sm font-medium">{it}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* Bento Box Stack & Leadership */}
-        <section id="stack" className="py-32 px-6">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-6">
-            
-            {/* Tech Stack - Large Card */}
-            <div className="lg:col-span-2 p-10 rounded-[3rem] bg-gradient-to-br from-blue-600 to-indigo-700 text-white relative overflow-hidden group">
-              <h2 className="text-5xl font-black tracking-tighter mb-6 relative z-10">Full-Stack <br />Capabilities.</h2>
-              <div className="grid grid-cols-2 gap-8 relative z-10">
-                <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 mb-4">Frontend & Mobile</h4>
-                  <ul className="space-y-2 text-sm font-bold">
-                    <li>React / Next.js</li>
-                    <li>Ionic Framework</li>
-                    <li>jQuery Mobile</li>
-                    <li>Tailwind CSS</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 mb-4">Backend & Infra</h4>
-                  <ul className="space-y-2 text-sm font-bold">
-                    <li>Node / Express</li>
-                    <li>AWS Lambda / EC2</li>
-                    <li>PHP / Magento</li>
-                    <li>Ubuntu / Linux</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 blur-3xl rounded-full group-hover:scale-125 transition-transform duration-700"></div>
+          <div className="space-y-8">
+            <div className="p-8 bg-card/20 border border-white/5 rounded-sm">
+              <Users className="text-gold mb-4" size={32} />
+              <h3 className="font-barlow text-xl font-bold text-ink mb-2">Team Leadership</h3>
+              <p className="text-sm text-ash leading-relaxed">Experienced in managing delivery teams for high-stakes Singaporean projects.</p>
             </div>
-
-            {/* Leadership Card */}
-            <div id="leadership" className="p-10 rounded-[3rem] bg-white/5 border border-white/10 flex flex-col justify-between hover:bg-white/[0.08] transition-all group">
-              <Users className="text-blue-500 mb-6 group-hover:scale-110 transition-transform" size={40} />
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3">Lead by Example</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Proven track record in team collaboration and music ministry leadership. I bridge the gap between people and technology.
-                </p>
-              </div>
+            <div className="p-8 bg-card/20 border border-white/5 rounded-sm">
+              <Shield className="text-sky-400 mb-4" size={32} />
+              <h3 className="font-barlow text-xl font-bold text-ink mb-2">Enterprise QA</h3>
+              <p className="text-sm text-ash leading-relaxed">Two cycles at Temasek Holdings for flagship digital report launches.</p>
             </div>
-
-            {/* Education Card */}
-            <div className="p-10 rounded-[3rem] bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-blue-500/50 transition-all">
-              <BookOpen className="text-emerald-500 mb-6" size={40} />
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Education</h3>
-                <p className="text-emerald-500 font-mono text-[10px] font-bold uppercase mb-2">Class of 2014</p>
-                <p className="text-slate-200 font-bold">BS in Computer Science</p>
-                <p className="text-slate-500 text-xs">Colegio De Amore</p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-      </main>
-
-      {/* Footer / CTA */}
-      <footer id="contact" className="py-40 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-7xl md:text-8xl font-black text-white tracking-tighter mb-16">
-            Ready for <span className="text-blue-600">v2.0?</span>
-          </h2>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-            <a href="mailto:johncarlosacrosalazar@gmail.com" className="group flex items-center gap-4 px-8 py-5 bg-white text-black rounded-3xl font-black hover:bg-blue-600 hover:text-white transition-all w-full md:w-auto">
-              <Mail /> START A CONVERSATION
-            </a>
-            <div className="flex items-center gap-4 px-8 py-5 bg-white/5 border border-white/10 rounded-3xl font-bold text-white w-full md:w-auto">
-              <Phone size={20} className="text-blue-500" /> 0927-331-5906
-            </div>
-          </div>
-          <div className="mt-24 space-y-4">
-            <p className="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">Built with Precision & Purpose</p>
-            <p className="text-slate-500 text-sm italic">Trece Martires City, Philippines</p>
           </div>
         </div>
-      </footer>
+      </div>
+    </section>
+  );
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+
+function Footer() {
+  return (
+    <footer id="contact" className="bg-[#080808] border-t border-white/5 py-24 px-8">
+      <div className="max-w-4xl mx-auto text-center space-y-12">
+        <div>
+          <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
+          <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LETS CONNECT.</h2>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center gap-6">
+          <a href="mailto:johncarlosacrosalazar@gmail.com" className="px-12 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10">
+            Open Mail
+          </a>
+          <div className="px-12 py-5 border border-white/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm">
+            0927-331-5906
+          </div>
+        </div>
+
+        <p className="text-coal font-barlow text-[10px] tracking-[0.6em] uppercase pt-12">
+          Precision Engineering · John Carlo Salazar · 2025
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+export default function PortfolioLandingPage() {
+  const [selectedPreview, setSelectedPreview] = useState<{ img: any; title: string } | null>(null);
+
+  return (
+    <div className="min-h-screen bg-void text-ink font-inter antialiased">
+      <Header />
+      <Hero />
+      <Experience />
+      <Portfolio onPreview={(img, title) => setSelectedPreview({ img, title })} />
+      <Stack />
+      <Footer />
+
+      <AnimatePresence>
+        {selectedPreview && (
+          <ImageModal
+            image={selectedPreview.img}
+            title={selectedPreview.title}
+            onClose={() => setSelectedPreview(null)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
-};
-
-export default PortfolioLandingPage;
+}

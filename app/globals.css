@@ -1,31 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --platinum: #f1f1f1ff;
-  --slate-grey: #6d7188ff;
-  --pacific-cyan: #4b97aaff;
-  --charcoal-blue: #2e4756ff;
-  --jet-black: #16262eff;
+@theme {
+  --color-void: #0C0C0C;
+  --color-dark: #111111;
+  --color-card: #161616;
+  --color-raised: #1C1C1C;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E5C468;
+  --color-gold-dim: #8A6E2F;
+  --color-steel: #8A95A3;
+  --color-steel-light: #B4BDC8;
+  --color-ink: #F0EDE8;
+  --color-ash: #9A9590;
+  --color-coal: #5A5550;
+
+  --font-bebas: 'Bebas Neue', sans-serif;
+  --font-barlow: 'Barlow Condensed', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Fallback utilities in case Tailwind compilation is inconsistent in this environment */
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.w-full {
+  width: 100% !important;
 }
 
+.max-w-7xl {
+  max-width: 1280px !important;
+}
+
+.max-w-5xl {
+  max-width: 1024px !important;
+}
+
+.max-w-3xl {
+  max-width: 768px !important;
+}
+
+.px-8 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.grayscale {
+  filter: grayscale(1) !important;
+}
+
+.group:hover .group-hover\:grayscale-0 {
+  filter: grayscale(0) !important;
+}
+
+.transition-all {
+  transition-property: all !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.duration-300 {
+  transition-duration: 300ms !important;
+}
+
+/* Custom Outlined Style */
+.gold-stroke {
+  -webkit-text-stroke: 2px #C9A84C;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  background: #0C0C0C !important;
+  color: #F0EDE8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: #E5C468;
 }
