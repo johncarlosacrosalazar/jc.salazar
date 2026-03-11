@@ -20,6 +20,8 @@ import imgOnepeople from '../public/assets/images/onepeopleonline.png';
 import imgKnights from '../public/assets/images/knightstemplar.png';
 import imgTemasek2022 from '../public/assets/images/temasek_2022.png';
 import imgTemasek2025 from '../public/assets/images/temasek_2025.png';
+import imgPentagreen from '../public/assets/images/pentagreen.png';
+import imgB4B from '../public/assets/images/b4b.academy.png';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -64,6 +66,14 @@ const projects = [
     ],
   },
   {
+    category: 'Static Website',
+    icon: <Globe size={11} />,
+    badge: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+    items: [
+      { title: 'Pentagreen', url: 'https://www.pentagreen.com/index.html', desc: 'Corporate website for Pentagreen Capital.', image: imgPentagreen },
+    ],
+  },
+  {
     category: 'ReactJS / Node.js',
     icon: <Code2 size={11} />,
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
@@ -77,6 +87,14 @@ const projects = [
     badge: 'bg-red-500/10 text-red-400 border-red-500/20',
     items: [
       { title: 'The Knights Templar', url: 'https://web.archive.org/web/20220310161843/https://theknightstemplar.info/', desc: 'Historic chivalric order member portal and portal.', image: imgKnights },
+    ],
+  },
+  {
+    category: 'Codeigniter',
+    icon: <Code2 size={11} />,
+    badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    items: [
+      { title: 'B4B Academy', url: 'https://www.b4b.academy/', desc: 'B4B Academy social learning platform.', image: imgB4B },
     ],
   },
   {
