@@ -80,7 +80,7 @@ const projects = [
     icon: <Code2 size={11} />,
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     items: [
-      { title: 'OnePeople Online', url: 'https://onepeople.online/', desc: 'Civic engagement ecosystem built for the Singapore government.', image: imgOnepeople },
+      { title: 'OnePeople Online', url: 'https://onepeople.online/', desc: "OnePeople is a platform that connects people with different views through open dialogue and global voting. By sharing perspectives and participating in referendums, it helps communities understand each other and use collective insight to shape a better future.", image: imgOnepeople },
       { title: 'Carlo and Rosette', url: 'https://carloandrosette.vercel.app/', desc: 'A beautiful wedding website built with Next.js and Framer Motion.', image: imgCarloRosette },
 
     ],
