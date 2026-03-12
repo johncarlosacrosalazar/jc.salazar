@@ -403,9 +403,11 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
         {/* Category Filter Bar */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
           {categories.map((cat) => (
-            <button
+            <motion.button
               key={cat}
               onClick={() => setActiveCategory(cat)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className={`relative px-6 py-2.5 font-barlow text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-sm border ${activeCategory === cat
                 ? 'text-void border-gold'
                 : 'text-ash border-white/10 hover:border-gold/30 hover:text-gold'
@@ -419,24 +421,23 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* Dynamic Project Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence mode="popLayout">
-            {allFilteredItems.map((project, pi) => (
-              <motion.div
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {allFilteredItems.map((project) => (
+              <div
                 key={project.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 30 }}
-                transition={{ duration: 0.5, delay: pi * 0.05 }}
                 className="group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
               >
                 {/* Project Header Stats/Badge */}
@@ -454,7 +455,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700 opacity-60 group-hover:opacity-100"
+                      className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-102 transition-all duration-700 opacity-60 group-hover:opacity-100"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
@@ -496,10 +497,10 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
                     <ChevronRight size={14} className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Empty State (if needed, though projects are static) */}
         {allFilteredItems.length === 0 && (
