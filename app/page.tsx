@@ -22,6 +22,8 @@ import imgTemasek2022 from '../public/assets/images/temasek_2022.png';
 import imgTemasek2025 from '../public/assets/images/temasek_2025.png';
 import imgPentagreen from '../public/assets/images/pentagreen.png';
 import imgB4B from '../public/assets/images/b4b.academy.png';
+import imgCarloRosette from '../public/assets/images/carlo_and_rosette_wedding.png';
+
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -79,6 +81,8 @@ const projects = [
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     items: [
       { title: 'OnePeople Online', url: 'https://onepeople.online/', desc: 'Civic engagement ecosystem built for the Singapore government.', image: imgOnepeople },
+      { title: 'Carlo and Rosette', url: 'https://carloandrosette.vercel.app/', desc: 'A beautiful wedding website built with Next.js and Framer Motion.', image: imgCarloRosette },
+
     ],
   },
   {
@@ -225,6 +229,19 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[#0C0C0C]" />
+
+      {/* Hero Background SVGs */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-[0.03] pointer-events-none z-[1]">
+        <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="400" cy="400" r="399" stroke="#FFD700" strokeWidth="2" strokeDasharray="10 20" />
+          <circle cx="400" cy="400" r="300" stroke="#FFD700" strokeWidth="1" strokeDasharray="5 15" />
+          <circle cx="400" cy="400" r="200" stroke="#FFD700" strokeWidth="1" />
+          <path d="M400 0 V800 M0 400 H800" stroke="#FFD700" strokeWidth="1" opacity="0.5" />
+          <path d="M117 117 L683 683 M117 683 L683 117" stroke="#FFD700" strokeWidth="1" strokeDasharray="5 5" opacity="0.3" />
+        </svg>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-[300px] opacity-[0.1] pointer-events-none z-[1]" style={{ background: 'radial-gradient(ellipse at bottom, rgba(255,215,0,0.15) 0%, transparent 70%)' }} />
+
       <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-gold to-transparent z-[1]" />
 
       <div className="max-w-7xl mx-auto w-full px-8 py-16 grid lg:grid-cols-2 gap-16 items-center flex-1 relative z-[2]">
@@ -302,8 +319,20 @@ function Hero() {
 
 function Experience() {
   return (
-    <section id="experience" className="bg-void py-24 px-8">
-      <div className="max-w-5xl mx-auto w-full">
+    <section id="experience" className="relative bg-void py-24 px-8 overflow-hidden">
+      {/* Experience Background SVGs */}
+      <div className="absolute top-24 -left-64 w-[500px] h-[500px] opacity-[0.02] pointer-events-none z-0">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <defs>
+            <pattern id="grid1" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#FFD700" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid1)" />
+        </svg>
+      </div>
+
+      <div className="max-w-5xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Chronicle" title="Career Path" />
         <div className="space-y-6">
           {experiences.map((exp, i) => (
@@ -312,10 +341,17 @@ function Experience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-10 rounded-sm border-l-4 transition-all hover:bg-card/40 ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
+              className={`relative p-10 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
                 }`}
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+              {/* Subtle accent inside the card */}
+              <div className="absolute -right-16 -top-16 w-32 h-32 opacity-[0.05] pointer-events-none">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="50,0 100,50 50,100 0,50" fill="none" stroke="#FFD700" strokeWidth="2" />
+                </svg>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 relative z-10">
                 <div>
                   <span className="font-barlow text-[10px] font-bold tracking-widest uppercase text-gold/60">{exp.period}</span>
                   <h3 className="font-barlow text-3xl font-bold text-ink mt-1 tracking-tight">{exp.company}</h3>
@@ -346,76 +382,131 @@ function Experience() {
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
 function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const categories = ['All', ...projects.map(p => p.category)];
+
+  const allFilteredItems = activeCategory === 'All'
+    ? projects.flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })))
+    : projects
+      .filter(group => group.category === activeCategory)
+      .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
+
   return (
-    <section id="portfolio" className="bg-dark py-24 px-8">
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="portfolio" className="bg-dark py-24 px-8 overflow-hidden relative">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Showcase" title="Selected Work" />
-        <div className="grid gap-8">
-          {projects.map((group, gi) => (
-            <div key={gi} className="space-y-8">
-              <div className="flex items-center gap-6">
-                <span className={`inline-flex items-center gap-2 px-4 py-2 font-barlow text-xs font-bold tracking-widest uppercase rounded-sm border ${group.badge}`}>
-                  {group.icon}{group.category}
-                </span>
-                <div className="flex-1 h-px bg-white/5" />
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {group.items.map((project, pi) => (
-                  <motion.div
-                    key={pi}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -10 }}
-                    viewport={{ once: true }}
-                    className="group bg-card/30 border border-white/5 rounded-sm overflow-hidden transition-all hover:bg-card/50 hover:border-gold/20 shadow-2xl"
-                  >
-                    <div className="relative h-56 bg-void/50 overflow-hidden">
-                      {project.image ? (
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
-                      )}
-
-                      {/* Overlay Controls */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-80" />
-
-                      <div className="absolute top-4 right-4 flex gap-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        {project.image && (
-                          <button
-                            onClick={() => onPreview(project.image, project.title)}
-                            className="p-2.5 bg-ink text-void rounded-sm hover:bg-gold transition-colors shadow-lg"
-                            title="Preview Image"
-                          >
-                            <Maximize2 size={16} />
-                          </button>
-                        )}
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          className="p-2.5 bg-gold text-void rounded-sm hover:brightness-110 transition-colors shadow-lg"
-                          title="Visit Website"
-                        >
-                          <ExternalLink size={16} />
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="p-8">
-                      <h3 className="font-barlow text-2xl font-bold text-ink mb-2 group-hover:text-gold transition-colors">{project.title}</h3>
-                      <p className="text-sm text-ash line-clamp-2 leading-relaxed">{project.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+        {/* Category Filter Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`relative px-6 py-2.5 font-barlow text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-sm border ${activeCategory === cat
+                ? 'text-void border-gold'
+                : 'text-ash border-white/10 hover:border-gold/30 hover:text-gold'
+                }`}
+            >
+              <span className="relative z-10">{cat}</span>
+              {activeCategory === cat && (
+                <motion.div
+                  layoutId="activePill"
+                  className="absolute inset-0 bg-gold z-0"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+            </button>
           ))}
         </div>
+
+        {/* Dynamic Project Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {allFilteredItems.map((project, pi) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                transition={{ duration: 0.5, delay: pi * 0.05 }}
+                className="group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+              >
+                {/* Project Header Stats/Badge */}
+                <div className="absolute top-4 left-4 z-20">
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-barlow text-[10px] font-bold tracking-widest uppercase rounded-sm border bg-void/80 backdrop-blur-md ${project.badge}`}>
+                    {project.icon} {project.category}
+                  </span>
+                </div>
+
+                {/* Hero-like Image Section */}
+                <div className="relative h-64 bg-void/50 overflow-hidden">
+                  <div className="absolute inset-0 bg-void/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700 opacity-60 group-hover:opacity-100"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
+                  )}
+
+                  {/* Overlay Controls */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 bg-void/60 opacity-0 group-hover:opacity-100 transition-all duration-500 z-30">
+                    {project.image && (
+                      <button
+                        onClick={() => onPreview(project.image, project.title)}
+                        className="p-4 bg-gold text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
+                        title="Expand View"
+                      >
+                        <Maximize2 size={24} />
+                      </button>
+                    )}
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
+                      title="Visit Site"
+                    >
+                      <ExternalLink size={24} />
+                    </a>
+                  </div>
+
+                  {/* Corner Accent */}
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
+                </div>
+
+                <div className="p-10 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-bebas text-3xl text-ink mb-4 group-hover:text-gold transition-colors tracking-wide leading-none">{project.title}</h3>
+                    <p className="text-ash text-sm leading-relaxed mb-6 line-clamp-3">{project.desc}</p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                    <span className="text-[10px] font-bold text-gold/40 uppercase tracking-[0.3em]">Project Details</span>
+                    <ChevronRight size={14} className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Empty State (if needed, though projects are static) */}
+        {allFilteredItems.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-ash font-barlow text-sm uppercase tracking-widest">No projects found in this category.</p>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -425,8 +516,19 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
 
 function Stack() {
   return (
-    <section id="stack" className="bg-void py-24 px-8">
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="stack" className="relative bg-void py-24 px-8 overflow-hidden">
+      {/* Stack Background SVGs */}
+      <div className="absolute -right-32 bottom-0 w-[600px] h-[600px] opacity-[0.03] pointer-events-none z-0">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M100 10 L190 50 L190 150 L100 190 L10 150 L10 50 Z" fill="none" stroke="#FFD700" strokeWidth="1" strokeDasharray="4 4" />
+          <path d="M100 30 L170 65 L170 135 L100 170 L30 135 L30 65 Z" fill="none" stroke="#FFD700" strokeWidth="0.5" />
+          <line x1="100" y1="10" x2="100" y2="190" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="2 4" />
+          <line x1="10" y1="50" x2="190" y2="150" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="2 4" />
+          <line x1="10" y1="150" x2="190" y2="50" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="2 4" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Capabilities" title="Technical Stack" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-10">
@@ -473,8 +575,18 @@ function Stack() {
 
 function Footer() {
   return (
-    <footer id="contact" className="bg-[#080808] border-t border-white/5 py-24 px-8">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
+    <footer id="contact" className="relative bg-[#080808] border-t border-white/5 py-24 px-8 overflow-hidden">
+      {/* Footer SVG Background */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none z-0 flex items-center justify-center">
+        <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
+          <circle cx="500" cy="200" r="100" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 4" />
+          <circle cx="500" cy="200" r="200" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 8" />
+          <circle cx="500" cy="200" r="400" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 16" />
+          <path d="M500 0 V400 M0 200 H1000" stroke="#FFD700" strokeWidth="0.5" opacity="0.3" />
+        </svg>
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div>
           <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
           <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LETS CONNECT.</h2>
