@@ -61,10 +61,10 @@ const projects = [
     badge: 'bg-gold/10 text-gold border-gold/20',
     items: [
       { title: 'Oximiter', url: 'https://web.archive.org/web/20210625034815/https://stayprepared.sg/oximeter/', desc: 'COVID-19 pulse oximeter e-commerce site for Singapore.', image: imgOximeter },
-      { title: 'StayPrepared', url: 'https://web.archive.org/web/20210625034815/https://stayprepared.sg/oximeter/', desc: 'Singapore health & wellness platform.', image: imgStayprepared },
-      { title: 'BYOBClean', url: 'https://web.archive.org/web/20210620040304/https://stayprepared.sg/byobclean/', desc: 'Eco-conscious cleaning product configurator.', image: imgByobclean },
-      { title: 'Staymasked', url: 'https://web.archive.org/web/20220630102230/https://stayprepared.sg/staymasked/', desc: 'National mask distribution initiative portal.', image: imgStaymasked },
-      { title: 'Mouth Gargle', url: 'https://web.archive.org/web/20230401044153/https://stayprepared.sg/staywell/', desc: 'Preventative health solution platform.', image: imgStaywell },
+      { title: 'StayPrepared', url: 'https://web.archive.org/web/20210625034815/https://stayprepared.sg/oximeter/', desc: 'Stay Prepared is a Temasek Foundation initiative that strengthens Singapore’s emergency resilience through health programs, free mask distribution, training, and community preparedness.', image: imgStayprepared },
+      { title: 'BYOBClean', url: 'https://web.archive.org/web/20210620040304/https://stayprepared.sg/byobclean/', desc: 'BYOBclean is a Temasek Foundation initiative where Singapore households bring used bottles to collect 500ml alcohol-free sanitizer, promoting reuse and reducing waste.', image: imgByobclean },
+      { title: 'Staymasked', url: 'https://web.archive.org/web/20220630102230/https://stayprepared.sg/staymasked/', desc: '#StayMasked & #StayPrepared by Temasek Foundation provide free masks to SG residents via vending machines, boosting community health and resilience.', image: imgStaymasked },
+      { title: 'Mouth Gargle', url: 'https://web.archive.org/web/20230401044153/https://stayprepared.sg/staywell/', desc: 'StayWell Mouth Gargle is a Temasek Foundation initiative in Singapore providing 250ml PVP-I gargle to households to support hygiene and help reduce the spread of germs and viruses.', image: imgStaywell },
     ],
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     icon: <Globe size={11} />,
     badge: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
     items: [
-      { title: 'Pentagreen', url: 'https://www.pentagreen.com/index.html', desc: 'Corporate website for Pentagreen Capital.', image: imgPentagreen },
+      { title: 'Pentagreen', url: 'https://www.pentagreen.com/index.html', desc: 'Pentagreen Capital finances sustainable infrastructure projects across Asia, focusing on Southeast Asia to support clean infrastructure and advance climate goals.', image: imgPentagreen },
     ],
   },
   {
