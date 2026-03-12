@@ -106,8 +106,8 @@ const projects = [
     icon: <Shield size={11} />,
     badge: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
     items: [
-      { title: 'Temasek Review', url: 'https://www.temasekreview.com.sg/', desc: 'QA Specialist for flagship corporate digital publications.', image: imgTemasek2022 },
-      { title: 'Temasek Review 2023', url: 'https://tr23.temasekreview.com.sg/', desc: 'Ensuring zero-defect delivery on high-profile stakeholder platforms.', image: imgTemasek2025 },
+      { title: 'Temasek Review 2025', url: 'https://www.temasekreview.com.sg/', desc: 'The Temasek Review 2025 outlines a record S$434 billion net portfolio value, driven by investments in Singapore, China, the US, and India. It highlights a long-term, sustainable investment approach focused on four structural trends: digitization, sustainable living, future of consumption, and longer lifespans', image: imgTemasek2022 },
+      { title: 'Temasek Review 2023', url: 'https://tr23.temasekreview.com.sg/', desc: 'The Temasek Review 2023 ("Our Compass in a Complex World") highlights a net portfolio value of S$382 billion, with S$31 billion invested and S$27 billion divested amidst a cautious, uncertain, and high-inflation global environment. The report emphasizes the T2030 strategy, focusing on long-term structural trends like sustainability, digitalization, AI, and decarbonization to build a resilient, future-ready portfolio.', image: imgTemasek2025 },
     ],
   },
 ];
