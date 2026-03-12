@@ -381,6 +381,101 @@ function Experience() {
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
+function ProjectCard({ project, onPreview }: {
+  project: {
+    title: string;
+    url: string;
+    desc: string;
+    image?: any;
+    badge: string;
+    icon: React.ReactNode;
+    category: string;
+  };
+  onPreview: (img: any, title: string) => void;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div
+      className="group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+    >
+      {/* Project Header Stats/Badge */}
+      <div className="absolute top-4 left-4 z-20">
+        <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-barlow text-[10px] font-bold tracking-widest uppercase rounded-sm border bg-void/80 backdrop-blur-md ${project.badge}`}>
+          {project.icon} {project.category}
+        </span>
+      </div>
+
+      {/* Hero-like Image Section */}
+      <div className="relative h-64 bg-void/50 overflow-hidden">
+        <div className="absolute inset-0 bg-void/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-102 transition-all duration-700 opacity-60 group-hover:opacity-100"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
+        )}
+
+        {/* Overlay Controls */}
+        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-void/60 opacity-0 group-hover:opacity-100 transition-all duration-500 z-30">
+          {project.image && (
+            <button
+              onClick={() => onPreview(project.image, project.title)}
+              className="p-4 bg-gold text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
+              title="Expand View"
+            >
+              <Maximize2 size={24} />
+            </button>
+          )}
+          <a
+            href={project.url}
+            target="_blank"
+            className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
+            title="Visit Site"
+          >
+            <ExternalLink size={24} />
+          </a>
+        </div>
+
+        {/* Corner Accent */}
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
+      </div>
+
+      <div className="p-10 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="font-bebas text-3xl text-ink mb-4 group-hover:text-gold transition-colors tracking-wide leading-none">{project.title}</h3>
+          <div className="relative">
+            <motion.p
+              initial={false}
+              animate={{ height: isExpanded ? 'auto' : '4.5rem' }} // approx 3 lines
+              className={`text-ash text-sm leading-relaxed mb-4 overflow-hidden ${!isExpanded ? 'line-clamp-3' : ''}`}
+            >
+              {project.desc}
+            </motion.p>
+            {project.desc.length > 100 && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-gold text-[10px] font-bold uppercase tracking-widest hover:underline mb-6 block"
+              >
+                {isExpanded ? 'Read Less' : 'Read More'}
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between pt-6 border-t border-white/5">
+          <span className="text-[10px] font-bold text-gold/40 uppercase tracking-[0.3em]">Project Details</span>
+          <ChevronRight size={14} className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -436,68 +531,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {allFilteredItems.map((project) => (
-              <div
-                key={project.title}
-                className="group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
-              >
-                {/* Project Header Stats/Badge */}
-                <div className="absolute top-4 left-4 z-20">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-barlow text-[10px] font-bold tracking-widest uppercase rounded-sm border bg-void/80 backdrop-blur-md ${project.badge}`}>
-                    {project.icon} {project.category}
-                  </span>
-                </div>
-
-                {/* Hero-like Image Section */}
-                <div className="relative h-64 bg-void/50 overflow-hidden">
-                  <div className="absolute inset-0 bg-void/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-102 transition-all duration-700 opacity-60 group-hover:opacity-100"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
-                  )}
-
-                  {/* Overlay Controls */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 bg-void/60 opacity-0 group-hover:opacity-100 transition-all duration-500 z-30">
-                    {project.image && (
-                      <button
-                        onClick={() => onPreview(project.image, project.title)}
-                        className="p-4 bg-gold text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
-                        title="Expand View"
-                      >
-                        <Maximize2 size={24} />
-                      </button>
-                    )}
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
-                      title="Visit Site"
-                    >
-                      <ExternalLink size={24} />
-                    </a>
-                  </div>
-
-                  {/* Corner Accent */}
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
-                </div>
-
-                <div className="p-10 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-bebas text-3xl text-ink mb-4 group-hover:text-gold transition-colors tracking-wide leading-none">{project.title}</h3>
-                    <p className="text-ash text-sm leading-relaxed mb-6 line-clamp-3">{project.desc}</p>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                    <span className="text-[10px] font-bold text-gold/40 uppercase tracking-[0.3em]">Project Details</span>
-                    <ChevronRight size={14} className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all" />
-                  </div>
-                </div>
-              </div>
+              <ProjectCard key={project.title} project={project} onPreview={onPreview} />
             ))}
           </motion.div>
         </AnimatePresence>
