@@ -23,6 +23,8 @@ import imgTemasek2025 from '../public/assets/images/temasek_2025.png';
 import imgPentagreen from '../public/assets/images/pentagreen.png';
 import imgB4B from '../public/assets/images/b4b.academy.png';
 import imgCarloRosette from '../public/assets/images/carlo_and_rosette_wedding.png';
+import imgLolasPlates from '../public/assets/images/lolas-pours-plates.png';
+
 
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -83,6 +85,14 @@ const projects = [
       { title: 'OnePeople Online', url: 'https://onepeople.online/', desc: "OnePeople is a platform that connects people with different views through open dialogue and global voting. By sharing perspectives and participating in referendums, it helps communities understand each other and use collective insight to shape a better future.", image: imgOnepeople },
       { title: 'Carlo and Rosette', url: 'https://carloandrosette.vercel.app/', desc: 'A beautiful wedding website built with Next.js and Framer Motion.', image: imgCarloRosette },
 
+    ],
+  },
+  {
+    category: 'Next.js / Payload CMS',
+    icon: <Code2 size={11} />,
+    badge: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+    items: [
+      { title: "Lola's Plates & Pours", url: 'https://lola-s-plates-and-pours.vercel.app/', desc: "Lola's Plates & Pours in Cavite offers a cozy, Tagaytay-like vibe with comfort food, coffee, cocktails, and live music. Pet-friendly with free WiFi—ideal for late-night hangouts.", image: imgLolasPlates },
     ],
   },
   {
