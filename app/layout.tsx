@@ -19,8 +19,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John Carlo Salazar - Portfolio",
-  description: "John Carlo Salazar's personal portfolio website.",
+  metadataBase: new URL("https://jc-salazar.vercel.app"),
+  title: "John Carlo Salazar - Lead Web Developer & Systems Architect",
+  description: "Senior Web Developer with 10+ years of experience in Singapore and Philippines. Specialist in React, Node.js, and Enterprise Systems Architecture.",
+  keywords: ["John Carlo Salazar", "Web Developer", "Lead Developer", "React Developer", "Node.js Developer", "Portfolio", "Systems Architect", "Singapore Tech", "Philippines Tech"],
+  authors: [{ name: "John Carlo Salazar" }],
+  creator: "John Carlo Salazar",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://jc-salazar.vercel.app", // Updated to correct Vercel domain
+    title: "John Carlo Salazar - Lead Web Developer",
+    description: "Personal portfolio of John Carlo Salazar, a Senior Web Developer specializing in high-performance ecosystems.",
+    siteName: "John Carlo Salazar Portfolio",
+    images: [
+      {
+        url: "/assets/images/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "John Carlo Salazar - Lead Web Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "John Carlo Salazar - Lead Web Developer",
+    description: "Senior Web Developer with 10+ years of experience in Singapore and Philippines.",
+    images: ["/assets/images/hero.png"],
+    creator: "@jc_salazar", // Placeholder if not found
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+  alternates: {
+    canonical: "https://jc-salazar.vercel.app",
+  },
 };
 
 export default function RootLayout({

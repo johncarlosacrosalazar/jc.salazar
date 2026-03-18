@@ -267,11 +267,9 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight text-ink mb-2">
-            John Carlo
-          </h1>
-          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight mb-8 gold-stroke">
-            Salazar.
+          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight mb-8">
+            <span className="text-ink block mb-2">John Carlo</span>
+            <span className="gold-stroke block">Salazar.</span>
           </h1>
 
           <p className="text-lg leading-relaxed text-ash max-w-lg mb-10 border-l-4 border-gold pl-6">
@@ -444,6 +442,7 @@ function ProjectCard({ project, onPreview }: {
           <a
             href={project.url}
             target="_blank"
+            rel="noopener noreferrer"
             className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
             title="Visit Site"
           >
@@ -659,6 +658,20 @@ export default function PortfolioLandingPage() {
 
   return (
     <div className="min-h-screen bg-void text-ink font-inter antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "John Carlo Salazar",
+            "jobTitle": "Lead Web Developer",
+            "url": "https://jc-salazar.vercel.app",
+            "sameAs": [],
+            "knowsAbout": ["React", "Node.js", "AWS", "Systems Architecture", "Quality Assurance", "Laravel", "PHP"]
+          })
+        }}
+      />
       <Header />
       <Hero />
       <Experience />
