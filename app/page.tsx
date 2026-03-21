@@ -8,8 +8,15 @@ import {
   Code2, Globe, Shield, ArrowRight, ChevronRight,
   Users, BookOpen, X, Maximize2
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import hero from '../public/assets/images/hero.png';
 import imgOximeter from '../public/assets/images/oximiter.png';
 import imgStayprepared from '../public/assets/images/stayprepared.png';
@@ -125,19 +132,40 @@ const projects = [
 // ─── Shared Components ─────────────────────────────────────────────────────────
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(".heading-content", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%",
+      }
+    });
+
+    gsap.from(".heading-line", {
+      scaleX: 0,
+      transformOrigin: "left center",
+      duration: 1.2,
+      ease: "power4.inOut",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%",
+      }
+    });
+  }, { scope: container });
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="flex items-end gap-6 mb-12"
-    >
-      <div>
+    <div ref={container} className="flex items-end gap-6 mb-12">
+      <div className="heading-content">
         <span className="font-barlow text-[12px] font-bold tracking-[0.3em] uppercase text-gold">{eyebrow}</span>
         <h2 className="font-bebas text-[48px] md:text-[64px] text-ink tracking-wide leading-none mt-1">{title}</h2>
       </div>
-      <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent mb-3" />
-    </motion.div>
+      <div className="heading-line flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent mb-3" />
+    </div>
   );
 }
 
@@ -191,42 +219,40 @@ function ImageModal({ image, title, onClose }: { image: any; title: string; onCl
 // ─── Header ───────────────────────────────────────────────────────────────────
 
 function Header() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(".nav-logo", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" });
+    gsap.fromTo(".nav-link", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", delay: 0.2 });
+    gsap.fromTo(".nav-cta", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.5 });
+  }, { scope: container });
+
   return (
-    <nav className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
+    <nav ref={container} className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-3"
-        >
+        <div className="nav-logo flex items-center gap-3">
           <div className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void">
             JS
           </div>
           <span className="font-barlow text-xl font-bold tracking-tight text-ink">SALAZAR</span>
-        </motion.div>
+        </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {['Experience', 'Portfolio', 'Stack'].map((item, i) => (
-            <motion.a
+          {['Experience', 'Portfolio', 'Stack'].map((item) => (
+            <a
               key={item}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
               href={`#${item.toLowerCase()}`}
-              className="text-[11px] font-bold tracking-[0.2em] uppercase text-ash hover:text-gold transition-colors"
+              className="nav-link text-[11px] font-bold tracking-[0.2em] uppercase text-ash hover:text-gold transition-colors"
             >
               {item}
-            </motion.a>
+            </a>
           ))}
-          <motion.a
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
+          <a
             href="mailto:johncarlosacrosalazar@gmail.com"
-            className="px-6 py-2.5 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm hover:brightness-110 transition-all"
+            className="nav-cta px-6 py-2.5 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm hover:brightness-110 transition-all"
           >
             Hire Me
-          </motion.a>
+          </a>
         </div>
       </div>
     </nav>
@@ -236,73 +262,118 @@ function Header() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(".hero-line", {
+      width: 0,
+      duration: 1,
+      ease: "power3.inOut"
+    })
+      .fromTo(".hero-sub", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, "-=0.2")
+      .fromTo(".hero-title span", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power4.out" }, "-=0.4")
+      .fromTo(".hero-p", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, "-=0.4")
+      .fromTo(".hero-stat", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }, "-=0.4")
+      .fromTo(".hero-btn", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }, "-=0.2")
+      .fromTo(".hero-img-container", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, "0.2")
+      .fromTo(".hero-bg-svg circle", { scale: 0, opacity: 0 }, { scale: 1, opacity: 0.4, duration: 2, stagger: 0.2, ease: "elastic.out(1, 0.75)" }, "0");
+
+    // Continuous background animation
+    gsap.to(".hero-bg-svg circle", {
+      rotation: 360,
+      transformOrigin: "center center",
+      duration: 60,
+      repeat: -1,
+      ease: "none"
+    });
+
+    // Parallax effect
+    gsap.to(".hero-bg-svg", {
+      y: 100,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    const circles = gsap.utils.toArray<SVGCircleElement>(".hero-bg-svg circle");
+    circles.forEach((circle, i) => {
+      gsap.to(circle, {
+        y: (i + 1) * 30,
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
+  }, { scope: container });
+
   return (
-    <section className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
+    <section ref={container} className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[#0C0C0C]" />
 
       {/* Hero Background SVGs */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-[0.03] pointer-events-none z-[1]">
+      <div className="hero-bg-svg absolute top-0 right-0 w-[1100px] h-[800px] opacity-[0.25] pointer-events-none z-[1]">
         <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="400" cy="400" r="399" stroke="#FFD700" strokeWidth="2" strokeDasharray="10 20" />
           <circle cx="400" cy="400" r="300" stroke="#FFD700" strokeWidth="1" strokeDasharray="5 15" />
-          <circle cx="400" cy="400" r="200" stroke="#FFD700" strokeWidth="1" />
-          <path d="M400 0 V800 M0 400 H800" stroke="#FFD700" strokeWidth="1" opacity="0.5" />
-          <path d="M117 117 L683 683 M117 683 L683 117" stroke="#FFD700" strokeWidth="1" strokeDasharray="5 5" opacity="0.3" />
+          <circle cx="400" cy="400" r="399" stroke="#FFD700" strokeWidth="3" strokeDasharray="10 20" />
+          <circle cx="400" cy="400" r="300" stroke="#FFD700" strokeWidth="2" strokeDasharray="5 15" />
+          <circle cx="400" cy="400" r="200" stroke="#FFD700" strokeWidth="1.5" />
+          <path d="M400 0 V800 M0 400 H800" stroke="#FFD700" strokeWidth="1.5" opacity="0.6" />
+          <path d="M117 117 L683 683 M117 683 L683 117" stroke="#FFD700" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.4" />
         </svg>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-[300px] opacity-[0.1] pointer-events-none z-[1]" style={{ background: 'radial-gradient(ellipse at bottom, rgba(255,215,0,0.15) 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 left-0 w-full h-[300px] opacity-[0.25] pointer-events-none z-[1]" style={{ background: 'radial-gradient(ellipse at bottom, rgba(255,215,0,0.2) 0%, transparent 70%)' }} />
 
       <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-gold to-transparent z-[1]" />
 
       <div className="max-w-7xl mx-auto w-full px-8 py-16 grid lg:grid-cols-2 gap-16 items-center flex-1 relative z-[2]">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-0.5 bg-gold" />
-            <span className="font-barlow text-sm font-bold tracking-[0.3em] uppercase text-gold">
+            <div className="hero-line w-12 h-0.5 bg-gold" />
+            <span className="hero-sub font-barlow text-sm font-bold tracking-[0.3em] uppercase text-gold">
               Lead Web Developer
             </span>
           </div>
 
-          <h1 className="font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight mb-8">
+          <h1 className="hero-title font-bebas text-[80px] md:text-[120px] leading-[0.85] tracking-tight mb-8 overflow-hidden">
             <span className="text-ink block mb-2">John Carlo</span>
             <span className="gold-stroke block">Salazar.</span>
           </h1>
 
-          <p className="text-lg leading-relaxed text-ash max-w-lg mb-10 border-l-4 border-gold pl-6">
+          <p className="hero-p text-lg leading-relaxed text-ash max-w-lg mb-10 border-l-4 border-gold pl-6">
             10+ years engineering high-performance ecosystems for Singapore and Philippines. Specialist in React, Node.js, and Enterprise QA.
           </p>
 
           <div className="flex flex-wrap gap-8 mb-12">
-            <div className="flex items-center gap-3 text-steel text-sm">
+            <div className="hero-stat flex items-center gap-3 text-steel text-sm">
               <MapPin size={18} className="text-gold" />
               <span className="font-medium">Trece Martires, PH</span>
             </div>
-            <div className="flex items-center gap-3 text-steel text-sm">
+            <div className="hero-stat flex items-center gap-3 text-steel text-sm">
               <Award size={18} className="text-gold" />
               <span className="font-medium">10+ Years Exp</span>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-5">
-            <a href="#portfolio" className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/10">
+            <a href="#portfolio" className="hero-btn inline-flex items-center gap-3 px-10 py-4 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/10">
               View Work <ArrowRight size={18} />
             </a>
-            <a href="mailto:johncarlosacrosalazar@gmail.com" className="inline-flex items-center gap-3 px-10 py-4 border border-white/20 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold transition-all">
+            <a href="mailto:johncarlosacrosalazar@gmail.com" className="hero-btn inline-flex items-center gap-3 px-10 py-4 border border-white/20 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold transition-all">
               <Mail size={18} /> Contact
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative hidden lg:flex justify-end h-[600px]"
-        >
+        <div className="hero-img-container relative hidden lg:flex justify-end h-[600px]">
           <div className="absolute inset-0 bg-card/50 translate-x-6 translate-y-6 rounded-sm border border-white/5" />
           <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl">
             <Image
@@ -317,7 +388,7 @@ function Hero() {
               <p className="font-barlow text-xs font-bold tracking-[0.4em] text-gold uppercase">Systems Architect</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -326,8 +397,38 @@ function Hero() {
 // ─── Experience ───────────────────────────────────────────────────────────────
 
 function Experience() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    // Scroll progress line
+    gsap.from(".exp-progress-line", {
+      scaleY: 0,
+      transformOrigin: "top center",
+      scrollTrigger: {
+        trigger: ".exp-list",
+        start: "top 70%",
+        end: "bottom 80%",
+        scrub: true,
+      }
+    });
+
+    const items = gsap.utils.toArray<HTMLElement>(".exp-item");
+    items.forEach((item) => {
+      gsap.from(item, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 85%",
+        }
+      });
+    });
+  }, { scope: container });
+
   return (
-    <section id="experience" className="relative bg-void py-24 px-8 overflow-hidden">
+    <section id="experience" ref={container} className="relative bg-void py-24 px-8 overflow-hidden">
       {/* Experience Background SVGs */}
       <div className="absolute top-24 -left-64 w-[500px] h-[500px] opacity-[0.02] pointer-events-none z-0">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -342,14 +443,15 @@ function Experience() {
 
       <div className="max-w-5xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Chronicle" title="Career Path" />
-        <div className="space-y-6">
+
+        <div className="exp-list relative space-y-6">
+          {/* Vertical Progress Line */}
+          <div className="absolute left-[8px] top-4 bottom-4 w-[2px] bg-white/5 z-0" />
+          <div className="exp-progress-line absolute left-[8px] top-4 bottom-4 w-[2px] bg-gold z-0" />
           {experiences.map((exp, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`relative p-10 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
+              className={`exp-item relative p-8 md:p-10 ml-8 md:ml-12 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
                 }`}
             >
               {/* Subtle accent inside the card */}
@@ -379,7 +481,7 @@ function Experience() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -402,10 +504,38 @@ function ProjectCard({ project, onPreview }: {
   onPreview: (img: any, title: string) => void;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const overlay = card.querySelector(".project-overlay");
+    const img = card.querySelector(".project-img");
+    const accent = card.querySelector(".corner-accent");
+
+    const hoverTl = gsap.timeline({ paused: true });
+
+    hoverTl.to(overlay, { opacity: 1, duration: 0.4, ease: "power2.out" })
+      .to(img, { scale: 1.05, filter: "grayscale(0)", opacity: 1, duration: 0.6, ease: "power2.out" }, 0)
+      .to(accent, { borderColor: "rgba(255, 215, 0, 0.5)", duration: 0.4 }, 0);
+
+    const onMouseEnter = () => hoverTl.play();
+    const onMouseLeave = () => hoverTl.reverse();
+
+    card.addEventListener("mouseenter", onMouseEnter);
+    card.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      card.removeEventListener("mouseenter", onMouseEnter);
+      card.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, { scope: cardRef });
 
   return (
     <div
-      className="group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+      ref={cardRef}
+      className="project-card group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
     >
       {/* Project Header Stats/Badge */}
       <div className="absolute top-4 left-4 z-20">
@@ -416,20 +546,20 @@ function ProjectCard({ project, onPreview }: {
 
       {/* Hero-like Image Section */}
       <div className="relative h-64 bg-void/50 overflow-hidden">
-        <div className="absolute inset-0 bg-void/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
+        <div className="absolute inset-0 bg-void/40 z-10 transition-colors duration-500" />
         {project.image ? (
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-102 transition-all duration-700 opacity-60 group-hover:opacity-100"
+            className="project-img object-cover grayscale scale-100 opacity-60"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center opacity-20"><Shield size={64} /></div>
         )}
 
         {/* Overlay Controls */}
-        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-void/60 opacity-0 group-hover:opacity-100 transition-all duration-500 z-30">
+        <div className="project-overlay absolute inset-0 flex items-center justify-center gap-4 bg-void/60 opacity-0 z-30">
           {project.image && (
             <button
               onClick={() => onPreview(project.image, project.title)}
@@ -451,20 +581,19 @@ function ProjectCard({ project, onPreview }: {
         </div>
 
         {/* Corner Accent */}
-        <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
+        <div className="corner-accent absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold/0 transition-all duration-500" />
       </div>
 
       <div className="p-10 flex-1 flex flex-col justify-between">
         <div>
           <h3 className="font-bebas text-3xl text-ink mb-4 group-hover:text-gold transition-colors tracking-wide leading-none">{project.title}</h3>
           <div className="relative">
-            <motion.p
-              initial={false}
-              animate={{ height: isExpanded ? 'auto' : '4.5rem' }} // approx 3 lines
+            <p
               className={`text-ash text-sm leading-relaxed mb-4 overflow-hidden ${!isExpanded ? 'line-clamp-3' : ''}`}
+              style={{ height: isExpanded ? 'auto' : '4.5rem' }}
             >
               {project.desc}
-            </motion.p>
+            </p>
             {project.desc.length > 100 && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
@@ -488,7 +617,46 @@ function ProjectCard({ project, onPreview }: {
 function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', ...projects.map(p => p.category)];
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(".filter-btn", { opacity: 0, y: 20 }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".filter-btn",
+        start: "top 90%",
+      }
+    });
+
+    // Animate background blob
+    gsap.to(".portfolio-bg-blob", {
+      x: "-=50",
+      y: "+=50",
+      duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    // Floating parallax shapes
+    gsap.to(".portfolio-shape", {
+      y: (i) => (i + 1) * -150,
+      x: (i) => (i % 2 === 0 ? 50 : -50),
+      rotation: (i) => (i + 1) * 90,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  }, { scope: container });
+
+  const categories = ['All', ...new Set(projects.map(p => p.category))];
 
   const allFilteredItems = activeCategory === 'All'
     ? projects.flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })))
@@ -497,9 +665,25 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
       .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
 
   return (
-    <section id="portfolio" className="bg-dark py-24 px-8 overflow-hidden relative">
+    <section id="portfolio" ref={container} className="bg-dark py-24 px-8 overflow-hidden relative">
       {/* Background Decorative Element */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="portfolio-bg-blob absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+      {/* Floating Shapes */}
+      {[...Array(6)].map((_, i) => (
+        <div
+          key={i}
+          className="portfolio-shape absolute border border-gold/10 opacity-20 pointer-events-none z-0"
+          style={{
+            width: `${40 + (i % 3) * 40}px`,
+            height: `${40 + (i % 3) * 40}px`,
+            top: `${15 + i * 15}%`,
+            left: i % 2 === 0 ? `${5 + i * 2}%` : `${85 - i * 2}%`,
+            borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '4px' : '0',
+            transform: `rotate(${i * 30}deg)`
+          }}
+        />
+      ))}
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Showcase" title="Selected Work" />
@@ -507,12 +691,10 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
         {/* Category Filter Bar */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
           {categories.map((cat) => (
-            <motion.button
+            <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={`relative px-6 py-2.5 font-barlow text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-sm border ${activeCategory === cat
+              className={`filter-btn relative px-6 py-2.5 font-barlow text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-sm border ${activeCategory === cat
                 ? 'text-void border-gold'
                 : 'text-ash border-white/10 hover:border-gold/30 hover:text-gold'
                 }`}
@@ -525,7 +707,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-            </motion.button>
+            </button>
           ))}
         </div>
 
@@ -537,6 +719,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
+            onAnimationComplete={() => ScrollTrigger.refresh()}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {allFilteredItems.map((project) => (
@@ -559,10 +742,48 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
 // ─── Stack ────────────────────────────────────────────────────────────────────
 
 function Stack() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(".stack-card", {
+      opacity: 0,
+      x: -30,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".stack-card",
+        start: "top 85%",
+      }
+    });
+
+    gsap.from(".stack-sidebar > div", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".stack-sidebar",
+        start: "top 85%",
+      }
+    });
+
+    // Scroll-linked rotation for background
+    gsap.to(".stack-bg-svg", {
+      rotation: 180,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }, { scope: container });
+
   return (
-    <section id="stack" className="relative bg-void py-24 px-8 overflow-hidden">
+    <section id="stack" ref={container} className="relative bg-void py-24 px-8 overflow-hidden">
       {/* Stack Background SVGs */}
-      <div className="absolute -right-32 bottom-0 w-[600px] h-[600px] opacity-[0.03] pointer-events-none z-0">
+      <div className="stack-bg-svg absolute -right-32 bottom-0 w-[600px] h-[600px] opacity-[0.03] pointer-events-none z-0">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <path d="M100 10 L190 50 L190 150 L100 190 L10 150 L10 50 Z" fill="none" stroke="#FFD700" strokeWidth="1" strokeDasharray="4 4" />
           <path d="M100 30 L170 65 L170 135 L100 170 L30 135 L30 65 Z" fill="none" stroke="#FFD700" strokeWidth="0.5" />
@@ -575,7 +796,7 @@ function Stack() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Capabilities" title="Technical Stack" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-10">
+          <div className="stack-card lg:col-span-2 p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {[
                 { label: 'Frontend', items: ['React / Next.js', 'Tailwind CSS', 'Framer Motion', 'TS'] },
@@ -597,7 +818,7 @@ function Stack() {
               ))}
             </div>
           </div>
-          <div className="space-y-8">
+          <div className="stack-sidebar space-y-8">
             <div className="p-8 bg-card/20 border border-white/5 rounded-sm">
               <Users className="text-gold mb-4" size={32} />
               <h3 className="font-barlow text-xl font-bold text-ink mb-2">Team Leadership</h3>
@@ -618,10 +839,49 @@ function Stack() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(".footer-content > *", {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: ".footer-content",
+        start: "top 80%",
+      }
+    });
+
+    gsap.to(".footer-bg circle", {
+      scale: 1.2,
+      opacity: 0.1,
+      stagger: {
+        each: 0.2,
+        repeat: -1,
+        yoyo: true
+      },
+      duration: 3,
+      ease: "sine.inOut"
+    });
+
+    // Scroll-linked background fade
+    gsap.from(".footer-bg", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "center center",
+        scrub: true
+      }
+    });
+  }, { scope: container });
+
   return (
-    <footer id="contact" className="relative bg-[#080808] border-t border-white/5 py-24 px-8 overflow-hidden">
+    <footer id="contact" ref={container} className="relative bg-[#080808] border-t border-white/5 py-24 px-8 overflow-hidden">
       {/* Footer SVG Background */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none z-0 flex items-center justify-center">
+      <div className="footer-bg absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none z-0 flex items-center justify-center">
         <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
           <circle cx="500" cy="200" r="100" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 4" />
           <circle cx="500" cy="200" r="200" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 8" />
@@ -630,7 +890,7 @@ function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
+      <div className="footer-content max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div>
           <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
           <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LETS CONNECT.</h2>
@@ -652,12 +912,91 @@ function Footer() {
     </footer>
   );
 }
+function ScrollBackground() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    // Parallax for circles
+    gsap.to(".bg-circle-1", {
+      y: -800,
+      rotation: 180,
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.5,
+      }
+    });
+
+    gsap.to(".bg-circle-2", {
+      y: -1200,
+      rotation: -240,
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+      }
+    });
+
+    // Parallax for lines
+    gsap.to(".bg-lines", {
+      y: -1000,
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.5,
+      }
+    });
+
+    // Parallax for dots
+    gsap.to(".bg-dots", {
+      y: -500,
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 2,
+      }
+    });
+
+    // Fade in the background elements with specific opacityTargets
+    gsap.fromTo(".bg-circle-1", { opacity: 0 }, { opacity: 0.15, duration: 1.5, ease: "power2.out" });
+    gsap.fromTo(".bg-circle-2", { opacity: 0 }, { opacity: 0.12, duration: 1.5, ease: "power2.out" });
+    gsap.fromTo(".bg-lines", { opacity: 0 }, { opacity: 0.1, duration: 1.5, ease: "power2.out" });
+    gsap.fromTo(".bg-dots", { opacity: 0 }, { opacity: 0.08, duration: 1.5, ease: "power2.out" });
+  }, { scope: container });
+
+  return (
+    <div ref={container} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div className="bg-circle-1 absolute -top-20 -left-20 w-[600px] h-[600px] border border-gold/20 rounded-full" />
+      <div className="bg-circle-2 absolute top-1/2 -right-40 w-[800px] h-[800px] border border-gold/20 rounded-full" />
+
+      <div className="bg-dots absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #FFD700 2px, transparent 2px)',
+          backgroundSize: '80px 80px'
+        }}
+      />
+
+      <svg className="bg-lines absolute inset-0 w-full h-[200%]">
+        <line x1="0" y1="10%" x2="100%" y2="30%" stroke="#FFD700" strokeWidth="2.5" />
+        <line x1="0" y1="40%" x2="100%" y2="60%" stroke="#FFD700" strokeWidth="2.5" />
+        <line x1="20%" y1="0" x2="50%" y2="100%" stroke="#FFD700" strokeWidth="2.5" />
+        <line x1="80%" y1="0" x2="40%" y2="100%" stroke="#FFD700" strokeWidth="2.5" />
+      </svg>
+    </div>
+  );
+}
+
 
 export default function PortfolioLandingPage() {
   const [selectedPreview, setSelectedPreview] = useState<{ img: any; title: string } | null>(null);
 
   return (
-    <div className="min-h-screen bg-void text-ink font-inter antialiased">
+    <div className="min-h-screen bg-void text-ink font-inter antialiased relative">
+      <ScrollBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -672,6 +1011,7 @@ export default function PortfolioLandingPage() {
           })
         }}
       />
+
       <Header />
       <Hero />
       <Experience />
