@@ -881,19 +881,38 @@ function Footer() {
   return (
     <footer id="contact" ref={container} className="relative bg-[#080808] border-t border-white/5 py-24 px-8 overflow-hidden">
       {/* Footer SVG Background */}
-      <div className="footer-bg absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none z-0 flex items-center justify-center">
+      <div className="footer-bg absolute top-0 left-0 w-full h-full opacity-[0.08] pointer-events-none z-0 flex items-center justify-center">
         <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
+          <defs>
+            <pattern id="footer-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFD700" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#footer-grid)" opacity="0.2" />
           <circle cx="500" cy="200" r="100" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 4" />
+          <circle cx="500" cy="200" r="150" fill="none" stroke="#FFD700" strokeWidth="1" strokeDasharray="10 20" />
           <circle cx="500" cy="200" r="200" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 8" />
+          <circle cx="500" cy="200" r="250" fill="none" stroke="#FFD700" strokeWidth="1.5" strokeDasharray="20 40" />
           <circle cx="500" cy="200" r="400" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 16" />
-          <path d="M500 0 V400 M0 200 H1000" stroke="#FFD700" strokeWidth="0.5" opacity="0.3" />
+          
+          {/* Tech Accents */}
+          <path d="M500 0 V400 M0 200 H1000" stroke="#FFD700" strokeWidth="1" opacity="0.4" />
+          <path d="M300 100 L320 100 M310 90 L310 110" stroke="#FFD700" strokeWidth="1.5" />
+          <path d="M700 300 L720 300 M710 290 L710 310" stroke="#FFD700" strokeWidth="1.5" />
+          <path d="M200 300 L220 300 M210 290 L210 310" stroke="#FFD700" strokeWidth="1.5" />
+          <path d="M800 100 L820 100 M810 90 L810 110" stroke="#FFD700" strokeWidth="1.5" />
         </svg>
       </div>
+      
+      {/* Corner Accents */}
+      <div className="absolute top-12 left-12 w-24 h-24 border-t border-l border-gold/20 pointer-events-none" />
+      <div className="absolute bottom-12 right-12 w-24 h-24 border-b border-r border-gold/20 pointer-events-none" />
 
       <div className="footer-content max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div>
           <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
           <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LETS CONNECT.</h2>
+          <p className="font-barlow text-xl md:text-2xl text-gold mt-4 low-tracking select-all">johncarlosacrosalazar@gmail.com</p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-center gap-6">
