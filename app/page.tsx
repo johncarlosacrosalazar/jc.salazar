@@ -232,13 +232,13 @@ function Header() {
     <nav ref={container} className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
         <div className="nav-logo mb-0">
-          <motion.a 
-            href="#" 
+          <motion.a
+            href="#"
             className='flex items-center gap-3 group'
             whileHover="hover"
             initial="initial"
           >
-            <motion.div 
+            <motion.div
               className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void shadow-lg shadow-gold/10"
               variants={{
                 initial: { rotate: 0, scale: 1 },
@@ -248,7 +248,7 @@ function Header() {
             >
               JS
             </motion.div>
-            <motion.span 
+            <motion.span
               className="font-barlow text-xl font-bold tracking-tight text-ink"
               variants={{
                 initial: { x: 0 },
@@ -401,7 +401,7 @@ function Hero() {
         <div className="hero-img-container relative hidden lg:flex justify-end h-[600px]">
           <div className="absolute inset-0 bg-card/50 translate-x-6 translate-y-6 rounded-sm border border-white/5" />
           <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl group cursor-crosshair">
-            <motion.div 
+            <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
               transition={{ duration: 0.6, ease: "circOut" }}
@@ -636,10 +636,10 @@ function ProjectCard({ project, onPreview }: {
           </div>
         </div>
 
-        <div className="flex items-center justify-between pt-6 border-t border-white/5">
+        {/* <div className="flex items-center justify-between pt-6 border-t border-white/5">
           <span className="text-[10px] font-bold text-gold/40 uppercase tracking-[0.3em]">Project Details</span>
           <ChevronRight size={14} className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
