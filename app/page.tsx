@@ -647,9 +647,9 @@ function ProjectCard({ project, onPreview }: {
 }
 
 function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const container = useRef(null);
+  const [activeCategory, setActiveCategory] = useState("ALL");
+  const [showMobileCategories, setShowMobileCategories] = useState(false);
+  const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.fromTo(".filter-btn", { opacity: 0, y: 20 }, {
@@ -720,8 +720,8 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Showcase" title="Selected Work" />
 
-        {/* Category Filter Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
+        {/* Desktop Category Filter Bar */}
+        <div className="hidden md:flex flex-wrap items-center justify-center gap-4 mb-20">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -742,6 +742,68 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
             </button>
           ))}
         </div>
+
+        {/* Mobile "Bento" Toggle */}
+        <div className="md:hidden flex items-center justify-between mb-12 px-2">
+          <div className="flex flex-col">
+            <span className="font-barlow text-[10px] text-ash/40 uppercase tracking-[0.3em] font-bold mb-1">Category</span>
+            <span className="font-bebas text-2xl text-gold tracking-widest uppercase">{activeCategory}</span>
+          </div>
+          <button 
+            onClick={() => setShowMobileCategories(true)}
+            className="w-12 h-12 border border-white/10 flex flex-wrap gap-1 p-3 items-center justify-center hover:border-gold/30 transition-colors"
+          >
+            <div className="w-1.5 h-1.5 bg-gold/60" />
+            <div className="w-1.5 h-1.5 bg-gold" />
+            <div className="w-1.5 h-1.5 bg-gold" />
+            <div className="w-1.5 h-1.5 bg-gold/60" />
+          </button>
+        </div>
+
+        {/* Mobile Category Overlay */}
+        <AnimatePresence>
+          {showMobileCategories && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-void/95 backdrop-blur-xl md:hidden flex flex-col p-8"
+            >
+              <div className="flex justify-between items-center mb-16">
+                <span className="font-bebas text-2xl text-gold tracking-widest">CATEGORIES</span>
+                <button 
+                  onClick={() => setShowMobileCategories(false)}
+                  className="text-gold font-barlow text-sm font-bold tracking-widest uppercase"
+                >
+                  Close
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 overflow-y-auto pb-12">
+                {categories.map((cat, i) => (
+                  <motion.button
+                    key={cat}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => {
+                      setActiveCategory(cat);
+                      setShowMobileCategories(false);
+                    }}
+                    className={`relative p-6 text-left border ${activeCategory === cat ? 'border-gold bg-gold/5' : 'border-white/5'}`}
+                  >
+                    <span className={`font-bebas text-3xl tracking-wider ${activeCategory === cat ? 'text-gold' : 'text-ash/60'}`}>
+                      {cat}
+                    </span>
+                    {activeCategory === cat && (
+                      <div className="absolute right-6 top-1/2 -translate-y-1/2 w-2 h-2 bg-gold" />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Dynamic Project Grid */}
         <AnimatePresence mode="wait">
@@ -948,12 +1010,14 @@ function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:johncarlosacrosalazar@gmail.com" className="px-12 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10">
-            Open Mail
+          <a href="mailto:johncarlosacrosalazar@gmail.com" className="px-10 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10 flex items-center justify-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Email Me
           </a>
-          <div className="px-12 py-5 border border-white/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm">
-            0927-331-5906
-          </div>
+          <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-10 py-5 border border-white/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            WhatsApp
+          </a>
         </div>
 
         <p className="text-coal font-barlow text-[10px] tracking-[0.6em] uppercase pt-12">
