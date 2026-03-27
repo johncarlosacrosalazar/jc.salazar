@@ -647,7 +647,7 @@ function ProjectCard({ project, onPreview }: {
 }
 
 function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void }) {
-  const [activeCategory, setActiveCategory] = useState("ALL");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [showMobileCategories, setShowMobileCategories] = useState(false);
   const container = useRef<HTMLDivElement>(null);
 
