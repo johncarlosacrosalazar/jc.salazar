@@ -231,11 +231,34 @@ function Header() {
   return (
     <nav ref={container} className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
-        <div className="nav-logo flex items-center gap-3">
-          <div className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void">
-            JS
-          </div>
-          <span className="font-barlow text-xl font-bold tracking-tight text-ink">SALAZAR</span>
+        <div className="nav-logo mb-0">
+          <motion.a 
+            href="#" 
+            className='flex items-center gap-3 group'
+            whileHover="hover"
+            initial="initial"
+          >
+            <motion.div 
+              className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void shadow-lg shadow-gold/10"
+              variants={{
+                initial: { rotate: 0, scale: 1 },
+                hover: { rotate: 90, scale: 1.1 }
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              JS
+            </motion.div>
+            <motion.span 
+              className="font-barlow text-xl font-bold tracking-tight text-ink"
+              variants={{
+                initial: { x: 0 },
+                hover: { x: 4 }
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              SALAZAR
+            </motion.span>
+          </motion.a>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
@@ -377,16 +400,22 @@ function Hero() {
 
         <div className="hero-img-container relative hidden lg:flex justify-end h-[600px]">
           <div className="absolute inset-0 bg-card/50 translate-x-6 translate-y-6 rounded-sm border border-white/5" />
-          <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl">
-            <Image
-              src={hero}
-              alt="John Carlo Salazar"
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60" />
-            <div className="absolute bottom-6 left-6">
+          <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl group cursor-crosshair">
+            <motion.div 
+              className="w-full h-full"
+              whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
+              transition={{ duration: 0.6, ease: "circOut" }}
+            >
+              <Image
+                src={hero}
+                alt="John Carlo Salazar"
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                priority
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60 pointer-events-none" />
+            <div className="absolute bottom-6 left-6 pointer-events-none">
               <p className="font-barlow text-xs font-bold tracking-[0.4em] text-gold uppercase">Systems Architect</p>
             </div>
           </div>
@@ -896,7 +925,7 @@ function Footer() {
           <circle cx="500" cy="200" r="200" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 8" />
           <circle cx="500" cy="200" r="250" fill="none" stroke="#FFD700" strokeWidth="1.5" strokeDasharray="20 40" />
           <circle cx="500" cy="200" r="400" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="4 16" />
-          
+
           {/* Tech Accents */}
           <path d="M500 0 V400 M0 200 H1000" stroke="#FFD700" strokeWidth="1" opacity="0.4" />
           <path d="M300 100 L320 100 M310 90 L310 110" stroke="#FFD700" strokeWidth="1.5" />
@@ -905,7 +934,7 @@ function Footer() {
           <path d="M800 100 L820 100 M810 90 L810 110" stroke="#FFD700" strokeWidth="1.5" />
         </svg>
       </div>
-      
+
       {/* Corner Accents */}
       <div className="absolute top-12 left-12 w-24 h-24 border-t border-l border-gold/20 pointer-events-none" />
       <div className="absolute bottom-12 right-12 w-24 h-24 border-b border-r border-gold/20 pointer-events-none" />
