@@ -14,6 +14,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ThemeToggle } from '@/components/theme-toggle';
+import MotionPathWaypoints from '@/components/MotionPathWaypoints';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -341,7 +342,7 @@ function Hero() {
 
   return (
     <section ref={container} className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-void" />
+      <div className="absolute inset-0 z-0 bg-void/50" />
 
       {/* Hero Background SVGs */}
       <div className="hero-bg-svg absolute top-0 right-0 w-[1100px] h-[800px] opacity-[0.25] pointer-events-none z-[1]">
@@ -459,7 +460,7 @@ function Experience() {
   }, { scope: container });
 
   return (
-    <section id="experience" ref={container} className="relative bg-void py-24 px-8 overflow-hidden">
+    <section id="experience" ref={container} className="relative bg-transparent py-24 px-8 overflow-hidden">
       {/* Experience Background SVGs */}
       <div className="absolute top-24 -left-64 w-[500px] h-[500px] opacity-[0.02] pointer-events-none z-0">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -696,7 +697,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
       .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
 
   return (
-    <section id="portfolio" ref={container} className="bg-dark py-24 px-8 overflow-hidden relative">
+    <section id="portfolio" ref={container} className="bg-transparent py-24 px-8 overflow-hidden relative">
       {/* Background Decorative Element */}
       <div className="portfolio-bg-blob absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -1047,6 +1048,7 @@ export default function PortfolioLandingPage() {
   return (
     <div className="min-h-screen bg-void text-ink font-inter antialiased relative">
       <ScrollBackground />
+      <MotionPathWaypoints />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
