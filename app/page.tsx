@@ -13,6 +13,7 @@ import { AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -247,6 +248,7 @@ function Header() {
               {item}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="mailto:johncarlosacrosalazar@gmail.com"
             className="nav-cta px-6 py-2.5 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm hover:brightness-110 transition-all"
@@ -316,7 +318,7 @@ function Hero() {
 
   return (
     <section ref={container} className="relative min-h-screen flex flex-col pt-[68px] overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-[#0C0C0C]" />
+      <div className="absolute inset-0 z-0 bg-void" />
 
       {/* Hero Background SVGs */}
       <div className="hero-bg-svg absolute top-0 right-0 w-[1100px] h-[800px] opacity-[0.25] pointer-events-none z-[1]">
@@ -451,7 +453,7 @@ function Experience() {
           {experiences.map((exp, i) => (
             <div
               key={i}
-              className={`exp-item relative p-8 md:p-10 ml-8 md:ml-12 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-white/5 hover:border-gold/30'
+              className={`exp-item relative p-8 md:p-10 ml-8 md:ml-12 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-gold/15 hover:border-gold/30'
                 }`}
             >
               {/* Subtle accent inside the card */}
@@ -535,7 +537,7 @@ function ProjectCard({ project, onPreview }: {
   return (
     <div
       ref={cardRef}
-      className="project-card group relative bg-[#121212] border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+      className="project-card group relative bg-card border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
     >
       {/* Project Header Stats/Badge */}
       <div className="absolute top-4 left-4 z-20">
@@ -879,7 +881,7 @@ function Footer() {
   }, { scope: container });
 
   return (
-    <footer id="contact" ref={container} className="relative bg-[#080808] border-t border-white/5 py-24 px-8 overflow-hidden">
+    <footer id="contact" ref={container} className="relative bg-void border-t border-gold/10 py-24 px-8 overflow-hidden">
       {/* Footer SVG Background */}
       <div className="footer-bg absolute top-0 left-0 w-full h-full opacity-[0.08] pointer-events-none z-0 flex items-center justify-center">
         <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">

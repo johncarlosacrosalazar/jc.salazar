@@ -1,23 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-void: #0C0C0C;
-  --color-dark: #111111;
-  --color-card: #161616;
-  --color-raised: #1C1C1C;
-  --color-gold: #C9A84C;
-  --color-gold-light: #E5C468;
-  --color-gold-dim: #8A6E2F;
-  --color-steel: #8A95A3;
-  --color-steel-light: #B4BDC8;
-  --color-ink: #F0EDE8;
-  --color-ash: #9A9590;
-  --color-coal: #5A5550;
+:root {
+  --void: #F8F9FA;
+  --dark: #E9ECEF;
+  --card: #FFFFFF;
+  --raised: #F1F3F5;
+  --gold: #C9A84C;
+  --gold-light: #E5C468;
+  --gold-dim: #8A6E2F;
+  --steel: #495057;
+  --steel-light: #6C757D;
+  --ink: #1A1A1A;
+  --ash: #4A4A4A;
+  --coal: #343A40;
 
   --font-bebas: 'Bebas Neue', sans-serif;
   --font-barlow: 'Barlow Condensed', sans-serif;
   --font-inter: 'Inter', sans-serif;
+}
+
+.dark {
+  --void: #0C0C0C;
+  --dark: #111111;
+  --card: #161616;
+  --raised: #1C1C1C;
+  --gold: #C9A84C;
+  --gold-light: #E5C468;
+  --gold-dim: #8A6E2F;
+  --steel: #8A95A3;
+  --steel-light: #B4BDC8;
+  --ink: #F0EDE8;
+  --ash: #9A9590;
+  --coal: #5A5550;
+}
+
+@theme {
+  --color-void: var(--void);
+  --color-dark: var(--dark);
+  --color-card: var(--card);
+  --color-raised: var(--raised);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-ink: var(--ink);
+  --ash: var(--ash);
+  --coal: var(--coal);
+
+  --font-bebas: var(--font-bebas);
+  --font-barlow: var(--font-barlow);
+  --font-inter: var(--font-inter);
 }
 
 /* Fallback utilities in case Tailwind compilation is inconsistent in this environment */
@@ -67,7 +101,7 @@
 
 /* Custom Outlined Style */
 .gold-stroke {
-  -webkit-text-stroke: 2px #C9A84C;
+  -webkit-text-stroke: 2px var(--gold);
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
@@ -75,10 +109,11 @@
 html,
 body {
   scroll-behavior: smooth;
-  background: #0C0C0C !important;
-  color: #F0EDE8;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--void);
+  color: var(--ink);
+  font-family: var(--font-inter);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
