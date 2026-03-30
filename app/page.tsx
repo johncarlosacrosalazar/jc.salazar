@@ -13,8 +13,8 @@ import { AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ThemeToggle } from '@/components/theme-toggle';
 import MotionPathWaypoints from '@/components/MotionPathWaypoints';
+import ImageModal from '@/components/ImageModal';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -171,119 +171,6 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
   );
 }
 
-function ImageModal({ image, title, onClose }: { image: any; title: string; onClose: () => void }) {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[200] bg-void/90 backdrop-blur-md flex items-center justify-center p-4 md:p-12"
-    >
-      <div
-        className="absolute inset-0 cursor-zoom-out"
-        onClick={onClose}
-      />
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="relative max-w-7xl w-full max-h-full bg-card rounded-sm border border-gold/20 shadow-2xl overflow-hidden pointer-events-auto"
-      >
-        <div className="absolute top-0 left-0 right-0 p-6 bg-gradient-to-b from-void/90 to-transparent z-[210] flex items-center justify-between">
-          <h3 className="font-bebas text-2xl text-ink tracking-wide">{title}</h3>
-          <button
-            onClick={onClose}
-            className="p-2 bg-gold text-void rounded-sm hover:brightness-110 transition-all shadow-lg"
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        <div className="relative w-full aspect-video md:aspect-[16/9] overflow-y-auto bg-void/50 mt-16">
-          <Image
-            src={image}
-            alt={title}
-            width={1920}
-            height={1080}
-            className="w-full h-auto object-contain"
-          />
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-// ─── Header ───────────────────────────────────────────────────────────────────
-
-function Header() {
-  const container = useRef(null);
-
-  useGSAP(() => {
-    gsap.fromTo(".nav-logo", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" });
-    gsap.fromTo(".nav-link", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", delay: 0.2 });
-    gsap.fromTo(".nav-cta", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.5 });
-  }, { scope: container });
-
-  return (
-    <nav ref={container} className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
-      <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
-        <div className="nav-logo mb-0">
-          <motion.a
-            href="#"
-            className='flex items-center gap-3 group'
-            whileHover="hover"
-            initial="initial"
-          >
-            <motion.div
-              className="w-9 h-9 bg-gold rounded-sm flex items-center justify-center font-bebas text-lg text-void shadow-lg shadow-gold/10"
-              variants={{
-                initial: { rotate: 0, scale: 1 },
-                hover: { rotate: 90, scale: 1.1 }
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              JS
-            </motion.div>
-            <motion.span
-              className="font-barlow text-xl font-bold tracking-tight text-ink"
-              variants={{
-                initial: { x: 0 },
-                hover: { x: 4 }
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              SALAZAR
-            </motion.span>
-          </motion.a>
-        </div>
-
-        <div className="hidden md:flex items-center gap-8">
-          {['Experience', 'Portfolio', 'Stack'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="nav-link text-[11px] font-bold tracking-[0.2em] uppercase text-ash hover:text-gold transition-colors"
-            >
-              {item}
-            </a>
-          ))}
-          <ThemeToggle />
-          <a
-            href="mailto:johncarlosacrosalazar@gmail.com"
-            className="nav-cta px-6 py-2.5 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm hover:brightness-110 transition-all"
-          >
-            Hire Me
-          </a>
-        </div>
-      </div>
-    </nav>
-  );
-}
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -403,7 +290,7 @@ function Hero() {
           <div className="absolute inset-0 bg-card/50 translate-x-6 translate-y-6 rounded-sm border border-white/5" />
           <div className="relative z-[2] w-full h-full overflow-hidden rounded-sm border border-gold/20 shadow-2xl group cursor-crosshair">
             <motion.div
-              className="w-full h-full"
+              className="w-full h-full relative"
               whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
               transition={{ duration: 0.6, ease: "circOut" }}
             >
@@ -411,6 +298,7 @@ function Hero() {
                 src={hero}
                 alt="John Carlo Salazar"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 priority
               />
@@ -584,6 +472,7 @@ function ProjectCard({ project, onPreview }: {
             src={project.image}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="project-img object-cover grayscale scale-100 opacity-60"
           />
         ) : (
@@ -1027,91 +916,13 @@ function Footer() {
     </footer>
   );
 }
-function ScrollBackground() {
-  const container = useRef(null);
-
-  useGSAP(() => {
-    // Parallax for circles
-    gsap.to(".bg-circle-1", {
-      y: -800,
-      rotation: 180,
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 0.5,
-      }
-    });
-
-    gsap.to(".bg-circle-2", {
-      y: -1200,
-      rotation: -240,
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-      }
-    });
-
-    // Parallax for lines
-    gsap.to(".bg-lines", {
-      y: -1000,
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.5,
-      }
-    });
-
-    // Parallax for dots
-    gsap.to(".bg-dots", {
-      y: -500,
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 2,
-      }
-    });
-
-    // Fade in the background elements with specific opacityTargets
-    gsap.fromTo(".bg-circle-1", { opacity: 0 }, { opacity: 0.15, duration: 1.5, ease: "power2.out" });
-    gsap.fromTo(".bg-circle-2", { opacity: 0 }, { opacity: 0.12, duration: 1.5, ease: "power2.out" });
-    gsap.fromTo(".bg-lines", { opacity: 0 }, { opacity: 0.1, duration: 1.5, ease: "power2.out" });
-    gsap.fromTo(".bg-dots", { opacity: 0 }, { opacity: 0.08, duration: 1.5, ease: "power2.out" });
-  }, { scope: container });
-
-  return (
-    <div ref={container} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div className="bg-circle-1 absolute -top-20 -left-20 w-[600px] h-[600px] border border-gold/20 rounded-full" />
-      <div className="bg-circle-2 absolute top-1/2 -right-40 w-[800px] h-[800px] border border-gold/20 rounded-full" />
-
-      <div className="bg-dots absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #FFD700 2px, transparent 2px)',
-          backgroundSize: '80px 80px'
-        }}
-      />
-
-      <svg className="bg-lines absolute inset-0 w-full h-[200%]">
-        <line x1="0" y1="10%" x2="100%" y2="30%" stroke="#FFD700" strokeWidth="2.5" />
-        <line x1="0" y1="40%" x2="100%" y2="60%" stroke="#FFD700" strokeWidth="2.5" />
-        <line x1="20%" y1="0" x2="50%" y2="100%" stroke="#FFD700" strokeWidth="2.5" />
-        <line x1="80%" y1="0" x2="40%" y2="100%" stroke="#FFD700" strokeWidth="2.5" />
-      </svg>
-    </div>
-  );
-}
 
 
 export default function PortfolioLandingPage() {
   const [selectedPreview, setSelectedPreview] = useState<{ img: any; title: string } | null>(null);
 
   return (
-    <div className="min-h-screen bg-void text-ink font-inter antialiased relative">
-      <ScrollBackground />
+    <div className="min-h-screen text-ink font-inter antialiased relative">
       <MotionPathWaypoints />
       <script
         type="application/ld+json"
@@ -1128,7 +939,6 @@ export default function PortfolioLandingPage() {
         }}
       />
 
-      <Header />
       <Hero />
       <Experience />
       <Portfolio onPreview={(img, title) => setSelectedPreview({ img, title })} />

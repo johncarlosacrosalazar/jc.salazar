@@ -59,6 +59,8 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/Header";
+import ScrollBackground from "@/components/ScrollBackground";
 
 export default function RootLayout({
   children,
@@ -76,6 +78,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollBackground />
+          <Header />
           {children}
         </ThemeProvider>
       </body>
