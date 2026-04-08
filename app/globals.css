@@ -116,6 +116,17 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hide everything except the loader while loading is active */
+.loading-active #root-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#root-content {
+  transition: opacity 0.8s ease-in-out;
+}
+
 ::selection {
   background: rgba(201, 168, 76, 0.25);
   color: #E5C468;

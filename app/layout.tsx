@@ -61,6 +61,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import ScrollBackground from "@/components/ScrollBackground";
+import PageLoader from "@/components/PageLoader";
 
 export default function RootLayout({
   children,
@@ -69,6 +70,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .loading-active #root-content { opacity: 0 !important; visibility: hidden !important; }
+              body { background-color: #0C0C0C !important; }
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('loading-active');`,
+          }}
+        />
+      </head>
       <body
         className={`${PoppinsFont.variable} ${geistMono.variable} antialiased`}
       >
@@ -78,9 +94,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ScrollBackground />
-          <Header />
-          {children}
+          <PageLoader />
+          <div id="root-content">
+            <ScrollBackground />
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
