@@ -366,7 +366,7 @@ function Experience() {
 
         <div className="exp-list relative space-y-6">
           {/* Vertical Progress Line */}
-          <div className="absolute left-[8px] top-4 bottom-4 w-[2px] bg-white/5 z-0" />
+          <div className="absolute left-[8px] top-4 bottom-4 w-[2px] bg-ink/5 z-0" />
           <div className="exp-progress-line absolute left-[8px] top-4 bottom-4 w-[2px] bg-gold z-0" />
           {experiences.map((exp, i) => (
             <div
@@ -396,7 +396,7 @@ function Experience() {
               <p className="text-ash leading-relaxed mb-6">{exp.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {exp.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1 bg-white/[0.05] text-steel-light text-[10px] font-bold uppercase tracking-widest rounded-sm">
+                  <span key={tag} className="px-3 py-1 bg-ink/5 text-steel-light text-[10px] font-bold uppercase tracking-widest rounded-sm">
                     {tag}
                   </span>
                 ))}
@@ -455,7 +455,7 @@ function ProjectCard({ project, onPreview }: {
   return (
     <div
       ref={cardRef}
-      className="project-card group relative bg-card border border-white/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+      className="project-card group relative bg-card border border-ink/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
     >
       {/* Project Header Stats/Badge */}
       <div className="absolute top-4 left-4 z-20">
@@ -617,7 +617,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
               onClick={() => setActiveCategory(cat)}
               className={`filter-btn relative px-6 py-2.5 font-barlow text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-sm border ${activeCategory === cat
                 ? 'text-void border-gold'
-                : 'text-ash border-white/10 hover:border-gold/30 hover:text-gold'
+                : 'text-ash border-ink/10 hover:border-gold/30 hover:text-gold'
                 }`}
             >
               <span className="relative z-10">{cat}</span>
@@ -640,7 +640,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
           </div>
           <button 
             onClick={() => setShowMobileCategories(true)}
-            className="w-12 h-12 border border-white/10 flex flex-wrap gap-1 p-3 items-center justify-center hover:border-gold/30 transition-colors"
+            className="w-12 h-12 border border-ink/10 flex flex-wrap gap-1 p-3 items-center justify-center hover:border-gold/30 transition-colors"
           >
             <div className="w-1.5 h-1.5 bg-gold/60" />
             <div className="w-1.5 h-1.5 bg-gold" />
@@ -679,7 +679,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
                       setActiveCategory(cat);
                       setShowMobileCategories(false);
                     }}
-                    className={`relative p-6 text-left border ${activeCategory === cat ? 'border-gold bg-gold/5' : 'border-white/5'}`}
+                    className={`relative p-6 text-left border ${activeCategory === cat ? 'border-gold bg-gold/5' : 'border-ink/5'}`}
                   >
                     <span className={`font-bebas text-3xl tracking-wider ${activeCategory === cat ? 'text-gold' : 'text-ash/60'}`}>
                       {cat}
@@ -802,12 +802,12 @@ function Stack() {
             </div>
           </div>
           <div className="stack-sidebar space-y-8">
-            <div className="p-8 bg-card/20 border border-white/5 rounded-sm">
+            <div className="p-8 bg-card/20 border border-ink/5 rounded-sm">
               <Users className="text-gold mb-4" size={32} />
               <h3 className="font-barlow text-xl font-bold text-ink mb-2">Team Leadership</h3>
               <p className="text-sm text-ash leading-relaxed">Experienced in managing delivery teams for high-stakes Singaporean projects.</p>
             </div>
-            <div className="p-8 bg-card/20 border border-white/5 rounded-sm">
+            <div className="p-8 bg-card/20 border border-ink/5 rounded-sm">
               <Shield className="text-sky-400 mb-4" size={32} />
               <h3 className="font-barlow text-xl font-bold text-ink mb-2">Enterprise QA</h3>
               <p className="text-sm text-ash leading-relaxed">Two cycles at Temasek Holdings for flagship digital report launches.</p>
@@ -903,7 +903,7 @@ function Footer() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Email Me
           </a>
-          <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-10 py-5 border border-white/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3">
+          <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-10 py-5 border border-ink/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             WhatsApp
           </a>

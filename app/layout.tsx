@@ -3,9 +3,9 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 
 const PoppinsFont = Poppins({
-    weight: ['400', '700'],
-    subsets: ['latin'],
-    variable: '--font-poppins',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
 });
 
 const geistSans = Geist({
@@ -75,7 +75,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               .loading-active #root-content { opacity: 0 !important; visibility: hidden !important; }
-              body { background-color: #0C0C0C !important; }
             `,
           }}
         />
