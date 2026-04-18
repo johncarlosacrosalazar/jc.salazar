@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Carlo Salazar - Systems Architect & Lead Developer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --void: #FFFFFF;
+            --dark: #F8F9FA;
+            --card: #FFFFFF;
+            --raised: #F1F3F5;
+            --gold: #C9A84C;
+            --gold-light: #E5C468;
+            --gold-dim: #8A6E2F;
+            --steel: #495057;
+            --steel-light: #6C757D;
+            --ink: #1A1A1A;
+            --ash: #4A4A4A;
+            --coal: #343A40;
+
+            --font-bebas: 'Bebas Neue', sans-serif;
+            --font-barlow: 'Barlow Condensed', sans-serif;
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            color: var(--ink);
+            background: #f4f4f4;
+            line-height: 1.4;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm 20mm;
+            margin: 10mm auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+        }
+
+        .name-title h1 {
+            font-family: var(--font-bebas);
+            font-size: 56px;
+            line-height: 0.9;
+            color: var(--ink);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .name-title .role {
+            font-family: var(--font-barlow);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 11px;
+            color: var(--ash);
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: var(--ash);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-family: var(--font-barlow);
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--raised);
+            padding-bottom: 5px;
+        }
+
+        h2::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background: var(--gold);
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+        }
+
+        .summary {
+            font-size: 13px;
+            color: var(--ash);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--dark);
+            border-left: 4px solid var(--gold);
+        }
+
+        .exp-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .company {
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .period {
+            font-family: var(--font-barlow);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold-dim);
+        }
+
+        .role-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .desc {
+            font-size: 12px;
+            color: var(--ash);
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            background: var(--raised);
+            color: var(--steel);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar h3 {
+            font-family: var(--font-barlow);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: var(--gold-dim);
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--dark);
+            border-radius: 4px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 12px;
+            color: var(--ash);
+        }
+
+        .skill-list li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-list li::before {
+            content: '▫';
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .project-item {
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .project-desc {
+            font-size: 11px;
+            color: var(--ash);
+            line-height: 1.4;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                border: none;
+                padding: 10mm 15mm;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        .no-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-barlow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .no-print:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="no-print" onclick="window.print()">Download Professional PDF</button>
+
+    <div class="page">
+        <header>
+            <div class="name-title">
+                <h1>John Carlo Salazar</h1>
+                <div class="role">Systems Architect & Lead Web Developer</div>
+            </div>
+            <div class="contact-info">
+                <div>Trece Martires, Cavite, PH</div>
+                <div>+63 927 331 5906</div>
+                <div><a href="mailto:johncarlosacrosalazar@gmail.com">johncarlosacrosalazar@gmail.com</a></div>
+                <div><a href="https://jc-salazar.vercel.app">jc-salazar.vercel.app</a></div>
+            </div>
+        </header>
+
+        <section>
+            <div class="summary">
+                <strong>Systems Architect & Engineering Specialist</strong> with over a decade of excellence in building
+                high-performance digital ecosystems. Proven expertise in architecting scalable React/Node.js
+                applications and managing mission-critical infrastructure for the Singapore Public Service and Temasek
+                Foundation. Specialist in Enterprise QA, AWS Cloud, and full-stack development.
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <div class="main-col">
+                <section>
+                    <h2>Professional Experience</h2>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div class="company">Edge Digital</div>
+                            <div class="period">2020 — 2025</div>
+                        </div>
+                        <div class="role-name">Lead Web Developer / QA Lead</div>
+                        <div class="desc">
+                            Architected the <strong>OnePeople</strong> civic ecosystem and delivered mission-critical
+                            COVID-19 campaign sites for Singapore. Engineered nationwide APIs and optimized AWS
+                            serverless infrastructure for high-traffic scalability. Led QA for high-stakes Temasek
+                            Holdings digital reports.
+                        </div>
+                        <div class="tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">AWS Lambda</span>
+                            <span class="tag">Systems Design</span>
+                            <span class="tag">Enterprise QA</span>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div class="company">Breakthrough4business</div>
+                            <div class="period">2017 — 2019</div>
+                        </div>
+                        <div class="role-name">Full-Stack Web Developer</div>
+                        <div class="desc">
+                            Built the <strong>B4B Academy</strong> social platform from scratch. Developed complex
+                            social networking modules, managed EC2 Ubuntu server environments, and optimized database
+                            performance for thousands of learners.
+                        </div>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">jQuery</span>
+                            <span class="tag">AWS EC2</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div class="company">Leentech Network Solution</div>
+                            <div class="period">2016 — 2017</div>
+                        </div>
+                        <div class="role-name">Junior Programmer</div>
+                        <div class="desc">
+                            Developed custom <strong>Magento</strong> e-commerce solutions and pioneered mobile-first
+                            development using the Ionic framework for enterprise clients.
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Magento</span>
+                            <span class="tag">Ionic</span>
+                            <span class="tag">Mobile Dev</span>
+                            <span class="tag">jQuery Mobile</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Key Projects</h2>
+                    <div class="project-item">
+                        <div class="project-title">Temasek Foundation COVID-19 Hubs</div>
+                        <div class="project-desc">Led engineering for StayPrepared, Oximiter, and Staymasked—platforms
+                            facilitating nationwide distribution of essential health supplies in Singapore.</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Temasek Review 2023 & 2025</div>
+                        <div class="project-desc">Oversaw Quality Assurance for the flagship annual reports, ensuring
+                            data precision and 100% uptime for high-traffic global digital launches.</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Pentagreen Capital & Civic Tech</div>
+                        <div class="project-desc">Architected sustainable infrastructure financing portals and civic
+                            engagement tools (OnePeople) using modern React/Next.js stacks.</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Technical Stack</h3>
+                    <ul class="skill-list">
+                        <li><strong>Frontend:</strong> React, Next.js, TS</li>
+                        <li><strong>Backend:</strong> Node.js, PHP, Laravel</li>
+                        <li><strong>Cloud:</strong> AWS Lambda, EC2, S3</li>
+                        <li><strong>E-Com:</strong> WordPress, Magento</li>
+                        <li><strong>Quality:</strong> CI/CD, GitOps, QA Lead</li>
+                        <li><strong>Animation:</strong> GSAP, Framer Motion</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Expertise</h3>
+                    <ul class="skill-list">
+                        <li>Systems Architecture</li>
+                        <li>Team Leadership</li>
+                        <li>Agile Project Management</li>
+                        <li>High-Traffic Optimization</li>
+                        <li>Scalable Serverless APIs</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Recent Recognition</h3>
+                    <div class="project-desc" style="font-style: italic;">10+ Years of Engineering Excellence for
+                        Singapore's Digital Landscape.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

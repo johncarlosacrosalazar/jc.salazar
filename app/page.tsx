@@ -33,6 +33,8 @@ import imgPentagreen from '../public/assets/images/pentagreen.png';
 import imgB4B from '../public/assets/images/b4b.academy.png';
 import imgCarloRosette from '../public/assets/images/carlo_and_rosette_wedding.png';
 import imgLolasPlates from '../public/assets/images/lolas-pours-plates.png';
+import imgJsxDashboard from '../public/assets/images/jsx-dashboard.png';
+import imgPhuckjs from '../public/assets/images/Phuckjs-pagebuilder.png';
 
 
 
@@ -66,6 +68,15 @@ const experiences = [
 ];
 
 const projects = [
+  {
+    category: 'ReactJS / Next.js',
+    icon: <Code2 size={11} />,
+    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    items: [
+      { title: 'Phuckjs Page Builder', url: '', desc: 'ReactJS page builder, very good for building client website.', image: imgPhuckjs },
+      { title: 'JSX Dashboard', url: '', desc: 'Next.js with PostgreSQL and NextAuth Dashboard.', image: imgJsxDashboard },
+    ],
+  },
   {
     category: 'WordPress',
     icon: <Globe size={11} />,
@@ -414,7 +425,7 @@ function Experience() {
 function ProjectCard({ project, onPreview }: {
   project: {
     title: string;
-    url: string;
+    url?: string;
     desc: string;
     image?: any;
     badge: string;
@@ -490,15 +501,17 @@ function ProjectCard({ project, onPreview }: {
               <Maximize2 size={24} />
             </button>
           )}
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
-            title="Visit Site"
-          >
-            <ExternalLink size={24} />
-          </a>
+          {project.url && project.url !== '' && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white text-void rounded-sm hover:scale-110 transition-transform shadow-xl"
+              title="Visit Site"
+            >
+              <ExternalLink size={24} />
+            </a>
+          )}
         </div>
 
         {/* Corner Accent */}

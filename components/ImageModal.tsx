@@ -14,10 +14,15 @@ interface ImageModalProps {
 
 export default function ImageModal({ image, title, onClose }: ImageModalProps) {
   useEffect(() => {
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
     };
   }, []);
 
@@ -37,10 +42,10 @@ export default function ImageModal({ image, title, onClose }: ImageModalProps) {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="relative max-w-7xl w-full max-h-full bg-card rounded-sm border border-gold/20 shadow-2xl overflow-hidden pointer-events-auto"
+          className="relative max-w-7xl w-full max-h-[95vh] flex flex-col bg-card rounded-sm border border-gold/20 shadow-2xl overflow-hidden pointer-events-auto"
         >
-          <div className="absolute top-0 left-0 right-0 p-6 bg-gradient-to-b from-void/90 to-transparent z-[210] flex items-center justify-between">
-            <h3 className="font-bebas text-2xl text-ink tracking-wide">{title}</h3>
+          <div className="flex-shrink-0 relative z-[210] p-4 md:p-6 bg-void flex items-center justify-between border-b border-gold/10">
+            <h3 className="font-bebas text-xl md:text-2xl text-ink tracking-wide">{title}</h3>
             <button
               onClick={onClose}
               className="p-2 bg-gold text-void rounded-sm hover:brightness-110 transition-all shadow-lg"
@@ -49,7 +54,7 @@ export default function ImageModal({ image, title, onClose }: ImageModalProps) {
             </button>
           </div>
 
-          <div className="relative w-full aspect-video md:aspect-[16/9] overflow-y-auto bg-void/50 mt-16">
+          <div className="relative w-full flex-1 overflow-y-auto bg-void/50 custom-scrollbar">
             <Image
               src={image}
               alt={title}
