@@ -51,7 +51,7 @@
             "intent": "agent.whoami",
             "domain": "default"
           },
-          "about,me,self,tell,your": {
+          "introduc,yourself": {
             "intent": "agent.whoami",
             "domain": "default"
           },
@@ -67,11 +67,19 @@
             "intent": "greetings.hello",
             "domain": "default"
           },
+          "good,morn": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "yo": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
           "carlo,is,john,who": {
             "intent": "john.about",
             "domain": "default"
           },
-          "is,john,who": {
+          "is,jc,who": {
             "intent": "john.about",
             "domain": "default"
           },
@@ -79,7 +87,15 @@
             "intent": "john.about",
             "domain": "default"
           },
+          "about,do,him,know,what,you": {
+            "intent": "john.about",
+            "domain": "default"
+          },
           "experi,is,what,your": {
+            "intent": "john.experience",
+            "domain": "default"
+          },
+          "experi,how,mani,of,year": {
             "intent": "john.experience",
             "domain": "default"
           },
@@ -91,7 +107,11 @@
             "intent": "john.experience",
             "domain": "default"
           },
-          "job": {
+          "background": {
+            "intent": "john.experience",
+            "domain": "default"
+          },
+          "histori,profession": {
             "intent": "john.experience",
             "domain": "default"
           },
@@ -111,6 +131,22 @@
             "intent": "john.skills",
             "domain": "default"
           },
+          "languag,program": {
+            "intent": "john.skills",
+            "domain": "default"
+          },
+          "do,know,react,you": {
+            "intent": "john.skills",
+            "domain": "default"
+          },
+          "do,know,nextj,you": {
+            "intent": "john.skills",
+            "domain": "default"
+          },
+          "backend,frontend,or": {
+            "intent": "john.skills",
+            "domain": "default"
+          },
           "built,have,project,what,you": {
             "intent": "john.projects",
             "domain": "default"
@@ -120,6 +156,14 @@
             "domain": "default"
           },
           "me,show,work,your": {
+            "intent": "john.projects",
+            "domain": "default"
+          },
+          "exampl,give,me,of,some,work,your": {
+            "intent": "john.projects",
+            "domain": "default"
+          },
+          "project,recent": {
             "intent": "john.projects",
             "domain": "default"
           },
@@ -139,6 +183,14 @@
             "intent": "john.contact",
             "domain": "default"
           },
+          "media,social": {
+            "intent": "john.contact",
+            "domain": "default"
+          },
+          "linkedin": {
+            "intent": "john.contact",
+            "domain": "default"
+          },
           "do,live,where,you": {
             "intent": "john.location",
             "domain": "default"
@@ -151,8 +203,68 @@
             "intent": "john.location",
             "domain": "default"
           },
-          "locat": {
+          "current,locat": {
             "intent": "john.location",
+            "domain": "default"
+          },
+          "are,base,in,singapor,you": {
+            "intent": "john.location",
+            "domain": "default"
+          },
+          "educ,is,what,your": {
+            "intent": "john.education",
+            "domain": "default"
+          },
+          "did,studi,where,you": {
+            "intent": "john.education",
+            "domain": "default"
+          },
+          "degre": {
+            "intent": "john.education",
+            "domain": "default"
+          },
+          "colleg": {
+            "intent": "john.education",
+            "domain": "default"
+          },
+          "univers": {
+            "intent": "john.education",
+            "domain": "default"
+          },
+          "are,for,hire,you": {
+            "intent": "john.hire",
+            "domain": "default"
+          },
+          "can,hire,i,you": {
+            "intent": "john.hire",
+            "domain": "default"
+          },
+          "avail,for,work": {
+            "intent": "john.hire",
+            "domain": "default"
+          },
+          "freelanc": {
+            "intent": "john.hire",
+            "domain": "default"
+          },
+          "job,opportun": {
+            "intent": "john.hire",
+            "domain": "default"
+          },
+          "resum": {
+            "intent": "john.resume",
+            "domain": "default"
+          },
+          "cv": {
+            "intent": "john.resume",
+            "domain": "default"
+          },
+          "download,resum": {
+            "intent": "john.resume",
+            "domain": "default"
+          },
+          "can,cv,i,see,your": {
+            "intent": "john.resume",
             "domain": "default"
           }
         },
@@ -164,7 +276,10 @@
           "john.skills": "default",
           "john.projects": "default",
           "john.contact": "default",
-          "john.location": "default"
+          "john.location": "default",
+          "john.education": "default",
+          "john.hire": "default",
+          "john.resume": "default"
         },
         "sentences": [
           {
@@ -184,7 +299,7 @@
           },
           {
             "domain": "default",
-            "utterance": "tell me about your self",
+            "utterance": "introduce yourself",
             "intent": "agent.whoami"
           },
           {
@@ -204,12 +319,22 @@
           },
           {
             "domain": "default",
+            "utterance": "good morning",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
             "utterance": "who is john carlo",
             "intent": "john.about"
           },
           {
             "domain": "default",
-            "utterance": "who is john",
+            "utterance": "who is jc",
             "intent": "john.about"
           },
           {
@@ -219,7 +344,17 @@
           },
           {
             "domain": "default",
+            "utterance": "what do you know about him",
+            "intent": "john.about"
+          },
+          {
+            "domain": "default",
             "utterance": "what is your experience",
+            "intent": "john.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "how many years of experience",
             "intent": "john.experience"
           },
           {
@@ -234,7 +369,12 @@
           },
           {
             "domain": "default",
-            "utterance": "jobs",
+            "utterance": "background",
+            "intent": "john.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "professional history",
             "intent": "john.experience"
           },
           {
@@ -259,6 +399,26 @@
           },
           {
             "domain": "default",
+            "utterance": "programming languages",
+            "intent": "john.skills"
+          },
+          {
+            "domain": "default",
+            "utterance": "do you know react",
+            "intent": "john.skills"
+          },
+          {
+            "domain": "default",
+            "utterance": "do you know nextjs",
+            "intent": "john.skills"
+          },
+          {
+            "domain": "default",
+            "utterance": "backend or frontend",
+            "intent": "john.skills"
+          },
+          {
+            "domain": "default",
             "utterance": "what projects have you built",
             "intent": "john.projects"
           },
@@ -270,6 +430,16 @@
           {
             "domain": "default",
             "utterance": "show me your works",
+            "intent": "john.projects"
+          },
+          {
+            "domain": "default",
+            "utterance": "give me some examples of your work",
+            "intent": "john.projects"
+          },
+          {
+            "domain": "default",
+            "utterance": "recent projects",
             "intent": "john.projects"
           },
           {
@@ -294,6 +464,16 @@
           },
           {
             "domain": "default",
+            "utterance": "social media",
+            "intent": "john.contact"
+          },
+          {
+            "domain": "default",
+            "utterance": "linkedin",
+            "intent": "john.contact"
+          },
+          {
+            "domain": "default",
             "utterance": "where do you live",
             "intent": "john.location"
           },
@@ -309,8 +489,83 @@
           },
           {
             "domain": "default",
-            "utterance": "location",
+            "utterance": "current location",
             "intent": "john.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "are you based in singapore",
+            "intent": "john.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is your education",
+            "intent": "john.education"
+          },
+          {
+            "domain": "default",
+            "utterance": "where did you study",
+            "intent": "john.education"
+          },
+          {
+            "domain": "default",
+            "utterance": "degree",
+            "intent": "john.education"
+          },
+          {
+            "domain": "default",
+            "utterance": "college",
+            "intent": "john.education"
+          },
+          {
+            "domain": "default",
+            "utterance": "university",
+            "intent": "john.education"
+          },
+          {
+            "domain": "default",
+            "utterance": "are you for hire",
+            "intent": "john.hire"
+          },
+          {
+            "domain": "default",
+            "utterance": "can I hire you",
+            "intent": "john.hire"
+          },
+          {
+            "domain": "default",
+            "utterance": "available for work",
+            "intent": "john.hire"
+          },
+          {
+            "domain": "default",
+            "utterance": "freelance",
+            "intent": "john.hire"
+          },
+          {
+            "domain": "default",
+            "utterance": "job opportunities",
+            "intent": "john.hire"
+          },
+          {
+            "domain": "default",
+            "utterance": "resume",
+            "intent": "john.resume"
+          },
+          {
+            "domain": "default",
+            "utterance": "cv",
+            "intent": "john.resume"
+          },
+          {
+            "domain": "default",
+            "utterance": "download resume",
+            "intent": "john.resume"
+          },
+          {
+            "domain": "default",
+            "utterance": "can I see your cv",
+            "intent": "john.resume"
           }
         ],
         "domains": {
@@ -335,32 +590,52 @@
               "me": 1,
               "about": 1,
               "yourself": 1,
-              "your": 1,
-              "self": 1,
+              "introduc": 1,
               "hi": 1,
               "hello": 1,
               "hey": 1,
+              "good": 1,
+              "morn": 1,
+              "yo": 1,
               "is": 1,
               "john": 1,
               "carlo": 1,
+              "jc": 1,
               "salazar": 1,
+              "do": 1,
+              "know": 1,
+              "him": 1,
+              "your": 1,
               "experi": 1,
+              "how": 1,
+              "mani": 1,
+              "year": 1,
+              "of": 1,
               "work": 1,
               "histori": 1,
               "where": 1,
               "have": 1,
-              "job": 1,
+              "background": 1,
+              "profession": 1,
               "skill": 1,
               "tech": 1,
               "stack": 1,
               "technolog": 1,
-              "do": 1,
-              "know": 1,
+              "program": 1,
+              "languag": 1,
+              "react": 1,
+              "nextj": 1,
+              "backend": 1,
+              "or": 1,
+              "frontend": 1,
               "project": 1,
               "built": 1,
               "portfolio": 1,
               "show": 1,
-              "how": 1,
+              "give": 1,
+              "some": 1,
+              "exampl": 1,
+              "recent": 1,
               "can": 1,
               "i": 1,
               "contact": 1,
@@ -368,9 +643,32 @@
               "phone": 1,
               "number": 1,
               "whatsapp": 1,
+              "social": 1,
+              "media": 1,
+              "linkedin": 1,
               "live": 1,
               "address": 1,
-              "locat": 1
+              "locat": 1,
+              "current": 1,
+              "base": 1,
+              "in": 1,
+              "singapor": 1,
+              "educ": 1,
+              "did": 1,
+              "studi": 1,
+              "degre": 1,
+              "colleg": 1,
+              "univers": 1,
+              "for": 1,
+              "hire": 1,
+              "avail": 1,
+              "freelanc": 1,
+              "job": 1,
+              "opportun": 1,
+              "resum": 1,
+              "cv": 1,
+              "download": 1,
+              "see": 1
             },
             "intents": {
               "agent.whoami": 1,
@@ -380,7 +678,10 @@
               "john.skills": 1,
               "john.projects": 1,
               "john.contact": 1,
-              "john.location": 1
+              "john.location": 1,
+              "john.education": 1,
+              "john.hire": 1,
+              "john.resume": 1
             },
             "intentFeatures": {
               "agent.whoami": {
@@ -392,35 +693,48 @@
                 "me": 1,
                 "about": 1,
                 "yourself": 1,
-                "your": 1,
-                "self": 1
+                "introduc": 1
               },
               "greetings.hello": {
                 "hi": 1,
                 "hello": 1,
-                "hey": 1
+                "hey": 1,
+                "good": 1,
+                "morn": 1,
+                "yo": 1
               },
               "john.about": {
                 "who": 1,
                 "is": 1,
                 "john": 1,
                 "carlo": 1,
+                "jc": 1,
                 "tell": 1,
                 "me": 1,
                 "about": 1,
-                "salazar": 1
+                "salazar": 1,
+                "what": 1,
+                "do": 1,
+                "you": 1,
+                "know": 1,
+                "him": 1
               },
               "john.experience": {
                 "what": 1,
                 "is": 1,
                 "your": 1,
                 "experi": 1,
+                "how": 1,
+                "mani": 1,
+                "year": 1,
+                "of": 1,
                 "work": 1,
                 "histori": 1,
                 "where": 1,
                 "have": 1,
                 "you": 1,
-                "job": 1
+                "background": 1,
+                "profession": 1
               },
               "john.skills": {
                 "what": 1,
@@ -432,7 +746,14 @@
                 "technolog": 1,
                 "do": 1,
                 "you": 1,
-                "know": 1
+                "know": 1,
+                "program": 1,
+                "languag": 1,
+                "react": 1,
+                "nextj": 1,
+                "backend": 1,
+                "or": 1,
+                "frontend": 1
               },
               "john.projects": {
                 "what": 1,
@@ -444,7 +765,12 @@
                 "show": 1,
                 "me": 1,
                 "your": 1,
-                "work": 1
+                "work": 1,
+                "give": 1,
+                "some": 1,
+                "exampl": 1,
+                "of": 1,
+                "recent": 1
               },
               "john.contact": {
                 "how": 1,
@@ -458,7 +784,10 @@
                 "email": 1,
                 "phone": 1,
                 "number": 1,
-                "whatsapp": 1
+                "whatsapp": 1,
+                "social": 1,
+                "media": 1,
+                "linkedin": 1
               },
               "john.location": {
                 "where": 1,
@@ -470,7 +799,46 @@
                 "your": 1,
                 "address": 1,
                 "are": 1,
-                "locat": 1
+                "locat": 1,
+                "current": 1,
+                "base": 1,
+                "in": 1,
+                "singapor": 1
+              },
+              "john.education": {
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "educ": 1,
+                "where": 1,
+                "did": 1,
+                "you": 1,
+                "studi": 1,
+                "degre": 1,
+                "colleg": 1,
+                "univers": 1
+              },
+              "john.hire": {
+                "are": 1,
+                "you": 1,
+                "for": 1,
+                "hire": 1,
+                "can": 1,
+                "i": 1,
+                "avail": 1,
+                "work": 1,
+                "freelanc": 1,
+                "job": 1,
+                "opportun": 1
+              },
+              "john.resume": {
+                "resum": 1,
+                "cv": 1,
+                "download": 1,
+                "can": 1,
+                "i": 1,
+                "see": 1,
+                "your": 1
               }
             },
             "featuresToIntent": {
@@ -481,23 +849,29 @@
               "are": [
                 "agent.whoami",
                 "john.skills",
-                "john.location"
+                "john.location",
+                "john.hire"
               ],
               "you": [
                 "agent.whoami",
+                "john.about",
                 "john.experience",
                 "john.skills",
                 "john.projects",
                 "john.contact",
-                "john.location"
+                "john.location",
+                "john.education",
+                "john.hire"
               ],
               "what": [
                 "agent.whoami",
+                "john.about",
                 "john.experience",
                 "john.skills",
                 "john.projects",
                 "john.contact",
-                "john.location"
+                "john.location",
+                "john.education"
               ],
               "tell": [
                 "agent.whoami",
@@ -515,15 +889,7 @@
               "yourself": [
                 "agent.whoami"
               ],
-              "your": [
-                "agent.whoami",
-                "john.experience",
-                "john.skills",
-                "john.projects",
-                "john.contact",
-                "john.location"
-              ],
-              "self": [
+              "introduc": [
                 "agent.whoami"
               ],
               "hi": [
@@ -535,11 +901,21 @@
               "hey": [
                 "greetings.hello"
               ],
+              "good": [
+                "greetings.hello"
+              ],
+              "morn": [
+                "greetings.hello"
+              ],
+              "yo": [
+                "greetings.hello"
+              ],
               "is": [
                 "john.about",
                 "john.experience",
                 "john.contact",
-                "john.location"
+                "john.location",
+                "john.education"
               ],
               "john": [
                 "john.about"
@@ -547,28 +923,71 @@
               "carlo": [
                 "john.about"
               ],
+              "jc": [
+                "john.about"
+              ],
               "salazar": [
                 "john.about"
+              ],
+              "do": [
+                "john.about",
+                "john.skills",
+                "john.location"
+              ],
+              "know": [
+                "john.about",
+                "john.skills"
+              ],
+              "him": [
+                "john.about"
+              ],
+              "your": [
+                "john.experience",
+                "john.skills",
+                "john.projects",
+                "john.contact",
+                "john.location",
+                "john.education",
+                "john.resume"
               ],
               "experi": [
                 "john.experience"
               ],
-              "work": [
+              "how": [
+                "john.experience",
+                "john.contact"
+              ],
+              "mani": [
+                "john.experience"
+              ],
+              "year": [
+                "john.experience"
+              ],
+              "of": [
                 "john.experience",
                 "john.projects"
+              ],
+              "work": [
+                "john.experience",
+                "john.projects",
+                "john.hire"
               ],
               "histori": [
                 "john.experience"
               ],
               "where": [
                 "john.experience",
-                "john.location"
+                "john.location",
+                "john.education"
               ],
               "have": [
                 "john.experience",
                 "john.projects"
               ],
-              "job": [
+              "background": [
+                "john.experience"
+              ],
+              "profession": [
                 "john.experience"
               ],
               "skill": [
@@ -583,11 +1002,25 @@
               "technolog": [
                 "john.skills"
               ],
-              "do": [
-                "john.skills",
-                "john.location"
+              "program": [
+                "john.skills"
               ],
-              "know": [
+              "languag": [
+                "john.skills"
+              ],
+              "react": [
+                "john.skills"
+              ],
+              "nextj": [
+                "john.skills"
+              ],
+              "backend": [
+                "john.skills"
+              ],
+              "or": [
+                "john.skills"
+              ],
+              "frontend": [
                 "john.skills"
               ],
               "project": [
@@ -602,14 +1035,27 @@
               "show": [
                 "john.projects"
               ],
-              "how": [
-                "john.contact"
+              "give": [
+                "john.projects"
+              ],
+              "some": [
+                "john.projects"
+              ],
+              "exampl": [
+                "john.projects"
+              ],
+              "recent": [
+                "john.projects"
               ],
               "can": [
-                "john.contact"
+                "john.contact",
+                "john.hire",
+                "john.resume"
               ],
               "i": [
-                "john.contact"
+                "john.contact",
+                "john.hire",
+                "john.resume"
               ],
               "contact": [
                 "john.contact"
@@ -626,6 +1072,15 @@
               "whatsapp": [
                 "john.contact"
               ],
+              "social": [
+                "john.contact"
+              ],
+              "media": [
+                "john.contact"
+              ],
+              "linkedin": [
+                "john.contact"
+              ],
               "live": [
                 "john.location"
               ],
@@ -634,6 +1089,66 @@
               ],
               "locat": [
                 "john.location"
+              ],
+              "current": [
+                "john.location"
+              ],
+              "base": [
+                "john.location"
+              ],
+              "in": [
+                "john.location"
+              ],
+              "singapor": [
+                "john.location"
+              ],
+              "educ": [
+                "john.education"
+              ],
+              "did": [
+                "john.education"
+              ],
+              "studi": [
+                "john.education"
+              ],
+              "degre": [
+                "john.education"
+              ],
+              "colleg": [
+                "john.education"
+              ],
+              "univers": [
+                "john.education"
+              ],
+              "for": [
+                "john.hire"
+              ],
+              "hire": [
+                "john.hire"
+              ],
+              "avail": [
+                "john.hire"
+              ],
+              "freelanc": [
+                "john.hire"
+              ],
+              "job": [
+                "john.hire"
+              ],
+              "opportun": [
+                "john.hire"
+              ],
+              "resum": [
+                "john.resume"
+              ],
+              "cv": [
+                "john.resume"
+              ],
+              "download": [
+                "john.resume"
+              ],
+              "see": [
+                "john.resume"
               ]
             },
             "neuralNetwork": {
@@ -656,32 +1171,52 @@
                 "me",
                 "about",
                 "yourself",
-                "your",
-                "self",
+                "introduc",
                 "hi",
                 "hello",
                 "hey",
+                "good",
+                "morn",
+                "yo",
                 "is",
                 "john",
                 "carlo",
+                "jc",
                 "salazar",
+                "do",
+                "know",
+                "him",
+                "your",
                 "experi",
+                "how",
+                "mani",
+                "year",
+                "of",
                 "work",
                 "histori",
                 "where",
                 "have",
-                "job",
+                "background",
+                "profession",
                 "skill",
                 "tech",
                 "stack",
                 "technolog",
-                "do",
-                "know",
+                "program",
+                "languag",
+                "react",
+                "nextj",
+                "backend",
+                "or",
+                "frontend",
                 "project",
                 "built",
                 "portfolio",
                 "show",
-                "how",
+                "give",
+                "some",
+                "exampl",
+                "recent",
                 "can",
                 "i",
                 "contact",
@@ -689,9 +1224,32 @@
                 "phone",
                 "number",
                 "whatsapp",
+                "social",
+                "media",
+                "linkedin",
                 "live",
                 "address",
-                "locat"
+                "locat",
+                "current",
+                "base",
+                "in",
+                "singapor",
+                "educ",
+                "did",
+                "studi",
+                "degre",
+                "colleg",
+                "univers",
+                "for",
+                "hire",
+                "avail",
+                "freelanc",
+                "job",
+                "opportun",
+                "resum",
+                "cv",
+                "download",
+                "see"
               ],
               "intents": [
                 "agent.whoami",
@@ -701,384 +1259,1001 @@
                 "john.skills",
                 "john.projects",
                 "john.contact",
-                "john.location"
+                "john.location",
+                "john.education",
+                "john.hire",
+                "john.resume"
               ],
               "perceptrons": [
                 [
-                  3.2716517448425293,
-                  6.577141284942627,
-                  5.156215190887451,
-                  2.2070136070251465,
-                  4.227804660797119,
-                  3.417513132095337,
-                  4.227804660797119,
-                  2.901765823364258,
-                  -2.2719051837921143,
-                  4.938226222991943,
-                  -0.4652886390686035,
-                  -0.45008182525634766,
-                  -0.4463177025318146,
-                  -0.934507429599762,
-                  -4.049919128417969,
-                  -3.80692982673645,
-                  -3.6139116287231445,
-                  -0.3289186954498291,
-                  -1.3617326021194458,
-                  -0.12756158411502838,
-                  -5.957559585571289,
-                  -2.574289083480835,
-                  -0.30823424458503723,
-                  -5.885885238647461,
-                  -0.15983496606349945,
-                  -0.15983496606349945,
-                  -0.20766225457191467,
-                  -3.546485662460327,
-                  -3.2864012718200684,
-                  -2.159590244293213,
-                  -2.159590244293213,
-                  -0.12285641580820084,
-                  -0.7898175716400146,
-                  -1.1867029666900635,
-                  -1.1867029666900635,
-                  -1.1867029666900635,
-                  -1.1867029666900635,
-                  -0.06771117448806763,
-                  -0.047005072236061096,
-                  -0.047005072236061096,
-                  -0.06972412765026093,
-                  -0.23753966391086578,
-                  -0.025617452338337898,
-                  -5.2901153564453125,
-                  -0.4125103984862219
-                ],
-                [
-                  -1.0421031713485718,
-                  -0.6930700540542603,
-                  -1.6171678304672241,
-                  -1.2086330652236938,
-                  -0.867698609828949,
-                  -1.0061413049697876,
-                  -0.867698609828949,
-                  -0.6117448210716248,
-                  -1.0162297487258911,
-                  -0.009120374917984009,
-                  10.851128578186035,
-                  10.842735290527344,
-                  10.8207426071167,
-                  -1.2754230499267578,
-                  -1.1900978088378906,
-                  -0.5822582244873047,
-                  -0.2210468202829361,
-                  -0.29147276282310486,
-                  -1.9152079820632935,
-                  -1.492523193359375,
-                  -0.7369895577430725,
-                  -0.3985043466091156,
-                  -3.3351337909698486,
-                  -0.5365071296691895,
-                  -1.6904505491256714,
-                  -1.6904505491256714,
-                  -3.324108123779297,
-                  -0.6148570775985718,
-                  -0.21478796005249023,
-                  -0.11390482634305954,
-                  -0.11390482634305954,
-                  -3.3143863677978516,
-                  -0.12427466362714767,
-                  -0.4425360858440399,
-                  -0.4425360858440399,
-                  -0.4425360858440399,
-                  -0.4425360858440399,
-                  -0.006125120911747217,
-                  -1.6801609992980957,
-                  -1.6801609992980957,
-                  -3.3015518188476562,
-                  -0.3894900679588318,
+                  5.337646484375,
+                  6.0587921142578125,
+                  3.593994140625,
+                  4.152114391326904,
+                  2.334937572479248,
+                  2.1457974910736084,
+                  0.8949329853057861,
+                  9.343634605407715,
+                  5.328799247741699,
+                  -0.5110154747962952,
+                  -0.5077258944511414,
+                  -0.4921794831752777,
+                  -0.3513285517692566,
+                  -0.3513285517692566,
+                  -0.46566325426101685,
+                  -2.854595899581909,
+                  -1.9446357488632202,
+                  -1.9446357488632202,
+                  -2.342261791229248,
+                  -1.6559745073318481,
+                  -3.5858938694000244,
+                  -3.552744150161743,
+                  -1.4377554655075073,
+                  -4.985105991363525,
+                  -0.3106793165206909,
+                  -0.881708562374115,
+                  -0.10305435955524445,
+                  -0.10305435955524445,
+                  -0.1718929260969162,
+                  -0.6868017911911011,
+                  -0.3122918903827667,
+                  -4.784482955932617,
+                  -2.6482245922088623,
+                  -0.3074817359447479,
+                  -0.17026333510875702,
+                  -4.571709156036377,
+                  -0.17190735042095184,
+                  -0.17190735042095184,
+                  -0.2179873287677765,
+                  -0.14744587242603302,
+                  -0.14744587242603302,
+                  -0.06740058213472366,
+                  -0.037383224815130234,
+                  -0.11452264338731766,
+                  -0.11452264338731766,
+                  -0.11452264338731766,
+                  -2.3023948669433594,
+                  -2.270751476287842,
+                  -0.1481221616268158,
+                  -0.09917787462472916,
+                  -0.04318081960082054,
+                  -0.04318081960082054,
+                  -0.04318081960082054,
+                  -0.02068343199789524,
+                  -0.7585659623146057,
+                  -0.7585659623146057,
+                  -0.7566184997558594,
+                  -0.003562996396794915,
+                  -0.09279818832874298,
+                  -0.09279818832874298,
+                  -0.11989898979663849,
+                  -0.0873246043920517,
+                  -0.0873246043920517,
+                  -0.11364344507455826,
+                  -0.020347941666841507,
                   0,
-                  -3.2907004356384277,
-                  3.355466762764646
+                  -4.343576908111572,
+                  -0.0036039543338119984,
+                  -3.0545690059661865,
+                  -3.0545690059661865,
+                  -3.0545690059661865,
+                  0,
+                  -0.02771923691034317,
+                  -0.02771923691034317,
+                  -0.003166767070069909,
+                  -0.003033895744010806,
+                  -0.002906599547713995,
+                  -4.543141841888428,
+                  -4.545089244842529,
+                  0,
+                  -0.0007048899424262345,
+                  -0.0006753141642548144,
+                  -0.0006753141642548144,
+                  -0.0015371493063867092,
+                  -0.0006198332994244993,
+                  -0.0005666803335770965,
+                  0,
+                  -0.47100916146445704
                 ],
                 [
-                  2.9573237895965576,
-                  -1.375270128250122,
-                  -1.6570286750793457,
-                  -1.2281004190444946,
-                  0.7755042910575867,
-                  0.6173575520515442,
-                  0.7755042910575867,
-                  -2.124699592590332,
-                  -1.7546838521957397,
-                  -0.4668726921081543,
-                  -0.0765896737575531,
-                  -0.07376750558614731,
-                  -0.07538243383169174,
-                  3.1920504570007324,
-                  7.629453182220459,
-                  0.9236078858375549,
-                  3.3718814849853516,
-                  -0.38722366094589233,
-                  -0.4290734529495239,
-                  -0.15242546796798706,
-                  -0.15774932503700256,
-                  -0.12121502310037613,
-                  -0.23613160848617554,
-                  -0.03424250707030296,
-                  -0.1863124519586563,
-                  -0.1863124519586563,
-                  -0.21784935891628265,
-                  -0.08765806257724762,
-                  -0.04368048533797264,
-                  -0.020271021872758865,
-                  -0.020271021872758865,
-                  -0.20652726292610168,
-                  -0.10128753632307053,
-                  -0.05706297978758812,
-                  -0.05706297978758812,
-                  -0.05706297978758812,
-                  -0.05706297978758812,
-                  -0.2968906760215759,
-                  -0.14607900381088257,
-                  -0.14607900381088257,
-                  -0.18530084192752838,
-                  -0.028929339721798897,
-                  -0.2819247841835022,
-                  -0.18097127974033356,
-                  0.07905625291805769
+                  -1.0741137266159058,
+                  -0.6123171448707581,
+                  -1.6740778684616089,
+                  -1.0358914136886597,
+                  -0.347628653049469,
+                  -0.4960617125034332,
+                  -0.5797815322875977,
+                  -1.2924609184265137,
+                  -1.2881393432617188,
+                  11.518866539001465,
+                  11.504582405090332,
+                  11.464179039001465,
+                  5.829487323760986,
+                  5.829487323760986,
+                  11.411820411682129,
+                  -1.3372365236282349,
+                  -0.7730072140693665,
+                  -0.7730072140693665,
+                  -0.6415594220161438,
+                  -0.3409317433834076,
+                  -0.6165129542350769,
+                  -0.6142368912696838,
+                  -0.15681463479995728,
+                  -0.8728539347648621,
+                  -0.8162902593612671,
+                  -0.7050837874412537,
+                  -0.5521332621574402,
+                  -0.5521332621574402,
+                  -0.5832586884498596,
+                  -1.6738719940185547,
+                  -1.7755119800567627,
+                  -0.5564749836921692,
+                  -0.3150181770324707,
+                  -2.6256632804870605,
+                  -1.0224403142929077,
+                  -0.43816670775413513,
+                  -1.3813402652740479,
+                  -1.3813402652740479,
+                  -2.6132261753082275,
+                  -1.357412338256836,
+                  -1.357412338256836,
+                  -0.16908526420593262,
+                  -0.1323154866695404,
+                  -0.9211205840110779,
+                  -0.9211205840110779,
+                  -0.9211205840110779,
+                  -1.3576995134353638,
+                  -0.02541164681315422,
+                  -2.599968194961548,
+                  -0.08577144145965576,
+                  -0.015207895077764988,
+                  -0.015207895077764988,
+                  -0.015207895077764988,
+                  -1.3204301595687866,
+                  -0.3647085428237915,
+                  -0.3647085428237915,
+                  -0.11578711122274399,
+                  0,
+                  -1.3366559743881226,
+                  -1.3366559743881226,
+                  -2.5845677852630615,
+                  -1.324349045753479,
+                  -1.324349045753479,
+                  -2.5707430839538574,
+                  -0.0011364879319444299,
+                  0,
+                  -1.3303921222686768,
+                  -1.3016096353530884,
+                  -0.12356335669755936,
+                  -0.12356335669755936,
+                  -0.12356335669755936,
+                  0,
+                  -0.21232546865940094,
+                  -0.21232546865940094,
+                  -2.555333375930786,
+                  -2.5427098274230957,
+                  -2.5296308994293213,
+                  -0.47128593921661377,
+                  -0.21100841462612152,
+                  -0.46822047233581543,
+                  -2.5139360427856445,
+                  -1.3006432056427002,
+                  -1.3006432056427002,
+                  -2.5140085220336914,
+                  -2.4841737747192383,
+                  -0.5755103230476379,
+                  -0.02659466676414013,
+                  2.6009319843810124
                 ],
                 [
-                  -1.8257237672805786,
-                  -1.8294728994369507,
-                  -0.6621531844139099,
-                  0.5991998314857483,
-                  -0.09685854613780975,
-                  -4.161866188049316,
-                  -0.09685854613780975,
-                  -0.07159454375505447,
-                  -0.6394727230072021,
-                  -0.005231034476310015,
-                  -1.5539387464523315,
-                  -1.5484791994094849,
-                  -1.5427969694137573,
-                  1.9600907564163208,
-                  -1.7087703943252563,
-                  -0.5379465222358704,
-                  -0.006160077638924122,
-                  10.457106590270996,
-                  7.2358784675598145,
-                  5.473526954650879,
-                  2.7171778678894043,
-                  3.359809637069702,
-                  12.52692699432373,
-                  -0.22552964091300964,
-                  -0.9288061261177063,
-                  -0.9288061261177063,
-                  -1.6776745319366455,
-                  -2.0019946098327637,
-                  -0.27194085717201233,
-                  -2.4532811641693115,
-                  -2.4532811641693115,
-                  -1.6478804349899292,
-                  -4.049103260040283,
-                  -0.3912185728549957,
-                  -0.3912185728549957,
-                  -0.3912185728549957,
-                  -0.3912185728549957,
-                  -3.43536376953125,
-                  -0.8216231465339661,
-                  -0.8216231465339661,
-                  -1.5942105054855347,
-                  -1.650618076324463,
-                  -3.3739984035491943,
-                  -1.8078356981277466,
-                  1.5941641813230563
+                  4.534389019012451,
+                  -2.378344774246216,
+                  -1.58971107006073,
+                  0.25381582975387573,
+                  -0.7530486583709717,
+                  -0.8969165086746216,
+                  6.638179779052734,
+                  -4.00923490524292,
+                  0,
+                  -0.0007532209856435657,
+                  -0.0007216488593257964,
+                  -0.0006914000841788948,
+                  -0.0006624192465096712,
+                  -0.0006624192465096712,
+                  -0.0006346531445160508,
+                  3.9391205310821533,
+                  3.4043288230895996,
+                  3.4043288230895996,
+                  6.550680637359619,
+                  3.260991096496582,
+                  1.077985405921936,
+                  1.2415759563446045,
+                  7.384184837341309,
+                  -3.1079280376434326,
+                  -0.9922915101051331,
+                  -0.21654969453811646,
+                  -0.12209232896566391,
+                  -0.12209232896566391,
+                  -0.21164287626743317,
+                  -0.5790618658065796,
+                  -0.3989243805408478,
+                  -0.3749292492866516,
+                  -0.34099021553993225,
+                  -0.26405254006385803,
+                  -0.17425891757011414,
+                  -0.14349079132080078,
+                  -0.22025306522846222,
+                  -0.22025306522846222,
+                  -0.23064163327217102,
+                  -0.1753099113702774,
+                  -0.1753099113702774,
+                  -1.1172126531600952,
+                  -1.011618733406067,
+                  -0.10487845540046692,
+                  -0.10487845540046692,
+                  -0.10487845540046692,
+                  -0.2401067167520523,
+                  -0.11759070307016373,
+                  -0.1275234818458557,
+                  -0.05684169381856918,
+                  -0.04462438449263573,
+                  -0.04462438449263573,
+                  -0.04462438449263573,
+                  -0.0728209912776947,
+                  -0.06193951144814491,
+                  -0.06193951144814491,
+                  -0.05029480531811714,
+                  -0.701082170009613,
+                  -0.07540677487850189,
+                  -0.07540677487850189,
+                  -0.09273967146873474,
+                  -0.08240292966365814,
+                  -0.08240292966365814,
+                  -0.08598298579454422,
+                  -0.13661043345928192,
+                  -0.6333120465278625,
+                  -0.05442354083061218,
+                  -0.05073297768831253,
+                  -0.004386508837342262,
+                  -0.004386508837342262,
+                  -0.004386508837342262,
+                  -0.574670135974884,
+                  0,
+                  0,
+                  -0.052812136709690094,
+                  -0.0507764108479023,
+                  -0.048818737268447876,
+                  0,
+                  -0.0034331984352320433,
+                  0,
+                  -0.046699609607458115,
+                  -0.03577711805701256,
+                  -0.03577711805701256,
+                  -0.07301383465528488,
+                  -0.04174529388546944,
+                  -0.027745569124817848,
+                  0,
+                  -0.8495205110709586
                 ],
                 [
-                  -1.0030484199523926,
-                  -0.27887454628944397,
-                  -4.075578689575195,
-                  2.7844676971435547,
-                  -0.7488775253295898,
-                  -1.5431914329528809,
-                  -0.7488775253295898,
-                  -0.12920160591602325,
-                  1.9097625017166138,
-                  -0.5667123794555664,
-                  -1.6853810548782349,
-                  -1.6806843280792236,
-                  -1.6757255792617798,
-                  -4.881738662719727,
-                  -0.07115486264228821,
-                  -0.05097797140479088,
-                  -0.021628303453326225,
-                  -1.482572078704834,
-                  -1.2761712074279785,
-                  -0.45594322681427,
-                  -2.0884714126586914,
-                  -1.2231011390686035,
-                  -1.6650521755218506,
-                  8.094775199890137,
-                  6.29141902923584,
-                  6.29141902923584,
-                  12.453315734863281,
-                  6.079634666442871,
-                  7.73041296005249,
-                  -1.19611656665802,
-                  -1.19611656665802,
-                  -1.7429741621017456,
-                  -0.7933918833732605,
-                  -0.4296981692314148,
-                  -0.4296981692314148,
-                  -0.4296981692314148,
-                  -0.4296981692314148,
-                  -1.7215688228607178,
-                  -0.968512773513794,
-                  -0.968512773513794,
-                  -1.7236281633377075,
-                  -1.6503762006759644,
-                  -1.6117182970046997,
-                  -1.7223597764968872,
-                  1.7119795761024446
+                  -1.583837628364563,
+                  -1.8867781162261963,
+                  -0.8324089050292969,
+                  0.1433217078447342,
+                  -0.006826634053140879,
+                  -3.4644088745117188,
+                  -0.006826634053140879,
+                  -0.3689102530479431,
+                  -0.35525697469711304,
+                  -0.697808027267456,
+                  -0.6940017342567444,
+                  -0.6900833249092102,
+                  -0.35857024788856506,
+                  -0.35857024788856506,
+                  -0.684775173664093,
+                  1.9231736660003662,
+                  -0.5457367897033691,
+                  -0.5457367897033691,
+                  -1.0374219417572021,
+                  0,
+                  -2.200315237045288,
+                  -0.8847293853759766,
+                  0,
+                  -0.40284085273742676,
+                  11.591404914855957,
+                  0.1765938252210617,
+                  1.053418517112732,
+                  1.053418517112732,
+                  -0.2684817612171173,
+                  5.228057861328125,
+                  8.545961380004883,
+                  3.6005442142486572,
+                  5.422675132751465,
+                  13.258476257324219,
+                  4.85565710067749,
+                  -0.4191855490207672,
+                  -0.7612385153770447,
+                  -0.7612385153770447,
+                  -1.0580943822860718,
+                  -0.7107017040252686,
+                  -0.7107017040252686,
+                  -0.2612316310405731,
+                  -0.21532824635505676,
+                  -0.5545362234115601,
+                  -0.5545362234115601,
+                  -0.5545362234115601,
+                  -2.8809845447540283,
+                  -2.5697264671325684,
+                  -0.9566338658332825,
+                  -2.1288554668426514,
+                  -1.2106200456619263,
+                  -1.2106200456619263,
+                  -1.2106200456619263,
+                  -0.25934359431266785,
+                  -0.8113441467285156,
+                  -0.8113441467285156,
+                  -0.7976197004318237,
+                  -2.371677875518799,
+                  -0.5297799110412598,
+                  -0.5297799110412598,
+                  -0.8335860967636108,
+                  -0.5122830271720886,
+                  -0.5122830271720886,
+                  -0.8182733654975891,
+                  -1.291367769241333,
+                  -2.3519630432128906,
+                  -1.5978144407272339,
+                  -0.20812305808067322,
+                  -0.03895805403590202,
+                  -0.03895805403590202,
+                  -0.03895805403590202,
+                  -2.297736644744873,
+                  -1.7350324392318726,
+                  -1.7350324392318726,
+                  -0.7249820828437805,
+                  -0.7229049801826477,
+                  -0.7206923365592957,
+                  -3.000703811645508,
+                  -0.010721305385231972,
+                  -2.9946670532226562,
+                  -0.7112871408462524,
+                  -0.3637748956680298,
+                  -0.3637748956680298,
+                  -0.7118319272994995,
+                  -0.7049163579940796,
+                  -0.17047764360904694,
+                  0,
+                  0.7255799870913884
                 ],
                 [
-                  -0.3127787411212921,
-                  -2.031581163406372,
-                  -0.27079522609710693,
-                  0.6857931017875671,
-                  -2.4526174068450928,
-                  4.200057029724121,
-                  -2.4526174068450928,
-                  -0.5057366490364075,
-                  1.3551719188690186,
-                  -1.7770819664001465,
-                  -1.1178895235061646,
-                  -1.115028977394104,
-                  -1.1119931936264038,
-                  -2.4341204166412354,
-                  -0.1735643744468689,
-                  -0.15594719350337982,
-                  -0.12947863340377808,
-                  -0.7334278225898743,
-                  0.9436221718788147,
-                  -2.219719886779785,
-                  -3.728912115097046,
-                  1.9346458911895752,
-                  -1.095864176750183,
-                  -1.132055640220642,
-                  -0.5611190795898438,
-                  -0.5611190795898438,
-                  -1.0872541666030884,
-                  -0.8552950620651245,
-                  -0.683087944984436,
-                  5.404901504516602,
-                  5.404901504516602,
-                  13.043863296508789,
-                  6.652557849884033,
-                  -0.4269689619541168,
-                  -0.4269689619541168,
-                  -0.4269689619541168,
-                  -0.4269689619541168,
-                  -0.8254880309104919,
-                  -0.6391874551773071,
-                  -0.6391874551773071,
-                  -1.1278895139694214,
-                  -0.15319038927555084,
-                  -0.8215275406837463,
-                  -1.1260582208633423,
-                  1.1289987008680833
+                  -1.0817567110061646,
+                  0.9007841944694519,
+                  -3.328120231628418,
+                  1.5548001527786255,
+                  -0.04575975239276886,
+                  -1.3013386726379395,
+                  -6.652035236358643,
+                  -0.7164031863212585,
+                  -0.6621862649917603,
+                  -1.3264515399932861,
+                  -1.3211833238601685,
+                  -1.315661907196045,
+                  -0.6733455657958984,
+                  -0.6733455657958984,
+                  -1.3084298372268677,
+                  -4.250512599945068,
+                  -0.058230604976415634,
+                  -0.058230604976415634,
+                  -0.06117730215191841,
+                  -0.003470540512353182,
+                  5.783708572387695,
+                  8.165828704833984,
+                  -6.590877056121826,
+                  2.4174532890319824,
+                  -0.8705000877380371,
+                  -0.7642982006072998,
+                  -0.04052620753645897,
+                  -0.04052620753645897,
+                  -0.3252164125442505,
+                  -1.5162357091903687,
+                  -0.6582414507865906,
+                  -2.916095018386841,
+                  -0.7178751230239868,
+                  -1.265529990196228,
+                  -0.6563315391540527,
+                  7.9557342529296875,
+                  6.477132320404053,
+                  6.477132320404053,
+                  12.686408996582031,
+                  6.443210601806641,
+                  6.443210601806641,
+                  2.5033786296844482,
+                  2.4568982124328613,
+                  4.30510950088501,
+                  4.30510950088501,
+                  4.30510950088501,
+                  -1.5406494140625,
+                  -0.7178751230239868,
+                  -1.6405646800994873,
+                  -0.9536896347999573,
+                  -0.2603587806224823,
+                  -0.2603587806224823,
+                  -0.2603587806224823,
+                  -0.6332687735557556,
+                  -1.0491650104522705,
+                  -1.0491650104522705,
+                  -0.6466847062110901,
+                  -1.1553676128387451,
+                  -0.9706243872642517,
+                  -0.9706243872642517,
+                  -1.5504586696624756,
+                  -0.9404404759407043,
+                  -0.9404404759407043,
+                  -1.5233018398284912,
+                  -2.3225555419921875,
+                  -1.0754365921020508,
+                  -1.0479459762573242,
+                  -0.7167354226112366,
+                  -0.5764256715774536,
+                  -0.5764256715774536,
+                  -0.5764256715774536,
+                  -1.0501892566680908,
+                  -0.20860755443572998,
+                  -0.20860755443572998,
+                  -1.4376866817474365,
+                  -1.425977349281311,
+                  -1.416412353515625,
+                  -0.818528413772583,
+                  -0.6866909265518188,
+                  -0.2633468210697174,
+                  -1.4022454023361206,
+                  -0.7598701119422913,
+                  -0.7598701119422913,
+                  -1.4240025281906128,
+                  -1.4958993196487427,
+                  -0.4262515604496002,
+                  -0.18252378702163696,
+                  1.3595908579780571
                 ],
                 [
-                  -1.6687560081481934,
-                  -2.1808269023895264,
-                  -0.19784577190876007,
-                  -0.015060505829751492,
-                  -0.8002443909645081,
-                  -1.1995030641555786,
-                  -0.8002443909645081,
-                  -0.23460717499256134,
-                  0.960117757320404,
-                  -0.5097111463546753,
-                  -1.8353354930877686,
-                  -1.8318164348602295,
-                  -1.8280173540115356,
-                  1.15623140335083,
-                  -1.3282991647720337,
-                  -0.5393684506416321,
-                  -0.007190187461674213,
-                  -3.9059953689575195,
-                  -1.2046089172363281,
-                  -0.6619146466255188,
-                  -1.0956817865371704,
-                  -0.6435945630073547,
-                  -1.8123548030853271,
-                  -0.5989073514938354,
-                  -0.9181640148162842,
-                  -0.9181640148162842,
-                  -1.8050827980041504,
-                  -1.1344726085662842,
-                  -0.4864298403263092,
-                  -0.48855671286582947,
-                  -0.48855671286582947,
-                  -1.798325777053833,
-                  -0.3869002163410187,
-                  3.1623387336730957,
-                  3.1623387336730957,
-                  3.1623387336730957,
-                  3.1623387336730957,
-                  10.306182861328125,
-                  6.225253582000732,
-                  6.225253582000732,
-                  12.317680358886719,
-                  -0.5958325862884521,
-                  -3.929969549179077,
-                  -1.843200445175171,
-                  1.841956081259879
+                  -0.1175234317779541,
+                  -1.86627197265625,
+                  -0.18156401813030243,
+                  -0.09099224209785461,
+                  -1.980272650718689,
+                  4.7140583992004395,
+                  -1.980272650718689,
+                  -1.5155919790267944,
+                  -0.0637669712305069,
+                  -0.7474403381347656,
+                  -0.7440545558929443,
+                  -0.7405336499214172,
+                  -0.38059037923812866,
+                  -0.38059037923812866,
+                  -0.7358750104904175,
+                  -2.47566294670105,
+                  -0.528007984161377,
+                  -0.528007984161377,
+                  0,
+                  -0.528007984161377,
+                  -0.40210074186325073,
+                  -0.17929691076278687,
+                  0,
+                  2.4100992679595947,
+                  -0.6026207804679871,
+                  -0.61664879322052,
+                  -0.39310020208358765,
+                  -0.39310020208358765,
+                  1.0142449140548706,
+                  1.113267183303833,
+                  -1.864599347114563,
+                  -2.9987664222717285,
+                  1.3128972053527832,
+                  -0.7179809808731079,
+                  -0.0038144951686263084,
+                  -1.205814003944397,
+                  -0.3762452006340027,
+                  -0.3762452006340027,
+                  -0.707162082195282,
+                  -0.3740958273410797,
+                  -0.3740958273410797,
+                  -0.04752263054251671,
+                  -0.020878862589597702,
+                  -0.25072765350341797,
+                  -0.25072765350341797,
+                  -0.25072765350341797,
+                  8.669746398925781,
+                  3.8149683475494385,
+                  13.29017162322998,
+                  5.270937919616699,
+                  1.4227783679962158,
+                  1.4227783679962158,
+                  1.4227783679962158,
+                  4.854597091674805,
+                  -0.8605529069900513,
+                  -0.8605529069900513,
+                  -0.15923480689525604,
+                  -0.8243406414985657,
+                  -0.5233699083328247,
+                  -0.5233699083328247,
+                  -0.784124493598938,
+                  -0.49308180809020996,
+                  -0.49308180809020996,
+                  -0.7752420902252197,
+                  -0.18989452719688416,
+                  -0.744636595249176,
+                  -0.5258963704109192,
+                  -0.41987791657447815,
+                  -0.2072165310382843,
+                  -0.2072165310382843,
+                  -0.2072165310382843,
+                  -0.6838980913162231,
+                  -0.14553017914295197,
+                  -0.14553017914295197,
+                  -0.7661164402961731,
+                  -0.7644134759902954,
+                  -0.7625678181648254,
+                  -1.2307356595993042,
+                  -0.0854734256863594,
+                  -1.168778657913208,
+                  -0.7588593363761902,
+                  -0.39197349548339844,
+                  -0.39197349548339844,
+                  -0.7619585394859314,
+                  -0.8521522879600525,
+                  -0.22496363520622253,
+                  -0.6023179888725281,
+                  0.7657651490046595
                 ],
                 [
-                  -2.1907994747161865,
-                  -2.5569052696228027,
-                  -1.0715816020965576,
-                  -1.5913547277450562,
-                  -0.7746056318283081,
-                  -0.8577622175216675,
-                  -0.7746056318283081,
-                  -0.1695742905139923,
-                  1.835038661956787,
-                  -0.541149377822876,
-                  -1.0864458084106445,
-                  -1.0836244821548462,
-                  -1.080674409866333,
-                  2.268740177154541,
-                  -1.1829583644866943,
-                  -0.4088224470615387,
-                  -0.011874891817569733,
-                  -3.6145291328430176,
-                  -2.9732794761657715,
-                  -0.1609969288110733,
-                  4.35345983505249,
-                  -2.9041714668273926,
-                  -1.0663301944732666,
-                  -0.9553570747375488,
-                  -0.5483814477920532,
-                  -0.5483814477920532,
-                  -1.0598621368408203,
-                  3.782379388809204,
-                  -2.2068443298339844,
-                  -0.15951389074325562,
-                  -0.15951389074325562,
-                  -1.051210641860962,
-                  -0.055792100727558136,
-                  -0.31554266810417175,
-                  -0.31554266810417175,
-                  -0.31554266810417175,
-                  -0.31554266810417175,
-                  -3.566542148590088,
-                  -0.542169988155365,
-                  -0.542169988155365,
-                  -1.0330371856689453,
-                  5.986077308654785,
-                  10.611343383789062,
-                  12.682634353637695,
-                  1.1170422501491868
+                  -1.6036158800125122,
+                  -1.8557209968566895,
+                  -0.5374009609222412,
+                  0.44728633761405945,
+                  -0.34789830446243286,
+                  -0.5996010303497314,
+                  -0.518336832523346,
+                  -1.058653712272644,
+                  -0.7376243472099304,
+                  -1.7442028522491455,
+                  -1.7367582321166992,
+                  -1.728987693786621,
+                  -0.8857359290122986,
+                  -0.8857359290122986,
+                  -1.7188012599945068,
+                  0.8980278968811035,
+                  -0.5783979296684265,
+                  -0.5783979296684265,
+                  -1.0571755170822144,
+                  -0.03442688658833504,
+                  -1.093613862991333,
+                  -0.5660580396652222,
+                  -0.14894269406795502,
+                  0.12665827572345734,
+                  -3.1833624839782715,
+                  4.874691009521484,
+                  -1.160760521888733,
+                  -1.160760521888733,
+                  -1.176811695098877,
+                  -1.0556912422180176,
+                  -0.9961078763008118,
+                  -1.1934959888458252,
+                  -0.3347221910953522,
+                  -1.6922414302825928,
+                  -0.7595921754837036,
+                  -0.4701105058193207,
+                  -0.8769643902778625,
+                  -0.8769643902778625,
+                  -1.6746987104415894,
+                  -0.8729877471923828,
+                  -0.8729877471923828,
+                  -0.003953954204916954,
+                  0,
+                  -0.5841217637062073,
+                  -0.5841217637062073,
+                  -0.5841217637062073,
+                  -1.0358006954193115,
+                  -0.3347221910953522,
+                  -1.6558032035827637,
+                  -0.21405361592769623,
+                  -0.008025608956813812,
+                  -0.008025608956813812,
+                  -0.008025608956813812,
+                  -0.7003858685493469,
+                  1.078924536705017,
+                  1.078924536705017,
+                  6.036059856414795,
+                  10.995061874389648,
+                  6.2699384689331055,
+                  6.2699384689331055,
+                  12.295409202575684,
+                  6.260179042816162,
+                  6.260179042816162,
+                  12.236184120178223,
+                  -0.4987421929836273,
+                  -3.2383999824523926,
+                  -1.2623162269592285,
+                  -1.0263091325759888,
+                  -0.3352128267288208,
+                  -0.3352128267288208,
+                  -0.3352128267288208,
+                  -3.2458279132843018,
+                  -0.42149657011032104,
+                  -0.42149657011032104,
+                  -1.8038280010223389,
+                  -1.7931605577468872,
+                  -1.785385012626648,
+                  -0.6707213521003723,
+                  -3.395263910293579,
+                  -0.5648560523986816,
+                  -1.7661049365997314,
+                  -0.9312102198600769,
+                  -0.9312102198600769,
+                  -1.7742478847503662,
+                  -2.51409912109375,
+                  -0.5346985459327698,
+                  -1.6558893918991089,
+                  1.776666147601231
+                ],
+                [
+                  -2.283189535140991,
+                  0.8916157484054565,
+                  0.2163272649049759,
+                  -1.477758526802063,
+                  -0.0733477920293808,
+                  -0.11974447965621948,
+                  -0.6041651964187622,
+                  -0.2566404938697815,
+                  -0.17911550402641296,
+                  -0.29929646849632263,
+                  -0.2917555272579193,
+                  -0.2878396809101105,
+                  -0.1908099353313446,
+                  -0.1908099353313446,
+                  -0.2769356369972229,
+                  2.498664140701294,
+                  -0.26925209164619446,
+                  -0.26925209164619446,
+                  -0.43072715401649475,
+                  -0.009554124437272549,
+                  3.341465950012207,
+                  -2.7888288497924805,
+                  -0.5061763525009155,
+                  1.6097767353057861,
+                  -2.751307725906372,
+                  -0.005063397344201803,
+                  -0.005063397344201803,
+                  -0.005063397344201803,
+                  -0.011963875032961369,
+                  -2.514415979385376,
+                  -0.10725662857294083,
+                  4.430715084075928,
+                  -2.3587749004364014,
+                  -0.1685200035572052,
+                  -0.09364865720272064,
+                  -1.3082078695297241,
+                  -0.09156151115894318,
+                  -0.09156151115894318,
+                  -0.15802200138568878,
+                  -0.08847986161708832,
+                  -0.08847986161708832,
+                  -0.9322965145111084,
+                  -0.9163734912872314,
+                  -0.05616798996925354,
+                  -0.05616798996925354,
+                  -0.05616798996925354,
+                  -0.08936076611280441,
+                  -0.00912126712501049,
+                  -0.1509069949388504,
+                  -0.01838080957531929,
+                  -0.00436877878382802,
+                  -0.00436877878382802,
+                  -0.00436877878382802,
+                  -0.07111825048923492,
+                  -0.6807770729064941,
+                  -0.6807770729064941,
+                  0,
+                  -2.685089349746704,
+                  -0.0737767219543457,
+                  -0.0737767219543457,
+                  -0.13466663658618927,
+                  -0.07315365970134735,
+                  -0.07315365970134735,
+                  -0.1327286660671234,
+                  6.129999160766602,
+                  11.375389099121094,
+                  8.620833396911621,
+                  5.479212284088135,
+                  4.33764123916626,
+                  4.33764123916626,
+                  4.33764123916626,
+                  -2.7645785808563232,
+                  -2.489131450653076,
+                  -2.489131450653076,
+                  -0.5250577926635742,
+                  -0.5089994072914124,
+                  -0.49339357018470764,
+                  -1.3356868028640747,
+                  -1.6847021579742432,
+                  -0.08719982951879501,
+                  -0.43648621439933777,
+                  -0.30743035674095154,
+                  -0.30743035674095154,
+                  -0.5359412431716919,
+                  -0.5316494107246399,
+                  -0.20139087736606598,
+                  -0.2136947065591812,
+                  0.15501247208776894
+                ],
+                [
+                  -1.6082712411880493,
+                  -2.4310779571533203,
+                  -0.4708916246891022,
+                  0.19758084416389465,
+                  -0.3887992203235626,
+                  -0.4777640998363495,
+                  -0.5697574019432068,
+                  -1.145569086074829,
+                  -0.8096389770507812,
+                  -1.840389609336853,
+                  -1.8335851430892944,
+                  -1.8264151811599731,
+                  -0.9358773827552795,
+                  -0.9358773827552795,
+                  -1.8170479536056519,
+                  0.4266388714313507,
+                  -0.4910472333431244,
+                  -0.4910472333431244,
+                  -0.7577277421951294,
+                  -0.05251916125416756,
+                  -1.9257184267044067,
+                  -0.44600144028663635,
+                  -0.15142923593521118,
+                  0.7730438709259033,
+                  -3.244932174682617,
+                  -0.23631548881530762,
+                  -0.23631548881530762,
+                  -0.23631548881530762,
+                  -0.23631548881530762,
+                  -2.075458288192749,
+                  -1.008975625038147,
+                  2.0401341915130615,
+                  -1.4980627298355103,
+                  -1.7921453714370728,
+                  -0.8390172123908997,
+                  -0.513416051864624,
+                  -0.923743486404419,
+                  -0.923743486404419,
+                  -1.7758644819259644,
+                  -0.920586109161377,
+                  -0.920586109161377,
+                  -0.0988338440656662,
+                  -0.06270069628953934,
+                  -0.6148185729980469,
+                  -0.6148185729980469,
+                  -0.6148185729980469,
+                  -0.9603924751281738,
+                  -0.07726748287677765,
+                  -1.7600431442260742,
+                  -0.06560654193162918,
+                  0,
+                  0,
+                  0,
+                  -0.8731474280357361,
+                  -0.8189365863800049,
+                  -0.8189365863800049,
+                  0,
+                  -3.1860456466674805,
+                  -0.9130073189735413,
+                  -0.9130073189735413,
+                  -1.725092887878418,
+                  -0.9082247614860535,
+                  -0.9082247614860535,
+                  -1.708390235900879,
+                  -1.467173457145691,
+                  -3.0886738300323486,
+                  -1.1586836576461792,
+                  -0.6357254385948181,
+                  0,
+                  0,
+                  0,
+                  10.886792182922363,
+                  5.445112228393555,
+                  5.445112228393555,
+                  12.273849487304688,
+                  12.229896545410156,
+                  12.183716773986816,
+                  -0.7964333891868591,
+                  -0.9312527775764465,
+                  -0.3777766823768616,
+                  -1.8593320846557617,
+                  -1.012822151184082,
+                  -1.012822151184082,
+                  -1.8767833709716797,
+                  -1.8569912910461426,
+                  -0.5714813470840454,
+                  -0.24953560531139374,
+                  1.857352119269574
+                ],
+                [
+                  -1.4976762533187866,
+                  -1.6127583980560303,
+                  0.1718137264251709,
+                  -1.5896046161651611,
+                  -0.2888415455818176,
+                  -0.6333054304122925,
+                  -0.5141077041625977,
+                  -0.7548807859420776,
+                  -0.5217377543449402,
+                  -1.0222501754760742,
+                  -1.0152764320373535,
+                  -1.0094923973083496,
+                  -0.5775864720344543,
+                  -0.5775864720344543,
+                  -1.003260612487793,
+                  -0.29749467968940735,
+                  -0.1922295093536377,
+                  -0.1922295093536377,
+                  -0.11007045209407806,
+                  -0.058341991156339645,
+                  -0.7989909052848816,
+                  -0.7790992856025696,
+                  -0.15622933208942413,
+                  -1.9795116186141968,
+                  -0.1907840073108673,
+                  -3.047515869140625,
+                  -0.14621524512767792,
+                  -0.14621524512767792,
+                  -0.2569539248943329,
+                  1.420528531074524,
+                  -2.3668556213378906,
+                  -1.5075291395187378,
+                  -1.336166262626648,
+                  -0.9878530502319336,
+                  -0.16782845556735992,
+                  -0.00028158965869806707,
+                  -0.518031895160675,
+                  -0.518031895160675,
+                  -0.9833407402038574,
+                  -0.5076482892036438,
+                  -0.5076482892036438,
+                  -0.231748566031456,
+                  -0.14711593091487885,
+                  -0.34877699613571167,
+                  -0.34877699613571167,
+                  -0.34877699613571167,
+                  -0.5326319336891174,
+                  -0.04009418934583664,
+                  -0.9773671627044678,
+                  -0.22910207509994507,
+                  -0.07085126638412476,
+                  -0.07085126638412476,
+                  -0.07085126638412476,
+                  -0.46840205788612366,
+                  2.3960647583007812,
+                  2.3960647583007812,
+                  -2.856746196746826,
+                  0,
+                  -0.4957564175128937,
+                  -0.4957564175128937,
+                  -0.9602634310722351,
+                  -0.4944416880607605,
+                  -0.4944416880607605,
+                  -0.9537679553031921,
+                  -0.011468488723039627,
+                  0,
+                  -0.5812723636627197,
+                  -0.4045712351799011,
+                  -0.3861852288246155,
+                  -0.3861852288246155,
+                  -0.3861852288246155,
+                  0,
+                  -0.02908148802816868,
+                  -0.02908148802816868,
+                  -0.9461112022399902,
+                  -0.940379798412323,
+                  -0.9344915151596069,
+                  6.602173328399658,
+                  8.229531288146973,
+                  5.223179817199707,
+                  13.039543151855469,
+                  6.640727519989014,
+                  6.640727519989014,
+                  -1.25251042842865,
+                  -2.1868607997894287,
+                  -0.44391703605651855,
+                  -1.5983411073684692,
+                  0.9967220037397856
+                ],
+                [
+                  -0.4935263991355896,
+                  -0.7469968795776367,
+                  -1.9833868741989136,
+                  -1.097370982170105,
+                  -0.3074687421321869,
+                  -0.8439064025878906,
+                  -0.36638256907463074,
+                  -0.7392424941062927,
+                  -0.47959405183792114,
+                  -1.0297359228134155,
+                  -1.0265694856643677,
+                  -1.023229956626892,
+                  -0.536594808101654,
+                  -0.536594808101654,
+                  -1.0189225673675537,
+                  -0.8120977878570557,
+                  -0.19676212966442108,
+                  -0.19676212966442108,
+                  -0.12381687760353088,
+                  -0.06030774861574173,
+                  -0.10029663145542145,
+                  -0.10029663145542145,
+                  -0.029178418219089508,
+                  -0.18573366105556488,
+                  -0.47409212589263916,
+                  -0.7792126536369324,
+                  -0.14006304740905762,
+                  -0.14006304740905762,
+                  -0.2978419363498688,
+                  -0.8960914015769958,
+                  -0.6462816596031189,
+                  -0.04994654655456543,
+                  -0.04994654655456543,
+                  -1.0135586261749268,
+                  -0.39422762393951416,
+                  -0.3436436057090759,
+                  -0.5189054608345032,
+                  -0.5189054608345032,
+                  -1.007042646408081,
+                  -0.5174171924591064,
+                  -0.5174171924591064,
+                  -0.020004665479063988,
+                  -0.013197075575590134,
+                  -0.34824031591415405,
+                  -0.34824031591415405,
+                  -0.34824031591415405,
+                  -0.515760600566864,
+                  0,
+                  -1.0006073713302612,
+                  -0.35199031233787537,
+                  -0.11396858096122742,
+                  -0.11396858096122742,
+                  -0.11396858096122742,
+                  -0.515760600566864,
+                  -0.2231975793838501,
+                  -0.2231975793838501,
+                  -0.593372106552124,
+                  -0.12530994415283203,
+                  -0.5154334902763367,
+                  -0.5154334902763367,
+                  -0.990919291973114,
+                  -0.5135070085525513,
+                  -0.5135070085525513,
+                  -0.9838188886642456,
+                  0,
+                  -0.03727748617529869,
+                  -0.5114070773124695,
+                  -0.5114070773124695,
+                  0,
+                  0,
+                  0,
+                  -0.0138356052339077,
+                  0,
+                  0,
+                  -0.9762676358222961,
+                  -0.9703865647315979,
+                  -0.9643622636795044,
+                  -0.06106642261147499,
+                  -0.739811360836029,
+                  -0.06106642261147499,
+                  -0.9563187956809998,
+                  -0.5026695728302002,
+                  -0.5026695728302002,
+                  12.299747467041016,
+                  12.751130104064941,
+                  1.4505542516708374,
+                  1.1885056495666504,
+                  1.0540821154221303
                 ]
               ]
             }
@@ -1102,7 +2277,7 @@
       ],
       [
         "en",
-        "tell me about your self"
+        "introduce yourself"
       ],
       [
         "en",
@@ -1118,11 +2293,19 @@
       ],
       [
         "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
         "who is john carlo"
       ],
       [
         "en",
-        "who is john"
+        "who is jc"
       ],
       [
         "en",
@@ -1130,7 +2313,15 @@
       ],
       [
         "en",
+        "what do you know about him"
+      ],
+      [
+        "en",
         "what is your experience"
+      ],
+      [
+        "en",
+        "how many years of experience"
       ],
       [
         "en",
@@ -1142,7 +2333,11 @@
       ],
       [
         "en",
-        "jobs"
+        "background"
+      ],
+      [
+        "en",
+        "professional history"
       ],
       [
         "en",
@@ -1162,6 +2357,22 @@
       ],
       [
         "en",
+        "programming languages"
+      ],
+      [
+        "en",
+        "do you know react"
+      ],
+      [
+        "en",
+        "do you know nextjs"
+      ],
+      [
+        "en",
+        "backend or frontend"
+      ],
+      [
+        "en",
         "what projects have you built"
       ],
       [
@@ -1171,6 +2382,14 @@
       [
         "en",
         "show me your works"
+      ],
+      [
+        "en",
+        "give me some examples of your work"
+      ],
+      [
+        "en",
+        "recent projects"
       ],
       [
         "en",
@@ -1190,6 +2409,14 @@
       ],
       [
         "en",
+        "social media"
+      ],
+      [
+        "en",
+        "linkedin"
+      ],
+      [
+        "en",
         "where do you live"
       ],
       [
@@ -1202,7 +2429,67 @@
       ],
       [
         "en",
-        "location"
+        "current location"
+      ],
+      [
+        "en",
+        "are you based in singapore"
+      ],
+      [
+        "en",
+        "what is your education"
+      ],
+      [
+        "en",
+        "where did you study"
+      ],
+      [
+        "en",
+        "degree"
+      ],
+      [
+        "en",
+        "college"
+      ],
+      [
+        "en",
+        "university"
+      ],
+      [
+        "en",
+        "are you for hire"
+      ],
+      [
+        "en",
+        "can I hire you"
+      ],
+      [
+        "en",
+        "available for work"
+      ],
+      [
+        "en",
+        "freelance"
+      ],
+      [
+        "en",
+        "job opportunities"
+      ],
+      [
+        "en",
+        "resume"
+      ],
+      [
+        "en",
+        "cv"
+      ],
+      [
+        "en",
+        "download resume"
+      ],
+      [
+        "en",
+        "can I see your cv"
       ]
     ]
   },
@@ -1237,32 +2524,47 @@
         ],
         "john.experience": [
           {
-            "answer": "John has over 10 years of experience. Most recently, he was Lead Web Developer at Edge Digital (2020-2025) architecting the OnePeople ecosystem. Before that, he worked at Breakthrough4business and Leentech Network Solution."
+            "answer": "John has over 10 years of experience. Most recently, he was Lead Web Developer at Edge Digital (2020-2025). He's also worked at Breakthrough4business and Leentech Network Solution."
           }
         ],
         "john.skills": [
           {
-            "answer": "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is highly skilled in both frontend development (Tailwind, Framer Motion) and serverless backend architecture."
+            "answer": "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is a full-stack expert with deep knowledge in serverless architecture and high-performance UI."
           }
         ],
         "john.projects": [
           {
-            "answer": "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites (StayPrepared, BYOBClean), OnePeople Online, and several e-commerce/WordPress platforms."
+            "answer": "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. You can see more details in the Projects section above!"
           }
         ],
         "john.contact": [
           {
-            "answer": "You can contact John via email at johncarlosacrosalazar@gmail.com or via WhatsApp at +639273315906."
+            "answer": "You can contact John via email at johncarlosacrosalazar@gmail.com, via WhatsApp at +639273315906, or find him on LinkedIn."
           }
         ],
         "john.location": [
           {
-            "answer": "John is based in Trece Martires, Cavite, Philippines."
+            "answer": "John is based in Trece Martires, Cavite, Philippines, but has extensive experience working with clients and teams in Singapore."
+          }
+        ],
+        "john.education": [
+          {
+            "answer": "John's education details are available upon request, but he holds over a decade of hands-on experience in the software engineering industry."
+          }
+        ],
+        "john.hire": [
+          {
+            "answer": "John is always open to discussing interesting new projects or roles. Feel free to reach out via email or WhatsApp!"
+          }
+        ],
+        "john.resume": [
+          {
+            "answer": "You can view John's full CV right here on this site, or contact him directly if you need a PDF copy."
           }
         ],
         "None": [
           {
-            "answer": "I'm sorry, I don't have information on that. Try asking me about John's experience, skills, projects, or contact info!"
+            "answer": "I'm sorry, I don't have information on that specific detail. Try asking me about John's experience, skills, projects, or how to contact him!"
           }
         ]
       }
