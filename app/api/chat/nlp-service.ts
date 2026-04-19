@@ -50,6 +50,11 @@ export async function getNLP() {
     manager.addDocument('en', 'phone number', 'john.contact');
     manager.addDocument('en', 'whatsapp', 'john.contact');
 
+    manager.addDocument('en', 'where do you live', 'john.location');
+    manager.addDocument('en', 'what is your address', 'john.location');
+    manager.addDocument('en', 'where are you located', 'john.location');
+    manager.addDocument('en', 'location', 'john.location');
+
     // Add Answers
     manager.addAnswer('en', 'agent.whoami', "I'm JC's NLP AI assistant, entirely self-hosted! I'm here to answer questions about his professional background.");
     manager.addAnswer('en', 'greetings.hello', "Hello there! I'm an NLP bot for John Carlo Salazar. Feel free to ask about his experience, projects, or contact info.");
@@ -58,6 +63,7 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.skills', "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is highly skilled in both frontend development (Tailwind, Framer Motion) and serverless backend architecture.");
     manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites (StayPrepared, BYOBClean), OnePeople Online, and several e-commerce/WordPress platforms.");
     manager.addAnswer('en', 'john.contact', "You can contact John via email at johncarlosacrosalazar@gmail.com or via WhatsApp at +639273315906.");
+    manager.addAnswer('en', 'john.location', "John is based in Trece Martires, Cavite, Philippines.");
 
     manager.addAnswer('en', 'None', "I'm sorry, I don't have information on that. Try asking me about John's experience, skills, projects, or contact info!");
 
