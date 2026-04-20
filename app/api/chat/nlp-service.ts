@@ -219,8 +219,7 @@ export async function getNLP() {
     // In serverless, we usually can't save to process.cwd() at runtime, 
     // but this is here for local development.
     try {
-      const data = manager.export();
-      fs.writeFileSync(modelPath, JSON.stringify(data));
+      await manager.save(modelPath, true);
     } catch (e) {
       console.warn("Could not save model file (expected in serverless):", e);
     }

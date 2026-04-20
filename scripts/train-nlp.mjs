@@ -211,10 +211,7 @@ async function train() {
   manager.addAnswer('en', 'None', "I'm sorry, I don't have information on that specific detail. Try asking me about John's experience, skills, projects, or how to contact him!");
 
   await manager.train();
-  
-  // Save minified model
-  const data = manager.export();
-  fs.writeFileSync(modelPath, JSON.stringify(data));
+  await manager.save(modelPath, true);
 
   console.log('NLP Model trained and saved (minified) to model.nlp');
 }
