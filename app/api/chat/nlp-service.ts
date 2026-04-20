@@ -157,6 +157,12 @@ export async function getNLP() {
     manager.addDocument('en', 'best in ojt', 'john.education');
     manager.addDocument('en', 'awards', 'john.education');
 
+    manager.addDocument('en', 'what are your strengths', 'john.strengths');
+    manager.addDocument('en', 'professional strengths', 'john.strengths');
+    manager.addDocument('en', 'why should I hire you', 'john.strengths');
+    manager.addDocument('en', 'your advantage', 'john.strengths');
+    manager.addDocument('en', 'what makes you different', 'john.strengths');
+
     manager.addDocument('en', 'are you for hire', 'john.hire');
     manager.addDocument('en', 'can I hire you', 'john.hire');
     manager.addDocument('en', 'available for work', 'john.hire');
@@ -189,6 +195,7 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.status', "John is married since December 15, 2025.");
     manager.addAnswer('en', 'john.nickname', "You can call him Carlo!");
     manager.addAnswer('en', 'john.education', "John graduated from Colegio de Amore, Batch 2014, where he was awarded 'Best in OJT'.");
+    manager.addAnswer('en', 'john.strengths', "John's core strengths include his 10+ years of <b>Systems Architecture</b> expertise, a deep mastery of <b>Enterprise QA</b> for high-stakes projects, and his ability to architect scalable <b>AWS Serverless</b> ecosystems. He is known for his precision, adaptability across tech stacks, and leadership in mission-critical environments.");
     manager.addAnswer('en', 'john.hire', "John is always open to discussing interesting new projects or roles. Feel free to reach out via email or WhatsApp!");
     manager.addAnswer('en', 'john.resume', "You can view John's full CV right here on this site, or contact him directly if you need a PDF copy.");
 
