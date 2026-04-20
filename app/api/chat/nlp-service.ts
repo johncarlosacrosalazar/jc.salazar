@@ -98,6 +98,9 @@ export async function getNLP() {
     manager.addDocument('en', 'what is onepeople', 'john.proj.onepeople');
     manager.addDocument('en', 'tell me about onepeople', 'john.proj.onepeople');
     manager.addDocument('en', 'onepeople online', 'john.proj.onepeople');
+    manager.addDocument('en', 'one people', 'john.proj.onepeople');
+    manager.addDocument('en', 'tell me about one people', 'john.proj.onepeople');
+    manager.addDocument('en', 'one people online', 'john.proj.onepeople');
 
     manager.addDocument('en', 'what is phuckjs', 'john.proj.phuckjs');
     manager.addDocument('en', 'phuckjs page builder', 'john.proj.phuckjs');
@@ -105,18 +108,21 @@ export async function getNLP() {
     manager.addDocument('en', 'what is jsx dashboard', 'john.proj.jsx');
     manager.addDocument('en', 'jsx dashboard', 'john.proj.jsx');
 
-    manager.addDocument('en', 'temasek foundation projects', 'john.proj.temasek');
-    manager.addDocument('en', 'stayprepared', 'john.proj.stayprepared');
-    manager.addDocument('en', 'what is stayprepared', 'john.proj.stayprepared');
     manager.addDocument('en', 'oximeter', 'john.proj.oximeter');
+    manager.addDocument('en', 'oximiter', 'john.proj.oximeter');
+    manager.addDocument('en', 'how about oximeter', 'john.proj.oximeter');
+    manager.addDocument('en', 'what is oximeter', 'john.proj.oximeter');
     manager.addDocument('en', 'staywell mouth gargle', 'john.proj.gargle');
     manager.addDocument('en', 'mouth gargle', 'john.proj.gargle');
+    manager.addDocument('en', 'staymask', 'john.proj.staymasked');
     manager.addDocument('en', 'staymasked', 'john.proj.staymasked');
     manager.addDocument('en', 'byobclean', 'john.proj.byobclean');
     manager.addDocument('en', 'pentagreen capital', 'john.proj.pentagreen');
+    manager.addDocument('en', 'pentagreen', 'john.proj.pentagreen');
     manager.addDocument('en', 'what is pentagreen', 'john.proj.pentagreen');
     manager.addDocument('en', 'carlo and rosette', 'john.proj.wedding');
     manager.addDocument('en', 'wedding website', 'john.proj.wedding');
+    manager.addDocument('en', 'carlo & rosette', 'john.proj.wedding');
     manager.addDocument('en', 'what are the covid sites', 'john.proj.temasek');
 
     manager.addDocument('en', 'lolas plates and pours', 'john.proj.lola');
