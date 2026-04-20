@@ -109,7 +109,10 @@ export default function Chatbot() {
                     <div className="flex-shrink-0 mt-0.5">
                       {m.role === 'user' ? <User size={14} className="text-gold" /> : <Bot size={14} className="text-gold" />}
                     </div>
-                    <div className="leading-relaxed whitespace-pre-wrap">{m.content}</div>
+                    <div 
+                      className="leading-relaxed whitespace-pre-wrap assistant-message-content"
+                      dangerouslySetInnerHTML={{ __html: m.content }}
+                    />
                   </div>
                 </div>
               ))}

@@ -131,3 +131,15 @@ body {
   background: rgba(201, 168, 76, 0.25);
   color: #E5C468;
 }
+
+.assistant-message-content a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.assistant-message-content a:hover {
+  color: var(--gold-light);
+}

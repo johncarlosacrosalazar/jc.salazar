@@ -106,6 +106,19 @@ export async function getNLP() {
     manager.addDocument('en', 'current location', 'john.location');
     manager.addDocument('en', 'are you based in singapore', 'john.location');
 
+    manager.addDocument('en', 'what is your birthday', 'john.birthday');
+    manager.addDocument('en', 'when were you born', 'john.birthday');
+    manager.addDocument('en', 'age', 'john.birthday');
+    manager.addDocument('en', 'birth date', 'john.birthday');
+
+    manager.addDocument('en', 'are you married', 'john.status');
+    manager.addDocument('en', 'marital status', 'john.status');
+    manager.addDocument('en', 'civil status', 'john.status');
+
+    manager.addDocument('en', 'what is your nickname', 'john.nickname');
+    manager.addDocument('en', 'nickname', 'john.nickname');
+    manager.addDocument('en', 'what can I call you', 'john.nickname');
+
     manager.addDocument('en', 'what is your education', 'john.education');
     manager.addDocument('en', 'where did you study', 'john.education');
     manager.addDocument('en', 'degree', 'john.education');
@@ -126,16 +139,19 @@ export async function getNLP() {
     // Add Answers
     manager.addAnswer('en', 'agent.whoami', "I'm JC's NLP AI assistant, entirely self-hosted! I'm here to answer questions about his professional background.");
     manager.addAnswer('en', 'greetings.hello', "Hello there! I'm an NLP bot for John Carlo Salazar. Feel free to ask about his experience, projects, or contact info.");
-    manager.addAnswer('en', 'john.about', "John Carlo Salazar is a Lead Web Developer & Systems Architect with 10+ years of experience engineering high-performance ecosystems for Singapore and the Philippines.");
+    manager.addAnswer('en', 'john.about', "John Carlo Salazar (or just Carlo) is a Lead Web Developer & Systems Architect with 10+ years of experience engineering high-performance ecosystems for Singapore and the Philippines.");
     manager.addAnswer('en', 'john.experience', "John has over 10 years of experience. His professional history includes: Lead Web Developer & QA Lead at Edge Digital (2020-2025), Full-Stack Developer at Breakthrough4business (2017-2019), and Junior Programmer at Leentech Network Solution (2016-2017).");
     manager.addAnswer('en', 'john.exp.edge', "John worked at Edge Digital as a Lead Web Developer and QA Lead from 2020 to 2025. He led projects like OnePeople Online and mission-critical sites for the Temasek Foundation.");
     manager.addAnswer('en', 'john.exp.b4b', "John was a Full-Stack Web Developer at Breakthrough4business (B4B) from 2017 to 2019, where he developed the B4B Academy social learning platform.");
     manager.addAnswer('en', 'john.exp.leentech', "John started his career as a Junior Programmer at Leentech Network Solution from 2016 to 2017, focusing on Magento e-commerce and Ionic mobile development.");
     manager.addAnswer('en', 'john.skills', "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is a full-stack expert with deep knowledge in serverless architecture and high-performance UI.");
     manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. You can see more details in the Projects section above!");
-    manager.addAnswer('en', 'john.contact', "You can contact John via email at johncarlosacrosalazar@gmail.com, via WhatsApp at +639273315906, or find him on LinkedIn.");
-    manager.addAnswer('en', 'john.location', "John is based in Trece Martires, Cavite, Philippines, but has extensive experience working with clients and teams in Singapore.");
-    manager.addAnswer('en', 'john.education', "John's education details are available upon request, but he holds over a decade of hands-on experience in the software engineering industry.");
+    manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/johncarlosacrosalazar' target='_blank'>LinkedIn</a>.");
+    manager.addAnswer('en', 'john.location', "John lives in Brgy. San Agustin, Trece Martires City, Cavite, Philippines.");
+    manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993.");
+    manager.addAnswer('en', 'john.status', "John is married since December 15, 2025.");
+    manager.addAnswer('en', 'john.nickname', "You can call him Carlo!");
+    manager.addAnswer('en', 'john.education', "John graduated from Colegio de Amore, Batch 2014.");
     manager.addAnswer('en', 'john.hire', "John is always open to discussing interesting new projects or roles. Feel free to reach out via email or WhatsApp!");
     manager.addAnswer('en', 'john.resume', "You can view John's full CV right here on this site, or contact him directly if you need a PDF copy.");
 
