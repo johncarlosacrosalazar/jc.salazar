@@ -1,6 +1,7 @@
 import { NlpManager } from 'node-nlp';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -210,9 +211,12 @@ async function train() {
   manager.addAnswer('en', 'None', "I'm sorry, I don't have information on that specific detail. Try asking me about John's experience, skills, projects, or how to contact him!");
 
   await manager.train();
-  await manager.save(modelPath);
+  
+  // Save minified model
+  const data = manager.export();
+  fs.writeFileSync(modelPath, JSON.stringify(data));
 
-  console.log('NLP Model trained and saved to model.nlp');
+  console.log('NLP Model trained and saved (minified) to model.nlp');
 }
 
 train().catch(err => {
