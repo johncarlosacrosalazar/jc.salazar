@@ -651,7 +651,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
             <span className="font-barlow text-[10px] text-ash/40 uppercase tracking-[0.3em] font-bold mb-1">Category</span>
             <span className="font-bebas text-2xl text-gold tracking-widest uppercase">{activeCategory}</span>
           </div>
-          <button 
+          <button
             onClick={() => setShowMobileCategories(true)}
             className="w-12 h-12 border border-ink/10 flex flex-wrap gap-1 p-3 items-center justify-center hover:border-gold/30 transition-colors"
           >
@@ -665,7 +665,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
         {/* Mobile Category Overlay */}
         <AnimatePresence>
           {showMobileCategories && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -673,7 +673,7 @@ function Portfolio({ onPreview }: { onPreview: (img: any, title: string) => void
             >
               <div className="flex justify-between items-center mb-16">
                 <span className="font-bebas text-2xl text-gold tracking-widest">CATEGORIES</span>
-                <button 
+                <button
                   onClick={() => setShowMobileCategories(false)}
                   className="text-gold font-barlow text-sm font-bold tracking-widest uppercase"
                 >
