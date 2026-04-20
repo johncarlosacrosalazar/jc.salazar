@@ -21,7 +21,7 @@ Performance-driven Systems Architect and Lead Web Developer with over a decade o
 
 ### **Lead Web Developer / QA Lead** | Edge Digital
 *2020 – 2025*
-*   Architected the **OnePeople** civic ecosystem, a platform facilitating global dialogue and collective insight through open voting.
+*   Architected **OnePeople**, a platform connecting people with different views through open dialogue and global voting to help communities use collective insight to shape a better future.
 *   Engineered nationwide APIs and optimized AWS serverless infrastructure for high-traffic scalability.
 *   Delivered mission-critical COVID-19 campaign sites for the **Temasek Foundation** (Singapore), reaching millions of residents.
 *   Served as **QA Lead** for the flagship digital annual reports of Temasek Holdings (Temasek Review 2023 & 2025), ensuring zero-defect launches.
@@ -43,7 +43,7 @@ Performance-driven Systems Architect and Lead Web Developer with over a decade o
 
 ### **Public Health & Civic Tech (Singapore)**
 *   **Temasek Foundation Initiatives**: Led the engineering for **StayPrepared**, **Oximiter**, **Staymasked**, and **BYOBClean**—platform hubs for nationwide resource distribution.
-*   **OnePeople Online**: Real-time civic engagement platform using React and Node.js to facilitate global dialogue.
+*   **OnePeople**: A platform connecting different views through open dialogue and global voting, helping communities use collective insight to shape a better future. 
 
 ### **Enterprise Reporting & Sustainability**
 *   **Temasek Review 2023 & 2025**: Quality Assurance lead for world-class digital annual reports featuring complex data visualizations.

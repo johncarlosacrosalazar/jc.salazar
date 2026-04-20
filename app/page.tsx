@@ -45,7 +45,7 @@ const experiences = [
     company: 'Edge Digital',
     role: 'Lead Web Developer',
     period: '2020 — 2025',
-    desc: 'Architected the OnePeople civic ecosystem and delivered mission-critical COVID-19 campaign sites for Singapore. Engineered nationwide APIs and optimized AWS serverless infrastructure for high-traffic scalability.',
+    desc: 'Architected OnePeople—a platform connecting people through open dialogue and global voting—and delivered mission-critical COVID-19 campaign sites for Singapore. Engineered nationwide APIs and optimized AWS serverless infrastructure for high-traffic scalability.',
     tags: ['React.js', 'Node.js', 'AWS Lambda', 'QA Lead'],
     highlight: true,
   },
