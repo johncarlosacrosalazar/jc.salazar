@@ -172,7 +172,7 @@ async function train() {
   manager.addAnswer('en', 'john.proj.jsx', "<b>JSX Dashboard</b> is a high-performance administrative interface project showcasing John's expertise in real-time data visualization and complex state management.");
   manager.addAnswer('en', 'john.proj.temasek', "John led the engineering for several nationwide COVID-19 response platforms for the <b>Temasek Foundation</b> in Singapore, including StayPrepared, Oximeter, Staymasked, and BYOBClean.");
   manager.addAnswer('en', 'john.proj.lola', "<b>Lola's Plates & Pours</b> is a full-stack Next.js application designed to showcase modern UI/UX design and seamless restaurant management features.");
-  manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/johncarlosacrosalazar' target='_blank'>LinkedIn</a>.");
+  manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/john-carlo-salazar-8028083b6/' target='_blank'>LinkedIn</a>.");
   manager.addAnswer('en', 'john.location', "John lives in Brgy. San Agustin, Trece Martires City, Cavite, Philippines.");
   manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993.");
   manager.addAnswer('en', 'john.status', "John is married since December 15, 2025.");
