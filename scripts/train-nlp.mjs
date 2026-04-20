@@ -118,6 +118,11 @@ async function train() {
   manager.addDocument('en', 'degree', 'john.education');
   manager.addDocument('en', 'college', 'john.education');
   manager.addDocument('en', 'university', 'john.education');
+  manager.addDocument('en', 'school history', 'john.education');
+  manager.addDocument('en', 'education history', 'john.education');
+  manager.addDocument('en', 'his school history', 'john.education');
+  manager.addDocument('en', 'schooling', 'john.education');
+  manager.addDocument('en', 'educational background', 'john.education');
 
   manager.addDocument('en', 'are you for hire', 'john.hire');
   manager.addDocument('en', 'can I hire you', 'john.hire');
