@@ -125,6 +125,11 @@ async function train() {
 
   manager.addDocument('en', 'are you married', 'john.status');
   manager.addDocument('en', 'marital status', 'john.status');
+  manager.addDocument('en', 'who is your wife', 'john.status');
+  manager.addDocument('en', 'do you have a wife', 'john.status');
+  manager.addDocument('en', 'are you single', 'john.status');
+  manager.addDocument('en', 'is he married', 'john.status');
+  manager.addDocument('en', 'johns wife', 'john.status');
   manager.addDocument('en', 'civil status', 'john.status');
 
   manager.addDocument('en', 'what is your nickname', 'john.nickname');
