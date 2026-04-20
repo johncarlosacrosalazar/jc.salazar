@@ -34,6 +34,25 @@ async function train() {
   manager.addDocument('en', 'where have you worked', 'john.experience');
   manager.addDocument('en', 'background', 'john.experience');
   manager.addDocument('en', 'professional history', 'john.experience');
+  manager.addDocument('en', 'his experience', 'john.experience');
+  manager.addDocument('en', "john's experience", 'john.experience');
+  manager.addDocument('en', 'his background', 'john.experience');
+  manager.addDocument('en', 'his career', 'john.experience');
+
+  manager.addDocument('en', 'work at edge digital', 'john.exp.edge');
+  manager.addDocument('en', 'edge digital experience', 'john.exp.edge');
+  manager.addDocument('en', 'how long at edge digital', 'john.exp.edge');
+  manager.addDocument('en', 'when was he at edge digital', 'john.exp.edge');
+
+  manager.addDocument('en', 'work at breakthrough4business', 'john.exp.b4b');
+  manager.addDocument('en', 'b4b academy', 'john.exp.b4b');
+  manager.addDocument('en', 'breakthrough 4 business', 'john.exp.b4b');
+  manager.addDocument('en', 'when was he at b4b', 'john.exp.b4b');
+
+  manager.addDocument('en', 'work at leentech', 'john.exp.leentech');
+  manager.addDocument('en', 'leentech network solution', 'john.exp.leentech');
+  manager.addDocument('en', 'junior programmer experience', 'john.exp.leentech');
+  manager.addDocument('en', 'when was he at leentech', 'john.exp.leentech');
 
   manager.addDocument('en', 'what are your skills', 'john.skills');
   manager.addDocument('en', 'tech stack', 'john.skills');
@@ -43,12 +62,24 @@ async function train() {
   manager.addDocument('en', 'do you know react', 'john.skills');
   manager.addDocument('en', 'do you know nextjs', 'john.skills');
   manager.addDocument('en', 'backend or frontend', 'john.skills');
+  manager.addDocument('en', 'his skills', 'john.skills');
+  manager.addDocument('en', "john's skills", 'john.skills');
+  manager.addDocument('en', 'his tech stack', 'john.skills');
+  manager.addDocument('en', 'his technologies', 'john.skills');
 
   manager.addDocument('en', 'what projects have you built', 'john.projects');
   manager.addDocument('en', 'portfolio', 'john.projects');
   manager.addDocument('en', 'show me your works', 'john.projects');
   manager.addDocument('en', 'give me some examples of your work', 'john.projects');
   manager.addDocument('en', 'recent projects', 'john.projects');
+  manager.addDocument('en', 'his projects', 'john.projects');
+  manager.addDocument('en', 'his project', 'john.projects');
+  manager.addDocument('en', "john's projects", 'john.projects');
+  manager.addDocument('en', "john's project", 'john.projects');
+  manager.addDocument('en', 'what are his projects', 'john.projects');
+  manager.addDocument('en', 'what are his project', 'john.projects');
+  manager.addDocument('en', 'show projects', 'john.projects');
+  manager.addDocument('en', 'list projects', 'john.projects');
 
   manager.addDocument('en', 'how can I contact you', 'john.contact');
   manager.addDocument('en', 'what is your email', 'john.contact');
@@ -56,6 +87,12 @@ async function train() {
   manager.addDocument('en', 'whatsapp', 'john.contact');
   manager.addDocument('en', 'social media', 'john.contact');
   manager.addDocument('en', 'linkedin', 'john.contact');
+  manager.addDocument('en', 'how to contact him', 'john.contact');
+  manager.addDocument('en', 'his email', 'john.contact');
+  manager.addDocument('en', 'his contact details', 'john.contact');
+  manager.addDocument('en', 'his phone number', 'john.contact');
+  manager.addDocument('en', 'his whatsapp', 'john.contact');
+  manager.addDocument('en', "john's contact", 'john.contact');
 
   manager.addDocument('en', 'where do you live', 'john.location');
   manager.addDocument('en', 'what is your address', 'john.location');
@@ -84,7 +121,10 @@ async function train() {
   manager.addAnswer('en', 'agent.whoami', "I'm JC's NLP AI assistant, entirely self-hosted! I'm here to answer questions about his professional background.");
   manager.addAnswer('en', 'greetings.hello', "Hello there! I'm an NLP bot for John Carlo Salazar. Feel free to ask about his experience, projects, or contact info.");
   manager.addAnswer('en', 'john.about', "John Carlo Salazar is a Lead Web Developer & Systems Architect with 10+ years of experience engineering high-performance ecosystems for Singapore and the Philippines.");
-  manager.addAnswer('en', 'john.experience', "John has over 10 years of experience. Most recently, he was Lead Web Developer at Edge Digital (2020-2025). He's also worked at Breakthrough4business and Leentech Network Solution.");
+  manager.addAnswer('en', 'john.experience', "John has over 10 years of experience. His professional history includes: Lead Web Developer & QA Lead at Edge Digital (2020-2025), Full-Stack Developer at Breakthrough4business (2017-2019), and Junior Programmer at Leentech Network Solution (2016-2017).");
+  manager.addAnswer('en', 'john.exp.edge', "John worked at Edge Digital as a Lead Web Developer and QA Lead from 2020 to 2025. He led projects like OnePeople Online and mission-critical sites for the Temasek Foundation.");
+  manager.addAnswer('en', 'john.exp.b4b', "John was a Full-Stack Web Developer at Breakthrough4business (B4B) from 2017 to 2019, where he developed the B4B Academy social learning platform.");
+  manager.addAnswer('en', 'john.exp.leentech', "John started his career as a Junior Programmer at Leentech Network Solution from 2016 to 2017, focusing on Magento e-commerce and Ionic mobile development.");
   manager.addAnswer('en', 'john.skills', "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is a full-stack expert with deep knowledge in serverless architecture and high-performance UI.");
   manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. You can see more details in the Projects section above!");
   manager.addAnswer('en', 'john.contact', "You can contact John via email at johncarlosacrosalazar@gmail.com, via WhatsApp at +639273315906, or find him on LinkedIn.");
