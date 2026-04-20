@@ -97,6 +97,8 @@ async function train() {
   manager.addDocument('en', 'oximeter', 'john.proj.oximeter');
   manager.addDocument('en', 'staymasked', 'john.proj.staymasked');
   manager.addDocument('en', 'byobclean', 'john.proj.byobclean');
+  manager.addDocument('en', 'pentagreen capital', 'john.proj.pentagreen');
+  manager.addDocument('en', 'what is pentagreen', 'john.proj.pentagreen');
   manager.addDocument('en', 'what are the covid sites', 'john.proj.temasek');
 
   manager.addDocument('en', 'lolas plates and pours', 'john.proj.lola');
@@ -190,6 +192,7 @@ async function train() {
   manager.addAnswer('en', 'john.proj.jsx', "<b>JSX Dashboard</b> is a high-performance administrative interface project showcasing John's expertise in real-time data visualization and complex state management.");
   manager.addAnswer('en', 'john.proj.temasek', "John led the engineering for several nationwide COVID-19 response platforms for the <b>Temasek Foundation</b> in Singapore, including StayPrepared, Oximeter, Staymasked, and BYOBClean.");
   manager.addAnswer('en', 'john.proj.stayprepared', "<b>StayPrepared</b> is a Temasek Foundation initiative that strengthens Singapore’s emergency resilience through health programs, mask distribution, and community training.");
+  manager.addAnswer('en', 'john.proj.pentagreen', "<b>Pentagreen Capital</b> is a debt financing platform launched by HSBC and Temasek to accelerate the development of sustainable infrastructure projects in Southeast Asia and beyond.");
   manager.addAnswer('en', 'john.proj.oximeter', "The <b>Oximeter</b> project was an e-commerce and distribution platform for pulse oximeters to help Singapore households monitor their health during the pandemic.");
   manager.addAnswer('en', 'john.proj.staymasked', "<b>Staymasked</b> is a nationwide distribution platform that provided free masks to Singapore residents via automated vending machines.");
   manager.addAnswer('en', 'john.proj.byobclean', "<b>BYOBClean</b> (Bring Your Own Bottle) was a Temasek Foundation initiative where Singapore households could collect free hand sanitizer to help reduce plastic waste.");
