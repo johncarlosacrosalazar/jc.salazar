@@ -81,6 +81,24 @@ async function train() {
   manager.addDocument('en', 'show projects', 'john.projects');
   manager.addDocument('en', 'list projects', 'john.projects');
 
+  manager.addDocument('en', 'what is onepeople', 'john.proj.onepeople');
+  manager.addDocument('en', 'tell me about onepeople', 'john.proj.onepeople');
+  manager.addDocument('en', 'onepeople online', 'john.proj.onepeople');
+
+  manager.addDocument('en', 'what is phuckjs', 'john.proj.phuckjs');
+  manager.addDocument('en', 'phuckjs page builder', 'john.proj.phuckjs');
+
+  manager.addDocument('en', 'what is jsx dashboard', 'john.proj.jsx');
+  manager.addDocument('en', 'jsx dashboard', 'john.proj.jsx');
+
+  manager.addDocument('en', 'temasek foundation projects', 'john.proj.temasek');
+  manager.addDocument('en', 'stayprepared', 'john.proj.temasek');
+  manager.addDocument('en', 'staymasked', 'john.proj.temasek');
+  manager.addDocument('en', 'what are the covid sites', 'john.proj.temasek');
+
+  manager.addDocument('en', 'lolas plates and pours', 'john.proj.lola');
+  manager.addDocument('en', 'what is lolas', 'john.proj.lola');
+
   manager.addDocument('en', 'how can I contact you', 'john.contact');
   manager.addDocument('en', 'what is your email', 'john.contact');
   manager.addDocument('en', 'phone number', 'john.contact');
@@ -148,7 +166,12 @@ async function train() {
   manager.addAnswer('en', 'john.exp.b4b', "John was a Full-Stack Web Developer at Breakthrough4business (B4B) from 2017 to 2019, where he developed the B4B Academy social learning platform.");
   manager.addAnswer('en', 'john.exp.leentech', "John started his career as a Junior Programmer at Leentech Network Solution from 2016 to 2017, focusing on Magento e-commerce and Ionic mobile development.");
   manager.addAnswer('en', 'john.skills', "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is a full-stack expert with deep knowledge in serverless architecture and high-performance UI.");
-  manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. You can see more details in the Projects section above!");
+  manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. Which one would you like to know more about?");
+  manager.addAnswer('en', 'john.proj.onepeople', "<b>OnePeople Online</b> is a real-time civic engagement platform facilitate global dialogue through collective insight and open voting. John built it using React and Node.js.");
+  manager.addAnswer('en', 'john.proj.phuckjs', "<b>Phuckjs Page Builder</b> is a premium personal project. It's a highly dynamic website builder engine developed by John to streamline complex UI creation.");
+  manager.addAnswer('en', 'john.proj.jsx', "<b>JSX Dashboard</b> is a high-performance administrative interface project showcasing John's expertise in real-time data visualization and complex state management.");
+  manager.addAnswer('en', 'john.proj.temasek', "John led the engineering for several nationwide COVID-19 response platforms for the <b>Temasek Foundation</b> in Singapore, including StayPrepared, Oximeter, Staymasked, and BYOBClean.");
+  manager.addAnswer('en', 'john.proj.lola', "<b>Lola's Plates & Pours</b> is a full-stack Next.js application designed to showcase modern UI/UX design and seamless restaurant management features.");
   manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/johncarlosacrosalazar' target='_blank'>LinkedIn</a>.");
   manager.addAnswer('en', 'john.location', "John lives in Brgy. San Agustin, Trece Martires City, Cavite, Philippines.");
   manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993.");
