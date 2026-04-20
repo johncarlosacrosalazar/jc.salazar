@@ -129,6 +129,10 @@ export async function getNLP() {
     manager.addDocument('en', 'his school history', 'john.education');
     manager.addDocument('en', 'schooling', 'john.education');
     manager.addDocument('en', 'educational background', 'john.education');
+    manager.addDocument('en', 'honors', 'john.education');
+    manager.addDocument('en', 'ojt', 'john.education');
+    manager.addDocument('en', 'best in ojt', 'john.education');
+    manager.addDocument('en', 'awards', 'john.education');
 
     manager.addDocument('en', 'are you for hire', 'john.hire');
     manager.addDocument('en', 'can I hire you', 'john.hire');
@@ -156,7 +160,7 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993.");
     manager.addAnswer('en', 'john.status', "John is married since December 15, 2025.");
     manager.addAnswer('en', 'john.nickname', "You can call him Carlo!");
-    manager.addAnswer('en', 'john.education', "John graduated from Colegio de Amore, Batch 2014.");
+    manager.addAnswer('en', 'john.education', "John graduated from Colegio de Amore, Batch 2014, where he was awarded 'Best in OJT'.");
     manager.addAnswer('en', 'john.hire', "John is always open to discussing interesting new projects or roles. Feel free to reach out via email or WhatsApp!");
     manager.addAnswer('en', 'john.resume', "You can view John's full CV right here on this site, or contact him directly if you need a PDF copy.");
 
