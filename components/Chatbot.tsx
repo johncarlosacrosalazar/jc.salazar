@@ -45,7 +45,7 @@ export default function Chatbot() {
     if (!input.trim() || isLoading) return;
 
     const userMsg: Message = { id: Date.now().toString(), role: 'user', content: input.trim() };
-    setMessages((prev) => [...prev, userMsg]);
+    setMessages((prev) => [...prev, userMsg].slice(-20));
     setInput('');
     setIsLoading(true);
 
@@ -59,7 +59,10 @@ export default function Chatbot() {
       const data = await res.json();
       
       const botMsg: Message = { id: (Date.now() + 1).toString(), role: 'assistant', content: data.answer };
-      setMessages((prev) => [...prev, botMsg]);
+      setMessages((prev) => {
+        const updated = [...prev, botMsg];
+        return updated.slice(-20); // Keep only the latest 10 pairs (20 messages)
+      });
     } catch (error) {
       const errorMsg: Message = { id: (Date.now() + 1).toString(), role: 'assistant', content: "Sorry, I'm having trouble connecting right now." };
       setMessages((prev) => [...prev, errorMsg]);
