@@ -12,9 +12,17 @@ export async function getNLP() {
   const modelPath = path.join(process.cwd(), 'model.nlp');
 
   if (fs.existsSync(modelPath)) {
-    console.log("Loading pre-trained NLP model...");
-    await manager.load(modelPath);
+    console.log(`Found model at ${modelPath}. Loading...`);
+    try {
+      await manager.load(modelPath);
+      console.log("Pre-trained model loaded successfully.");
+    } catch (err) {
+      console.error("Failed to load pre-trained model:", err);
+      // fallback to training later in the else block if we want, 
+      // but let's see if this fails.
+    }
   } else {
+    console.warn(`Model file not found at ${modelPath}.`);
     console.log("No pre-trained model found. Training now (this might cause timeouts in serverless)...");
 
     // Add documents
@@ -219,7 +227,7 @@ export async function getNLP() {
     // In serverless, we usually can't save to process.cwd() at runtime, 
     // but this is here for local development.
     try {
-      await manager.save(modelPath, true);
+      await manager.save(modelPath, false);
     } catch (e) {
       console.warn("Could not save model file (expected in serverless):", e);
     }
