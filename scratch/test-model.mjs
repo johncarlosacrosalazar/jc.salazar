@@ -12,9 +12,18 @@ async function test() {
   console.log('Loading model...');
   await manager.load(modelPath);
   
-  const response = await manager.process('en', 'what is onepeople');
-  console.log('Intent:', response.intent);
-  console.log('Answer:', response.answer);
+  const tests = [
+    'what is oximeter',
+    'mouth gargle description',
+    'tell me about carlo and rosette website'
+  ];
+
+  for (const t of tests) {
+    const response = await manager.process('en', t);
+    console.log(`\nInput: ${t}`);
+    console.log('Intent:', response.intent);
+    console.log('Answer:', response.answer);
+  }
 }
 
 test().catch(console.error);

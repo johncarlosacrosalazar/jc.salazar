@@ -109,10 +109,14 @@ export async function getNLP() {
     manager.addDocument('en', 'stayprepared', 'john.proj.stayprepared');
     manager.addDocument('en', 'what is stayprepared', 'john.proj.stayprepared');
     manager.addDocument('en', 'oximeter', 'john.proj.oximeter');
+    manager.addDocument('en', 'staywell mouth gargle', 'john.proj.gargle');
+    manager.addDocument('en', 'mouth gargle', 'john.proj.gargle');
     manager.addDocument('en', 'staymasked', 'john.proj.staymasked');
     manager.addDocument('en', 'byobclean', 'john.proj.byobclean');
     manager.addDocument('en', 'pentagreen capital', 'john.proj.pentagreen');
     manager.addDocument('en', 'what is pentagreen', 'john.proj.pentagreen');
+    manager.addDocument('en', 'carlo and rosette', 'john.proj.wedding');
+    manager.addDocument('en', 'wedding website', 'john.proj.wedding');
     manager.addDocument('en', 'what are the covid sites', 'john.proj.temasek');
 
     manager.addDocument('en', 'lolas plates and pours', 'john.proj.lola');
@@ -208,6 +212,8 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.proj.stayprepared', "<b>StayPrepared</b> is a Temasek Foundation initiative that strengthens Singapore’s emergency resilience through health programs, mask distribution, and community training.");
     manager.addAnswer('en', 'john.proj.pentagreen', "<b>Pentagreen Capital</b> is a debt financing platform launched by HSBC and Temasek to accelerate the development of sustainable infrastructure projects in Southeast Asia and beyond.");
     manager.addAnswer('en', 'john.proj.oximeter', "The <b>Oximeter</b> project was an e-commerce and distribution platform for pulse oximeters to help Singapore households monitor their health during the pandemic.");
+    manager.addAnswer('en', 'john.proj.gargle', "<b>StayWell Mouth Gargle</b> is a Temasek Foundation initiative in Singapore that provided PVP-I gargle to households to support hygiene and help reduce the spread of viruses.");
+    manager.addAnswer('en', 'john.proj.wedding', "The <b>Carlo and Rosette</b> project is a beautiful, high-performance wedding website built with Next.js and Framer Motion, featuring smooth animations and a premium aesthetic.");
     manager.addAnswer('en', 'john.proj.staymasked', "<b>Staymasked</b> is a nationwide distribution platform that provided free masks to Singapore residents via automated vending machines.");
     manager.addAnswer('en', 'john.proj.byobclean', "<b>BYOBClean</b> (Bring Your Own Bottle) was a Temasek Foundation initiative where Singapore households could collect free hand sanitizer to help reduce plastic waste.");
     manager.addAnswer('en', 'john.proj.lola', "<b>Lola's Plates & Pours</b> is a full-stack Next.js application designed to showcase modern UI/UX design and seamless restaurant management features.");
