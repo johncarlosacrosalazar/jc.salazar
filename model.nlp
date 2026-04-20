@@ -6181,7 +6181,7 @@
         ],
         "john.proj.onepeople": [
           {
-            "answer": "<b>OnePeople Online</b> is a real-time civic engagement platform facilitate global dialogue through collective insight and open voting. John built it using React and Node.js."
+            "answer": "<b>OnePeople</b> is a platform that connects people with different views through open dialogue and global voting. By sharing perspectives and participating in referendums, it helps communities understand each other and use collective insight to shape a better future."
           }
         ],
         "john.proj.phuckjs": [
