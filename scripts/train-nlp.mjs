@@ -120,7 +120,11 @@ async function train() {
 
   manager.addDocument('en', 'what is your birthday', 'john.birthday');
   manager.addDocument('en', 'when were you born', 'john.birthday');
-  manager.addDocument('en', 'age', 'john.birthday');
+  manager.addDocument('en', 'your birthday', 'john.birthday');
+  manager.addDocument('en', 'how old are you', 'john.birthday');
+  manager.addDocument('en', 'your age', 'john.birthday');
+  manager.addDocument('en', 'what is your age', 'john.birthday');
+  manager.addDocument('en', 'how old is john', 'john.birthday');
   manager.addDocument('en', 'birth date', 'john.birthday');
 
   manager.addDocument('en', 'are you married', 'john.status');
@@ -185,7 +189,7 @@ async function train() {
   manager.addAnswer('en', 'john.proj.lola', "<b>Lola's Plates & Pours</b> is a full-stack Next.js application designed to showcase modern UI/UX design and seamless restaurant management features.");
   manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/john-carlo-salazar-8028083b6/' target='_blank'>LinkedIn</a>.");
   manager.addAnswer('en', 'john.location', "John lives in Brgy. San Agustin, Trece Martires City, Cavite, Philippines.");
-  manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993.");
+  manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993. As of today, he is 32 years old.");
   manager.addAnswer('en', 'john.status', "John is married since December 15, 2025.");
   manager.addAnswer('en', 'john.nickname', "You can call him Carlo!");
   manager.addAnswer('en', 'john.education', "John graduated from Colegio de Amore, Batch 2014, where he was awarded 'Best in OJT'.");
