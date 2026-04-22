@@ -128,6 +128,12 @@ export async function getNLP() {
     manager.addDocument('en', 'lolas plates and pours', 'john.proj.lola');
     manager.addDocument('en', 'what is lolas', 'john.proj.lola');
 
+    manager.addDocument('en', 'chatleads', 'john.proj.chatleads');
+    manager.addDocument('en', 'what is chatleads', 'john.proj.chatleads');
+    manager.addDocument('en', 'tell me about chatleads', 'john.proj.chatleads');
+    manager.addDocument('en', 'ai chatbot rag model', 'john.proj.chatleads');
+    manager.addDocument('en', 'laravel reverb', 'john.proj.chatleads');
+
     manager.addDocument('en', 'how can I contact you', 'john.contact');
     manager.addDocument('en', 'what is your email', 'john.contact');
     manager.addDocument('en', 'phone number', 'john.contact');
@@ -210,7 +216,8 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.exp.b4b', "John was a Full-Stack Web Developer at Breakthrough4business (B4B) from 2017 to 2019, where he developed the B4B Academy social learning platform.");
     manager.addAnswer('en', 'john.exp.leentech', "John started his career as a Junior Programmer at Leentech Network Solution from 2016 to 2017, focusing on Magento e-commerce and Ionic mobile development.");
     manager.addAnswer('en', 'john.skills', "John specializes in React, Next.js, Node.js, AWS Lambda, Laravel, and Enterprise QA. He is a full-stack expert with deep knowledge in serverless architecture and high-performance UI.");
-    manager.addAnswer('en', 'john.projects', "John's portfolio includes the Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. Which one would you like to know more about?");
+    manager.addAnswer('en', 'john.projects', "John's portfolio includes the ChatLeads AI Chatbot, Phuckjs Page Builder, JSX Dashboard, Temasek Foundation COVID-19 sites, and OnePeople Online. Which one would you like to know more about?");
+
     manager.addAnswer('en', 'john.proj.onepeople', "<b>OnePeople</b> is a platform that connects people with different views through open dialogue and global voting. By sharing perspectives and participating in referendums, it helps communities understand each other and use collective insight to shape a better future.");
     manager.addAnswer('en', 'john.proj.phuckjs', "<b>Phuckjs Page Builder</b> is a premium personal project. It's a highly dynamic website builder engine developed by John to streamline complex UI creation.");
     manager.addAnswer('en', 'john.proj.jsx', "<b>JSX Dashboard</b> is a high-performance administrative interface project showcasing John's expertise in real-time data visualization and complex state management.");
@@ -223,6 +230,8 @@ export async function getNLP() {
     manager.addAnswer('en', 'john.proj.staymasked', "<b>Staymasked</b> is a nationwide distribution platform that provided free masks to Singapore residents via automated vending machines.");
     manager.addAnswer('en', 'john.proj.byobclean', "<b>BYOBClean</b> (Bring Your Own Bottle) was a Temasek Foundation initiative where Singapore households could collect free hand sanitizer to help reduce plastic waste.");
     manager.addAnswer('en', 'john.proj.lola', "<b>Lola's Plates & Pours</b> is a full-stack Next.js application designed to showcase modern UI/UX design and seamless restaurant management features.");
+    manager.addAnswer('en', 'john.proj.chatleads', "<b>ChatLeads</b> is an advanced AI-powered chatbot featuring Retrieval-Augmented Generation (RAG) for highly contextual responses, integrated with the OpenAI API. It also features real-time presence tracking and online status detection powered by Laravel Reverb and WebSockets.");
+
     manager.addAnswer('en', 'john.contact', "You can contact John via email at <a href='mailto:johncarlosacrosalazar@gmail.com'>johncarlosacrosalazar@gmail.com</a>, via WhatsApp at <a href='https://wa.me/639273315906' target='_blank'>+639273315906</a>, or find him on <a href='https://www.linkedin.com/in/john-carlo-salazar-8028083b6/' target='_blank'>LinkedIn</a>.");
     manager.addAnswer('en', 'john.location', "John lives in Brgy. San Agustin, Trece Martires City, Cavite, Philippines.");
     manager.addAnswer('en', 'john.birthday', "John was born on December 16, 1993. As of today, he is 32 years old.");

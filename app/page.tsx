@@ -35,6 +35,8 @@ import imgCarloRosette from '../public/assets/images/carlo_and_rosette_wedding.p
 import imgLolasPlates from '../public/assets/images/lolas-pours-plates.png';
 import imgJsxDashboard from '../public/assets/images/jsx-dashboard.png';
 import imgPhuckjs from '../public/assets/images/Phuckjs-pagebuilder.png';
+import imgChatLeads from '../public/assets/images/chatleads-rag.webp';
+
 
 
 
@@ -68,6 +70,14 @@ const experiences = [
 ];
 
 const projects = [
+  {
+    category: 'Laravel / AI',
+    icon: <Code2 size={11} />,
+    badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    items: [
+      { title: 'ChatLeads', url: '', desc: 'An advanced AI-powered chatbot featuring Retrieval-Augmented Generation (RAG) for highly contextual responses, seamlessly integrated with the OpenAI API. The platform incorporates real-time presence tracking and online status detection powered by Laravel Reverb and WebSockets, ensuring a dynamic and responsive user experience.', image: imgChatLeads },
+    ],
+  },
   {
     category: 'ReactJS / Next.js',
     icon: <Code2 size={11} />,
