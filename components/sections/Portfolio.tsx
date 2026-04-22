@@ -85,7 +85,7 @@ function ProjectCard({ project, onPreview }: ProjectCardProps) {
         {project.image ? (
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} - ${project.category} project by John Carlo Salazar`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="project-img object-cover grayscale scale-100 opacity-60"

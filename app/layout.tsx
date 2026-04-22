@@ -20,33 +20,59 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jc-salazar.vercel.app"),
-  title: "John Carlo Salazar - Lead Web Developer & Systems Architect",
-  description: "Senior Web Developer with 10+ years of experience in Singapore and Philippines. Specialist in React, Node.js, and Enterprise Systems Architecture.",
-  keywords: ["John Carlo Salazar", "Web Developer", "Lead Developer", "React Developer", "Node.js Developer", "Portfolio", "Systems Architect", "Singapore Tech", "Philippines Tech"],
+  title: {
+    default: "John Carlo Salazar | Lead Web Developer & Systems Architect",
+    template: "%s | John Carlo Salazar"
+  },
+  description: "Senior Web Developer with 10+ years of experience specializing in React, Node.js, and Enterprise Systems Architecture. Based in the Philippines, serving global clients including Temasek Holdings.",
+  keywords: [
+    "John Carlo Salazar", 
+    "Senior Web Developer", 
+    "Systems Architect", 
+    "React Specialist", 
+    "Next.js Developer", 
+    "Node.js Expert", 
+    "Enterprise QA Lead", 
+    "Full Stack Developer Philippines", 
+    "Laravel Developer",
+    "OpenAI RAG Chatbot Developer",
+    "Portfolio John Carlo Salazar"
+  ],
   authors: [{ name: "John Carlo Salazar" }],
   creator: "John Carlo Salazar",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://jc-salazar.vercel.app", // Updated to correct Vercel domain
-    title: "John Carlo Salazar - Lead Web Developer",
-    description: "Personal portfolio of John Carlo Salazar, a Senior Web Developer specializing in high-performance ecosystems.",
+    url: "https://jc-salazar.vercel.app",
+    title: "John Carlo Salazar - Lead Web Developer & Systems Architect",
+    description: "Architecting high-performance digital ecosystems for Singapore and the Philippines. Specialist in React, Node.js, and AI-integrated systems.",
     siteName: "John Carlo Salazar Portfolio",
     images: [
       {
         url: "/assets/images/hero.png",
         width: 1200,
         height: 630,
-        alt: "John Carlo Salazar - Lead Web Developer",
+        alt: "John Carlo Salazar - Lead Web Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Carlo Salazar - Lead Web Developer",
+    title: "John Carlo Salazar | Lead Web Developer",
     description: "Senior Web Developer with 10+ years of experience in Singapore and Philippines.",
     images: ["/assets/images/hero.png"],
-    creator: "@jc_salazar", // Placeholder if not found
+    creator: "@jc_salazar",
   },
   icons: {
     icon: "/icon.png",

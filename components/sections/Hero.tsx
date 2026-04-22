@@ -151,7 +151,7 @@ export default function Hero() {
             >
               <Image
                 src={hero}
-                alt="John Carlo Salazar"
+                alt="John Carlo Salazar - Lead Web Developer and Systems Architect"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
