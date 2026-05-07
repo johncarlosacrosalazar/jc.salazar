@@ -1,3 +1,7 @@
+/**
+ * Web App Manifest for John Carlo Salazar's Portfolio.
+ * Defines metadata for PWA (Progressive Web App) functionality, including branding and icons.
+ */
 import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {

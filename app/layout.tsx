@@ -85,10 +85,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/Header";
-import ScrollBackground from "@/components/ScrollBackground";
 import PageLoader from "@/components/PageLoader";
-import Chatbot from "@/components/Chatbot";
 
 export default function RootLayout({
   children,
@@ -122,10 +119,7 @@ export default function RootLayout({
         >
           <PageLoader />
           <div id="root-content">
-            <ScrollBackground />
-            <Header />
             {children}
-            <Chatbot />
           </div>
         </ThemeProvider>
       </body>
