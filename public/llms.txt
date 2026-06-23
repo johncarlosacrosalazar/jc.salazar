@@ -1,0 +1,30 @@
+# John Carlo Salazar - Portfolio and Professional Summary
+
+> **Systems Architect & Lead Web Developer** based in Trece Martires, Cavite, Philippines.
+
+## Introduction
+John Carlo Salazar is a Senior Web Developer and Systems Architect with 10+ years of experience engineering high-stakes digital ecosystems. He serves global clients, including the Temasek Foundation in Singapore, and specializes in React, Node.js, and Enterprise Systems Architecture.
+
+## Technical Expertise
+- **Frontend Development**: React.js, Next.js, TypeScript, Tailwind CSS, Framer Motion, GSAP, jQuery.
+- **Backend Development**: Node.js, PHP, Laravel, CodeIgniter, AWS Lambda, Serverless Framework.
+- **Cloud & Infrastructure**: AWS (Lambda, EC2, S3, RDS), Ubuntu Server Management, GitOps.
+- **E-Commerce Platforms**: WordPress/WooCommerce, Magento.
+- **Quality Engineering**: Manual & Automated QA Lead, CI/CD Pipelines, Performance Optimization.
+- **AI & Integrations**: OpenAI API, Retrieval-Augmented Generation (RAG) Chatbots.
+
+## Career Experience
+- **Lead Web Developer / QA Lead at Edge Digital (2020 — 2025)**: Architected OnePeople, engineered nationwide APIs and optimized AWS serverless infrastructure for COVID-19 campaign sites in Singapore.
+- **Web Developer at Breakthrough4business (2017 — 2019)**: Built the B4B Academy social platform from scratch.
+- **Junior Programmer at Leentech Network Solution (2016 — 2017)**: Developed custom Magento e-commerce solutions.
+
+## Notable Projects
+1. **ChatLeads**: AI-powered RAG chatbot integrated with OpenAI API and Laravel Reverb for real-time tracking.
+2. **OnePeople Online**: Platform connecting people through open dialogue and global voting.
+3. **Temasek Foundation Initiatives**: COVID-19 nationwide platforms including StayPrepared, Oximiter, Staymasked, and BYOBClean.
+4. **Temasek Review 2023 & 2025**: Led Quality Assurance for these flagship digital annual reports.
+5. **Pentagreen Capital**: Corporate platform for sustainable infrastructure financing in Southeast Asia.
+
+## Contact Information
+- **Website**: https://jc-salazar.vercel.app
+- **Email**: johncarlosacrosalazar@gmail.com

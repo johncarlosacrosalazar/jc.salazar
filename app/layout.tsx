@@ -81,6 +81,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://jc-salazar.vercel.app",
+    types: {
+      "text/plain": "https://jc-salazar.vercel.app/llms.txt",
+    },
   },
 };
 

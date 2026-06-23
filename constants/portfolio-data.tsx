@@ -27,6 +27,7 @@ import imgLolasPlates from '../public/assets/images/lolas-pours-plates.png';
 import imgJsxDashboard from '../public/assets/images/jsx-dashboard.png';
 import imgPhuckjs from '../public/assets/images/Phuckjs-pagebuilder.png';
 import imgChatLeads from '../public/assets/images/chatleads-rag.webp';
+import imgNeo360RedesignTrial from '../public/assets/images/neo_360_redesign_trial.png';
 
 /**
  * Career Experience Data
@@ -76,6 +77,7 @@ export const projects = [
     icon: <Code2 size={11} />,
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     items: [
+      { title: 'Neo360 Redesign Trial', url: '/neo360-redesign', desc: 'A high-performance landing page redesign trial built with Next.js and Tailwind CSS. Showcases clean architecture, dynamic client-side metric dashboards, smooth CSS animations, and authoritative brand visuals. (Note: This is a redesign trial request / design concept, not an official brand project).', image: imgNeo360RedesignTrial },
       { title: 'Phuckjs Page Builder', url: '', desc: 'ReactJS page builder, very good for building client website.', image: imgPhuckjs },
       { title: 'JSX Dashboard', url: '', desc: 'Next.js with PostgreSQL and NextAuth Dashboard.', image: imgJsxDashboard },
     ],
