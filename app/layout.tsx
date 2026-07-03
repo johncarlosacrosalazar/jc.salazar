@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const PoppinsFont = Poppins({
@@ -108,6 +109,23 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.classList.add('loading-active');`,
+          }}
+        />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YYNVS7NXPJ"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-YYNVS7NXPJ');
+            `,
           }}
         />
       </head>
