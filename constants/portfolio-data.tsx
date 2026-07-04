@@ -28,6 +28,7 @@ import imgJsxDashboard from '../public/assets/images/jsx-dashboard.png';
 import imgPhuckjs from '../public/assets/images/Phuckjs-pagebuilder.png';
 import imgChatLeads from '../public/assets/images/chatleads-rag.webp';
 import imgNeo360RedesignTrial from '../public/assets/images/neo_360_redesign_trial.png';
+import imgCustomWebAdminPortal from '../public/assets/images/custom-webadmin-portal.webp';
 
 /**
  * Career Experience Data
@@ -78,6 +79,7 @@ export const projects = [
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     items: [
       { title: 'Neo360 Redesign Trial', url: '/neo360-redesign', desc: 'A high-performance landing page redesign trial built with Next.js and Tailwind CSS. Showcases clean architecture, dynamic client-side metric dashboards, smooth CSS animations, and authoritative brand visuals. (Note: This is a redesign trial request / design concept, not an official brand project).', image: imgNeo360RedesignTrial },
+      { title: 'Custom Web Admin Portal', url: '', desc: "A tailored admin portal built around the client's operational needs, featuring secure authentication, flexible content management, and PostgreSQL-backed data workflows. Developed with Next.js, PhuckJS, NextAuth, and PostgreSQL.", image: imgCustomWebAdminPortal },
       { title: 'Phuckjs Page Builder', url: '', desc: 'ReactJS page builder, very good for building client website.', image: imgPhuckjs },
       { title: 'JSX Dashboard', url: '', desc: 'Next.js with PostgreSQL and NextAuth Dashboard.', image: imgJsxDashboard },
     ],
