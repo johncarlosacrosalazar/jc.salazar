@@ -29,6 +29,7 @@ import imgPhuckjs from '../public/assets/images/Phuckjs-pagebuilder.png';
 import imgChatLeads from '../public/assets/images/chatleads-rag.webp';
 import imgNeo360RedesignTrial from '../public/assets/images/neo_360_redesign_trial.png';
 import imgCustomWebAdminPortal from '../public/assets/images/custom-webadmin-portal.webp';
+import imgTamagotchi from '../public/assets/images/tamagotchi.webp';
 
 /**
  * Career Experience Data
@@ -78,6 +79,7 @@ export const projects = [
     icon: <Code2 size={11} />,
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     items: [
+      { title: 'My EWL Pet Concept', url: '/tamagotchi', desc: 'An interactive Tamagotchi-style virtual pet concept built with Next.js and TypeScript. Features dog and cat selection, state-driven SVG animations, server-synchronised time, daily care actions, changing wellbeing needs, aging and lifecycle behaviour. Created as a focused product and technical prototype, not an official EatWagLove production application.', image: imgTamagotchi },
       { title: 'Neo360 Redesign Trial', url: '/neo360-redesign', desc: 'A high-performance landing page redesign trial built with Next.js and Tailwind CSS. Showcases clean architecture, dynamic client-side metric dashboards, smooth CSS animations, and authoritative brand visuals. (Note: This is a redesign trial request / design concept, not an official brand project).', image: imgNeo360RedesignTrial },
       { title: 'Custom Web Admin Portal', url: '', desc: "A tailored admin portal built around the client's operational needs, featuring secure authentication, flexible content management, and PostgreSQL-backed data workflows. Developed with Next.js, PhuckJS, NextAuth, and PostgreSQL.", image: imgCustomWebAdminPortal },
       { title: 'Phuckjs Page Builder', url: '', desc: 'ReactJS page builder, very good for building client website.', image: imgPhuckjs },
