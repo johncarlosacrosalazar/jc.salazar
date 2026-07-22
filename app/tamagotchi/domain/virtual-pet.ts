@@ -3,7 +3,7 @@ export type StatKey = "hunger" | "happiness" | "energy" | "cleanliness" | "healt
 export type PetStats = Record<StatKey, number>;
 export type CareAction = "feed" | "play" | "walk" | "groom" | "rest";
 export type LifeStage = "baby" | "adult" | "senior";
-export type PetAnimation = "idle" | "happy" | "eating" | "walking" | "grooming" | "sleeping" | "sick" | "senior" | "dead";
+export type PetAnimation = "idle" | "happy" | "eating" | "hungry" | "tired" | "dirty" | "sad" | "walking" | "grooming" | "sleeping" | "sick" | "senior" | "dead";
 
 export interface PetSnapshot {
   species: Species;
@@ -71,12 +71,16 @@ export class VirtualPet {
 
   get animation(): PetAnimation {
     if (!this.snapshot.alive) return "dead";
-    if (this.snapshot.stats.health < 30 || this.lowNeeds >= 2) return "sick";
     if (this.snapshot.lastAction === "feed") return "eating";
     if (this.snapshot.lastAction === "play") return "happy";
     if (this.snapshot.lastAction === "walk") return "walking";
     if (this.snapshot.lastAction === "groom") return "grooming";
     if (this.snapshot.lastAction === "rest") return "sleeping";
+    if (this.snapshot.stats.health < 30 || this.lowNeeds >= 3) return "sick";
+    if (this.snapshot.stats.hunger < 30) return "hungry";
+    if (this.snapshot.stats.energy < 30) return "tired";
+    if (this.snapshot.stats.cleanliness < 30) return "dirty";
+    if (this.snapshot.stats.happiness < 30) return "sad";
     if (this.lifeStage === "senior") return "senior";
     return "idle";
   }
@@ -109,6 +113,16 @@ export class VirtualPet {
     const alive = stats.health > 0 && age < VirtualPet.MAX_AGE;
     const message = !alive
       ? `${this.snapshot.name} lived a full little life.`
+      : stats.health < 30
+        ? "I don't feel very well. Please take care of me."
+      : stats.hunger < 30
+        ? "My tummy is rumbling. Is it mealtime yet?"
+        : stats.energy < 30
+          ? "I'm so tired. Can I rest for a while?"
+          : stats.cleanliness < 30
+            ? "I feel dirty and itchy. Can you groom me?"
+            : stats.happiness < 30
+              ? "I'm feeling lonely. Will you play with me?"
       : age >= 12
         ? `I'm an old ${this.snapshot.species} now. Stay with me?`
         : age >= 4
