@@ -1,0 +1,39 @@
+.sprite { width: 100%; height: 100%; overflow: visible; transform-origin: 50% 85%; }
+.body { transform-origin: center; }
+.tail { transform-origin: 82% 60%; }
+.eye { transform-origin: center; animation: blink 4s infinite; }
+.shadow { opacity: .2; }
+
+.idle { animation: idle 2.2s ease-in-out infinite; }
+.idle .tail, .happy .tail { animation: wag .34s ease-in-out infinite alternate; }
+.happy { animation: jump .48s ease-in-out infinite alternate; }
+.eating { animation: eat .32s ease-in-out infinite alternate; }
+.walking { animation: walk .42s ease-in-out infinite alternate; }
+.walking .tail { animation: wag .2s ease-in-out infinite alternate; }
+.grooming { animation: clean .65s ease-in-out infinite; }
+.sleeping { animation: breathe 2.3s ease-in-out infinite; }
+.sleeping .eye { animation: none; transform: scaleY(.12); }
+.sick { animation: shake .65s ease-in-out infinite; filter: saturate(.55); }
+.senior { animation: sway 2.6s ease-in-out infinite; }
+.dead { transform: rotate(90deg) translateY(8px); opacity: .5; filter: grayscale(1); }
+
+.sparkle { animation: sparkle .8s ease-in-out infinite alternate; }
+.z { animation: float 1.8s ease-out infinite; font: 700 18px monospace; fill: #304534; }
+.zTwo { animation-delay: .8s; }
+
+@keyframes idle { 0%,100% { transform: translateY(2px) } 50% { transform: translateY(-3px) } }
+@keyframes blink { 0%,44%,48%,100% { transform: scaleY(1) } 46% { transform: scaleY(.1) } }
+@keyframes wag { from { transform: rotate(-9deg) } to { transform: rotate(14deg) } }
+@keyframes jump { from { transform: translateY(2px) scale(1) } to { transform: translateY(-12px) scale(1.03) } }
+@keyframes eat { from { transform: translateY(0) rotate(-1deg) } to { transform: translateY(5px) rotate(1deg) } }
+@keyframes walk { from { transform: translateX(-5px) rotate(-1deg) } to { transform: translateX(5px) rotate(1deg) } }
+@keyframes clean { 0%,100% { transform: rotate(0) } 30% { transform: rotate(-4deg) } 70% { transform: rotate(4deg) } }
+@keyframes breathe { 0%,100% { transform: scale(1) } 50% { transform: scale(1.025,.98) translateY(2px) } }
+@keyframes shake { 0%,100% { transform: translateX(-2px) rotate(-1deg) } 50% { transform: translateX(2px) rotate(1deg) } }
+@keyframes sway { 0%,100% { transform: rotate(-1deg) translateY(2px) } 50% { transform: rotate(1deg) translateY(0) } }
+@keyframes sparkle { from { opacity: .25; transform: scale(.7) } to { opacity: 1; transform: scale(1.15) } }
+@keyframes float { from { opacity: 0; transform: translate(0,8px) } 45% { opacity: 1 } to { opacity: 0; transform: translate(10px,-18px) } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sprite, .sprite * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
