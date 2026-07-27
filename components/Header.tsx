@@ -1,13 +1,16 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Header() {
   const container = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navItems = ['Services', 'Portfolio', 'Experience', 'Stack'];
 
   useGSAP(() => {
     gsap.fromTo(".nav-logo", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" });
@@ -49,7 +52,7 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {['Experience', 'Portfolio', 'Stack'].map((item) => (
+          {navItems.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -66,7 +69,45 @@ export default function Header() {
             Hire Me
           </a>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen(open => !open)}
+          className="md:hidden inline-flex w-11 h-11 items-center justify-center border border-gold/25 text-gold rounded-sm"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+        >
+          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
+
+      {isMenuOpen && (
+        <div id="mobile-navigation" className="md:hidden border-t border-gold/15 bg-void/98 px-8 py-6 shadow-2xl">
+          <div className="flex flex-col gap-2">
+            {navItems.map(item => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setIsMenuOpen(false)}
+                className="py-3 font-barlow text-lg font-bold tracking-[0.18em] uppercase text-ink border-b border-ink/5 hover:text-gold transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex items-center justify-between gap-4 pt-4">
+              <ThemeToggle />
+              <a
+                href="mailto:johncarlosacrosalazar@gmail.com?subject=Project%20Inquiry"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex-1 text-center px-6 py-3 bg-gold text-void font-barlow text-xs font-bold tracking-widest uppercase rounded-sm"
+              >
+                Start a Project
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

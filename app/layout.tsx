@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "John Carlo Salazar | Lead Web Developer & Systems Architect",
     template: "%s | John Carlo Salazar"
   },
-  description: "Senior Web Developer with 10+ years of experience specializing in React, Node.js, and Enterprise Systems Architecture. Based in the Philippines, serving global clients including Temasek Holdings.",
+  description: "Full-stack web developer helping businesses launch websites, online academies, portals, e-commerce experiences, and AI automation. 10+ years of experience with React, Next.js, Laravel, WordPress, and AWS.",
   keywords: [
     "John Carlo Salazar", 
     "Senior Web Developer", 
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "Full Stack Developer Philippines", 
     "Laravel Developer",
     "OpenAI RAG Chatbot Developer",
+    "LearnPress Developer",
+    "GoHighLevel Developer",
+    "WooCommerce Developer",
     "Portfolio John Carlo Salazar"
   ],
   authors: [{ name: "John Carlo Salazar" }],

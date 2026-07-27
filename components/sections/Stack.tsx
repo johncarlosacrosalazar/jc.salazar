@@ -79,7 +79,7 @@ export default function Stack() {
               {[
                 { label: 'Frontend', items: ['React / Next.js', 'Tailwind CSS', 'Framer Motion', 'TS'] },
                 { label: 'Backend', items: ['Node.js', 'Laravel', 'PHP', 'AWS Lambda'] },
-                { label: 'E-Commerce', items: ['WordPress', 'WooCommerce', 'Magento'] },
+                { label: 'E-Commerce & LMS', items: ['WordPress', 'WooCommerce', 'LearnPress', 'GoHighLevel'] },
                 { label: 'Quality', items: ['Manual/Auto QA', 'CI/CD', 'Git Ops'] },
               ].map(cat => (
                 <div key={cat.label}>

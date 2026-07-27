@@ -103,7 +103,7 @@ export default function Hero() {
           <div className="flex items-center gap-4 mb-8">
             <div className="hero-line w-12 h-0.5 bg-gold" />
             <span className="hero-sub font-barlow text-sm font-bold tracking-[0.3em] uppercase text-gold">
-              Lead Web Developer
+              Full-Stack Developer for Growing Businesses
             </span>
           </div>
 
@@ -113,7 +113,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-p text-lg leading-relaxed text-ash max-w-lg mb-10 border-l-4 border-gold pl-6">
-            10+ years engineering high-performance ecosystems for Singapore and Philippines. Specialist in React, Node.js, and Enterprise QA.
+            I build reliable websites, online academies, business portals, and AI automations that help companies launch faster and operate smarter.
           </p>
 
           <div className="flex flex-wrap gap-8 mb-12">
@@ -125,14 +125,18 @@ export default function Hero() {
               <Award size={18} className="text-gold" />
               <span className="font-medium">10+ Years Exp</span>
             </div>
+            <div className="hero-stat flex items-center gap-3 text-steel text-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
+              <span className="font-medium">Available for Client Projects</span>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-5">
-            <a href="#portfolio" className="hero-btn inline-flex items-center gap-3 px-10 py-4 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/10">
-              View Work <ArrowRight size={18} />
+            <a href="mailto:johncarlosacrosalazar@gmail.com?subject=Project%20Inquiry" className="hero-btn inline-flex items-center gap-3 px-10 py-4 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/10">
+              Start a Project <ArrowRight size={18} />
             </a>
-            <a href="mailto:johncarlosacrosalazar@gmail.com" className="hero-btn inline-flex items-center gap-3 px-10 py-4 border border-white/20 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold transition-all">
-              <Mail size={18} /> Contact
+            <a href="#portfolio" className="hero-btn inline-flex items-center gap-3 px-10 py-4 border border-white/20 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold transition-all">
+              <Mail size={18} /> See Client Work
             </a>
           </div>
         </div>

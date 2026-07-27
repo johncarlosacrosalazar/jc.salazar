@@ -89,15 +89,16 @@ export default function Footer() {
       <div className="footer-content max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div>
           <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
-          <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LETS CONNECT.</h2>
-          <p className="font-barlow text-xl md:text-2xl text-gold mt-4 low-tracking select-all">johncarlosacrosalazar@gmail.com</p>
+          <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LET&apos;S BUILD IT.</h2>
+          <p className="text-ash text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">Tell me what you want to launch, improve, or automate. I’ll reply with practical next steps for your project.</p>
+          <p className="font-barlow text-xl md:text-2xl text-gold mt-5 low-tracking select-all">johncarlosacrosalazar@gmail.com</p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:johncarlosacrosalazar@gmail.com" className="px-10 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10 flex items-center justify-center gap-3">
+          <a href="mailto:johncarlosacrosalazar@gmail.com?subject=Project%20Inquiry&amp;body=Hi%20John%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%20type%3A%0ATimeline%3A%0ABudget%20range%3A" className="px-10 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10 flex items-center justify-center gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            Email Me
+            Start a Project
           </a>
           <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-10 py-5 border border-ink/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>

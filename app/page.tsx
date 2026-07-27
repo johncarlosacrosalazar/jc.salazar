@@ -1,4 +1,10 @@
-// This file intentionally left empty to allow the route group (portfolio) to handle the root path
-// The actual portfolio page is in app/(portfolio)/page.tsx
+import PortfolioLayout from './(portfolio)/layout';
+import PortfolioLandingPage from './(portfolio)/page';
 
-export { default } from './(portfolio)/page';
+export default function HomePage() {
+  return (
+    <PortfolioLayout>
+      <PortfolioLandingPage />
+    </PortfolioLayout>
+  );
+}

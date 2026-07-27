@@ -143,6 +143,12 @@ function ProjectCard({ project, onPreview }: ProjectCardProps) {
             )}
           </div>
         </div>
+        <a
+          href={`mailto:johncarlosacrosalazar@gmail.com?subject=${encodeURIComponent(`Project similar to ${project.title}`)}`}
+          className="inline-flex items-center gap-2 text-gold text-[11px] font-bold uppercase tracking-widest hover:gap-3 transition-all"
+        >
+          Build Something Similar <ExternalLink size={14} />
+        </a>
       </div>
     </div>
   );
@@ -194,13 +200,15 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
     });
   }, { scope: container });
 
-  const categories = ['All', ...new Set(projects.map(p => p.category))];
+  const categories = ['All', ...new Set(projects.flatMap(group =>
+    group.categories ?? [group.category]
+  ))];
 
   // Logic to filter projects based on activeCategory
   const allFilteredItems = activeCategory === 'All'
     ? projects.flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })))
     : projects
-      .filter(group => group.category === activeCategory)
+      .filter(group => (group.categories ?? [group.category]).includes(activeCategory))
       .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
 
   return (

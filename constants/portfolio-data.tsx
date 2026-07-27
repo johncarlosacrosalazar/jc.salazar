@@ -30,6 +30,9 @@ import imgChatLeads from '../public/assets/images/chatleads-rag.webp';
 import imgNeo360RedesignTrial from '../public/assets/images/neo_360_redesign_trial.png';
 import imgCustomWebAdminPortal from '../public/assets/images/custom-webadmin-portal.webp';
 import imgTamagotchi from '../public/assets/images/tamagotchi.webp';
+import imgTaxIqAcademy from '../public/assets/images/TIQA.webp';
+import imgGenWealthAcademy from '../public/assets/images/gen_wealth.webp';
+import imgMagicTaxAcademy from '../public/assets/images/magictaxacademy.webp';
 
 /**
  * Career Experience Data
@@ -84,6 +87,17 @@ export const projects = [
       { title: 'Custom Web Admin Portal', url: '', desc: "A tailored admin portal built around the client's operational needs, featuring secure authentication, flexible content management, and PostgreSQL-backed data workflows. Developed with Next.js, PhuckJS, NextAuth, and PostgreSQL.", image: imgCustomWebAdminPortal },
       { title: 'Phuckjs Page Builder', url: '', desc: 'ReactJS page builder, very good for building client website.', image: imgPhuckjs },
       { title: 'JSX Dashboard', url: '', desc: 'Next.js with PostgreSQL and NextAuth Dashboard.', image: imgJsxDashboard },
+    ],
+  },
+  {
+    category: 'WordPress',
+    categories: ['WordPress', 'LearnPress', 'GoHighLevel', 'WooCommerce'],
+    icon: <Globe size={11} />,
+    badge: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
+    items: [
+      { title: 'Tax IQ Academy', url: 'https://taxiqacademy.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgTaxIqAcademy },
+      { title: 'Gen Wealth Tax Academy', url: 'https://genwealthtaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgGenWealthAcademy },
+      { title: 'Magic Tax Academy', url: 'https://magictaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgMagicTaxAcademy },
     ],
   },
   {

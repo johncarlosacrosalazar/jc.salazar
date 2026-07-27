@@ -23,6 +23,7 @@ import ImageModal from '@/components/ImageModal';
 
 // Section Components (Extracted for better maintainability)
 import Hero from '@/components/sections/Hero';
+import Services from '@/components/sections/Services';
 import Experience from '@/components/sections/Experience';
 import Portfolio from '@/components/sections/Portfolio';
 import Stack from '@/components/sections/Stack';
@@ -67,8 +68,9 @@ export default function PortfolioLandingPage() {
 
       {/* Main Page Layout */}
       <Hero />
-      <Experience />
+      <Services />
       <Portfolio onPreview={(img, title) => setSelectedPreview({ img, title })} />
+      <Experience />
       <Stack />
       <Footer />
 
