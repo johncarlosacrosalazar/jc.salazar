@@ -33,6 +33,7 @@ import imgTamagotchi from '../public/assets/images/tamagotchi.webp';
 import imgTaxIqAcademy from '../public/assets/images/TIQA.webp';
 import imgGenWealthAcademy from '../public/assets/images/gen_wealth.webp';
 import imgMagicTaxAcademy from '../public/assets/images/magictaxacademy.webp';
+import imgPortMacquarie from '../public/assets/images/portmacquarie.webp';
 
 /**
  * Career Experience Data
@@ -91,13 +92,22 @@ export const projects = [
   },
   {
     category: 'WordPress',
-    categories: ['WordPress', 'LearnPress', 'GoHighLevel', 'WooCommerce'],
+    categories: ['WordPress', 'Elementor', 'LearnPress', 'GoHighLevel', 'WooCommerce'],
     icon: <Globe size={11} />,
     badge: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
     items: [
       { title: 'Tax IQ Academy', url: 'https://taxiqacademy.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgTaxIqAcademy },
       { title: 'Gen Wealth Tax Academy', url: 'https://genwealthtaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgGenWealthAcademy },
       { title: 'Magic Tax Academy', url: 'https://magictaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgMagicTaxAcademy },
+    ],
+  },
+  {
+    category: 'WordPress / Elementor',
+    categories: ['WordPress', 'Elementor'],
+    icon: <Globe size={11} />,
+    badge: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
+    items: [
+      { title: 'Port Macquarie Aged Care Expo', url: 'https://portmacquarieagedcareexpo.com.au/', desc: 'An accessible event website built with WordPress and Elementor for the Port Macquarie Aged Care Expo. It connects seniors, caregivers, healthcare professionals, and the wider community with aged-care providers through event information, exhibitor listings, free-ticket registration, testimonials, and galleries.', image: imgPortMacquarie },
     ],
   },
   {

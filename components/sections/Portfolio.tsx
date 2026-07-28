@@ -200,9 +200,12 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
     });
   }, { scope: container });
 
-  const categories = ['All', ...new Set(projects.flatMap(group =>
-    group.categories ?? [group.category]
-  ))];
+  const categories = [
+    'All',
+    ...[...new Set(projects.flatMap(group =>
+      group.categories ?? [group.category]
+    ))].sort((a, b) => a.localeCompare(b)),
+  ];
 
   // Logic to filter projects based on activeCategory
   const allFilteredItems = activeCategory === 'All'
@@ -210,6 +213,8 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
     : projects
       .filter(group => (group.categories ?? [group.category]).includes(activeCategory))
       .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
+
+  allFilteredItems.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <section id="portfolio" ref={container} className="bg-transparent py-24 px-8 overflow-hidden relative">
