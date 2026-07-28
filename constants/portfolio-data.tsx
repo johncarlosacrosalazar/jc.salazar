@@ -34,6 +34,10 @@ import imgTaxIqAcademy from '../public/assets/images/TIQA.webp';
 import imgGenWealthAcademy from '../public/assets/images/gen_wealth.webp';
 import imgMagicTaxAcademy from '../public/assets/images/magictaxacademy.webp';
 import imgPortMacquarie from '../public/assets/images/portmacquarie.webp';
+import imgJdTaxProAcademy from '../public/assets/images/jdtaxproacademy-.webp';
+import imgEroTaxEducation from '../public/assets/images/erotaxeducation.webp';
+import imgAxisProTaxAcademy from '../public/assets/images/axisprotaxacademy.webp';
+import imgAtpTaxAcademy from '../public/assets/images/atptaxacademycourses.webp';
 
 /**
  * Career Experience Data
@@ -97,6 +101,10 @@ export const projects = [
     badge: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
     items: [
       { title: 'Tax IQ Academy', url: 'https://taxiqacademy.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgTaxIqAcademy },
+      { title: 'ATP Tax Academy', url: 'https://atptaxacademycourses.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgAtpTaxAcademy },
+      { title: 'Axis Pro Tax Academy', url: 'https://axisprotaxacademy.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgAxisProTaxAcademy },
+      { title: 'ERO Tax Education', url: 'https://erotaxeducation.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgEroTaxEducation },
+      { title: 'JD Tax Pro Academy', url: 'https://jdtaxproacademy.com/', desc: 'A tax education academy built with WordPress, LearnPress, and WooCommerce, featuring online course delivery plus GoHighLevel form integrations and automated lead-nurturing workflows.', image: imgJdTaxProAcademy },
       { title: 'Gen Wealth Tax Academy', url: 'https://genwealthtaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgGenWealthAcademy },
       { title: 'Magic Tax Academy', url: 'https://magictaxacademy.com/', desc: 'A white-label Tax IQ Academy site built with WordPress, LearnPress, and WooCommerce, with GoHighLevel forms and automation supporting lead capture and customer journeys.', image: imgMagicTaxAcademy },
     ],
