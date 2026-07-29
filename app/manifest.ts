@@ -8,7 +8,10 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'John Carlo Salazar Portfolio',
     short_name: 'JC Salazar',
-    description: 'Lead Web Developer & Systems Architect Portfolio',
+    description: 'Portfolio of full-stack web developer and systems architect John Carlo Salazar.',
+    id: '/',
+    scope: '/',
+    lang: 'en-PH',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0a0a',

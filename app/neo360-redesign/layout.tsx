@@ -5,6 +5,26 @@ import { ChevronDown, ChevronRight, Facebook, Twitter, Linkedin, Instagram, Yout
 export const metadata: Metadata = {
   title: "Website Design & Development | Neo360",
   description: "High-performance, growth-driven website design and development services. We build digital experiences that convert.",
+  alternates: {
+    canonical: "/neo360-redesign",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    url: "/neo360-redesign",
+    title: "Neo360 Website Redesign Concept",
+    description: "A high-performance website redesign concept created by John Carlo Salazar.",
+    images: ["/assets/images/neo_360_redesign_trial.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Neo360 Website Redesign Concept",
+    description: "A high-performance website redesign concept created by John Carlo Salazar.",
+    images: ["/assets/images/neo_360_redesign_trial.png"],
+  },
 };
 
 export default function Neo360Layout({

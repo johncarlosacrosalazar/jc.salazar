@@ -2,7 +2,7 @@
 **Systems Architect & Lead Web Developer** | 10+ Years Experience  
 Trece Martires, Cavite, Philippines  
 [johncarlosacrosalazar@gmail.com](mailto:johncarlosacrosalazar@gmail.com) | +63 927 331 5906  
-[jc-salazar.vercel.app](https://jc-salazar.vercel.app)
+[johncarlosalazar.com](https://johncarlosalazar.com)
 
 ---
 

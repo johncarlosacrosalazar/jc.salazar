@@ -23,7 +23,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
         <div className="nav-logo mb-0">
           <motion.a
-            href="#"
+            href="/"
             className='flex items-center gap-3 group'
             whileHover="hover"
             initial="initial"

@@ -56,13 +56,47 @@ export default function PortfolioLandingPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "John Carlo Salazar",
-            "jobTitle": "Lead Web Developer",
-            "url": "https://jc-salazar.vercel.app",
-            "sameAs": [],
-            "knowsAbout": ["React", "Node.js", "AWS", "Systems Architecture", "Quality Assurance", "Laravel", "PHP"]
-          })
+            "@graph": [
+              {
+                "@type": "Person",
+                "@id": "https://johncarlosalazar.com/#person",
+                "name": "John Carlo Salazar",
+                "url": "https://johncarlosalazar.com/",
+                "image": "https://johncarlosalazar.com/assets/images/hero.png",
+                "jobTitle": ["Full-Stack Web Developer", "Systems Architect"],
+                "description": "Philippines-based full-stack developer with more than 10 years of experience building websites, online academies, business portals, e-commerce platforms, and AI automation.",
+                "email": "mailto:johncarlosacrosalazar@gmail.com",
+                "telephone": "+63 927 331 5906",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Trece Martires",
+                  "addressRegion": "Cavite",
+                  "addressCountry": "PH"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/in/john-carlo-salazar-8028083b6/"
+                ],
+                "knowsAbout": ["React", "Next.js", "Node.js", "Laravel", "WordPress", "WooCommerce", "AWS", "Systems Architecture", "RAG chatbots", "AI automation"]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://johncarlosalazar.com/#website",
+                "url": "https://johncarlosalazar.com/",
+                "name": "John Carlo Salazar Portfolio",
+                "description": "Portfolio and services of full-stack developer John Carlo Salazar.",
+                "inLanguage": "en-PH",
+                "publisher": { "@id": "https://johncarlosalazar.com/#person" }
+              },
+              {
+                "@type": "ProfilePage",
+                "@id": "https://johncarlosalazar.com/#profilepage",
+                "url": "https://johncarlosalazar.com/",
+                "name": "John Carlo Salazar | Full-Stack Web Developer",
+                "isPartOf": { "@id": "https://johncarlosalazar.com/#website" },
+                "mainEntity": { "@id": "https://johncarlosalazar.com/#person" }
+              }
+            ]
+          }).replace(/</g, '\\u003c')
         }}
       />
 
