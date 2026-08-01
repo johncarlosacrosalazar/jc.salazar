@@ -57,7 +57,7 @@ export default function Stack() {
   }, { scope: container });
 
   return (
-    <section id="stack" ref={container} className="relative bg-void py-24 px-8 overflow-hidden">
+    <section id="stack" ref={container} className="relative bg-void py-16 sm:py-24 px-4 sm:px-8 overflow-hidden">
       {/* Background Technical Hexagon Pattern */}
       <div className="stack-bg-svg absolute -right-32 bottom-0 w-[600px] h-[600px] opacity-[0.03] pointer-events-none z-0">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -72,9 +72,9 @@ export default function Stack() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <SectionHeading eyebrow="Capabilities" title="Technical Stack" />
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Main Capabilities Grid */}
-          <div className="stack-card lg:col-span-2 p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-10">
+          <div className="stack-card lg:col-span-2 p-6 sm:p-12 bg-card/40 border-l-4 border-gold rounded-sm space-y-8 sm:space-y-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {[
                 { label: 'Frontend', items: ['React / Next.js', 'Tailwind CSS', 'Framer Motion', 'TS'] },

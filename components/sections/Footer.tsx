@@ -57,7 +57,7 @@ export default function Footer() {
   }, { scope: container });
 
   return (
-    <footer id="contact" ref={container} className="relative bg-void border-t border-gold/10 py-24 px-8 overflow-hidden">
+    <footer id="contact" ref={container} className="relative bg-void border-t border-gold/10 py-16 sm:py-24 px-4 sm:px-8 overflow-hidden">
       {/* Footer SVG Technical Background */}
       <div className="footer-bg absolute top-0 left-0 w-full h-full opacity-[0.08] pointer-events-none z-0 flex items-center justify-center">
         <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
@@ -83,31 +83,31 @@ export default function Footer() {
       </div>
 
       {/* Frame Decorative Accents */}
-      <div className="absolute top-12 left-12 w-24 h-24 border-t border-l border-gold/20 pointer-events-none" />
-      <div className="absolute bottom-12 right-12 w-24 h-24 border-b border-r border-gold/20 pointer-events-none" />
+      <div className="absolute top-12 left-12 w-24 h-24 border-t border-l border-gold/20 pointer-events-none hidden sm:block" />
+      <div className="absolute bottom-12 right-12 w-24 h-24 border-b border-r border-gold/20 pointer-events-none hidden sm:block" />
 
-      <div className="footer-content max-w-4xl mx-auto text-center space-y-12 relative z-10">
+      <div className="footer-content max-w-4xl mx-auto text-center space-y-8 sm:space-y-12 relative z-10">
         <div>
-          <span className="font-barlow text-sm font-bold tracking-[0.5em] text-gold uppercase">Contact</span>
-          <h2 className="font-bebas text-7xl md:text-9xl text-ink leading-tight mt-4">LET&apos;S BUILD IT.</h2>
-          <p className="text-ash text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">Tell me what you want to launch, improve, or automate. I’ll reply with practical next steps for your project.</p>
-          <p className="font-barlow text-xl md:text-2xl text-gold mt-5 low-tracking select-all">johncarlosacrosalazar@gmail.com</p>
+          <span className="font-barlow text-xs sm:text-sm font-bold tracking-[0.4em] sm:tracking-[0.5em] text-gold uppercase">Contact</span>
+          <h2 className="font-bebas text-5xl sm:text-7xl md:text-9xl text-ink leading-tight mt-2 sm:mt-4">LET&apos;S BUILD IT.</h2>
+          <p className="text-ash text-sm sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4 leading-relaxed px-2">Tell me what you want to launch, improve, or automate. I’ll reply with practical next steps for your project.</p>
+          <p className="font-barlow text-base sm:text-2xl text-gold mt-4 sm:mt-5 low-tracking select-all break-all sm:break-normal">johncarlosacrosalazar@gmail.com</p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:johncarlosacrosalazar@gmail.com?subject=Project%20Inquiry&amp;body=Hi%20John%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%20type%3A%0ATimeline%3A%0ABudget%20range%3A" className="px-10 py-5 bg-gold text-void font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10 flex items-center justify-center gap-3">
+        <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 w-full">
+          <a href="mailto:johncarlosacrosalazar@gmail.com?subject=Project%20Inquiry&amp;body=Hi%20John%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%20type%3A%0ATimeline%3A%0ABudget%20range%3A" className="px-8 sm:px-10 py-4 sm:py-5 bg-gold text-void font-barlow text-xs sm:text-sm font-bold tracking-widest uppercase rounded-sm hover:-translate-y-1 transition-all shadow-xl shadow-gold/10 flex items-center justify-center gap-3 w-full md:w-auto">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Start a Project
           </a>
-          <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-10 py-5 border border-ink/10 text-ink font-barlow text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3">
+          <a href="https://wa.me/639273315906" target="_blank" rel="noopener noreferrer" className="px-8 sm:px-10 py-4 sm:py-5 border border-ink/10 text-ink font-barlow text-xs sm:text-sm font-bold tracking-widest uppercase rounded-sm hover:border-gold/30 hover:text-gold transition-all flex items-center justify-center gap-3 w-full md:w-auto">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             WhatsApp
           </a>
         </div>
 
-        <p className="text-coal font-barlow text-[10px] tracking-[0.6em] uppercase pt-12">
-          Precision Engineering · John Carlo Salazar · 2025
+        <p className="text-coal font-barlow text-[10px] tracking-[0.4em] sm:tracking-[0.6em] uppercase pt-8 sm:pt-12">
+          Precision Engineering · John Carlo Salazar · 2026
         </p>
       </div>
     </footer>

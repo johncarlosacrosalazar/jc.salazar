@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <nav ref={container} className="fixed top-0 w-full z-[100] bg-void/90 backdrop-blur-xl border-b border-gold/15">
-      <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-[68px] flex items-center justify-between w-full">
         <div className="nav-logo mb-0">
           <motion.a
             href="/"
@@ -73,7 +73,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMenuOpen(open => !open)}
-          className="md:hidden inline-flex w-11 h-11 items-center justify-center border border-gold/25 text-gold rounded-sm"
+          className="md:hidden inline-flex w-10 h-10 items-center justify-center border border-gold/25 text-gold rounded-sm active:scale-95 transition-transform"
           aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -83,7 +83,7 @@ export default function Header() {
       </div>
 
       {isMenuOpen && (
-        <div id="mobile-navigation" className="md:hidden border-t border-gold/15 bg-void/98 px-8 py-6 shadow-2xl">
+        <div id="mobile-navigation" className="md:hidden border-t border-gold/15 bg-void/98 px-6 py-6 shadow-2xl">
           <div className="flex flex-col gap-2">
             {navItems.map(item => (
               <a

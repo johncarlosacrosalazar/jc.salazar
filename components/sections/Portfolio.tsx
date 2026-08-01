@@ -13,7 +13,7 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Maximize2, Shield } from 'lucide-react';
+import { ExternalLink, Maximize2, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -29,6 +29,8 @@ interface ProjectCardProps {
     badge: string;
     icon: React.ReactNode;
     category: string;
+    featured?: boolean;
+    impact?: string;
   };
   onPreview: (img: any, title: string) => void;
 }
@@ -70,11 +72,13 @@ function ProjectCard({ project, onPreview }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className="project-card group relative bg-card border border-ink/5 rounded-sm overflow-hidden transition-all hover:border-gold/20 shadow-2xl flex flex-col h-full"
+      className={`project-card group relative bg-card border rounded-sm overflow-hidden transition-all duration-300 hover:border-gold/40 shadow-2xl flex flex-col h-full ${
+        project.featured ? 'border-gold/30 bg-card/80' : 'border-ink/5'
+      }`}
     >
-      {/* Top Badge Overlay */}
-      <div className="absolute top-4 left-4 z-20">
-        <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-barlow text-[10px] font-bold tracking-widest uppercase rounded-sm border bg-void/80 backdrop-blur-md ${project.badge}`}>
+      {/* Top Category Badge */}
+      <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
+        <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 font-barlow text-[10px] font-bold tracking-widest uppercase rounded-sm border bg-void/90 backdrop-blur-md ${project.badge}`}>
           {project.icon} {project.category}
         </span>
       </div>
@@ -123,9 +127,19 @@ function ProjectCard({ project, onPreview }: ProjectCardProps) {
       </div>
 
       {/* Content Area */}
-      <div className="p-10 flex-1 flex flex-col justify-between">
+      <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="font-bebas text-3xl text-ink mb-4 group-hover:text-gold transition-colors tracking-wide leading-none">{project.title}</h3>
+          {/* Business Impact Pill */}
+          {project.impact && (
+            <div className="mb-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-gold/10 border border-gold/25 text-gold text-[11px] font-bold uppercase tracking-wider rounded-sm">
+              <Sparkles size={12} className="shrink-0" />
+              <span>{project.impact}</span>
+            </div>
+          )}
+
+          <h3 className="font-bebas text-3xl text-ink mb-3 group-hover:text-gold transition-colors tracking-wide leading-none">
+            {project.title}
+          </h3>
           <div className="relative">
             <p
               className={`text-ash text-sm leading-relaxed mb-4 overflow-hidden ${!isExpanded ? 'line-clamp-3' : ''}`}
@@ -143,11 +157,12 @@ function ProjectCard({ project, onPreview }: ProjectCardProps) {
             )}
           </div>
         </div>
+
         <a
-          href={`mailto:johncarlosacrosalazar@gmail.com?subject=${encodeURIComponent(`Project similar to ${project.title}`)}`}
-          className="inline-flex items-center gap-2 text-gold text-[11px] font-bold uppercase tracking-widest hover:gap-3 transition-all"
+          href={`mailto:johncarlosacrosalazar@gmail.com?subject=${encodeURIComponent(`Inquiry for project similar to ${project.title}`)}&body=${encodeURIComponent(`Hi John Carlo,\n\nI liked your work on ${project.title} and want to discuss building something similar for my business.`)}`}
+          className="inline-flex items-center gap-2 text-gold text-[11px] font-extrabold uppercase tracking-widest hover:gap-3 transition-all mt-4 border-t border-white/5 pt-4"
         >
-          Build Something Similar <ExternalLink size={14} />
+          Build Something Similar <ArrowRight size={14} />
         </a>
       </div>
     </div>
@@ -214,10 +229,15 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
       .filter(group => (group.categories ?? [group.category]).includes(activeCategory))
       .flatMap(group => group.items.map(item => ({ ...item, badge: group.badge, icon: group.icon, category: group.category })));
 
-  allFilteredItems.sort((a, b) => a.title.localeCompare(b.title));
+  // Prioritize Featured Projects first, then alphabetical
+  allFilteredItems.sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.title.localeCompare(b.title);
+  });
 
   return (
-    <section id="portfolio" ref={container} className="bg-transparent py-24 px-8 overflow-hidden relative">
+    <section id="portfolio" ref={container} className="bg-transparent py-16 sm:py-24 px-4 sm:px-8 overflow-hidden relative">
       {/* Decorative Blur Blob */}
       <div className="portfolio-bg-blob absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -238,7 +258,7 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
       ))}
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <SectionHeading eyebrow="Showcase" title="Selected Work" />
+        <SectionHeading eyebrow="Showcase & Case Studies" title="Selected Work" />
 
         {/* Desktop Category Navigation */}
         <div className="hidden md:flex flex-wrap items-center justify-center gap-4 mb-20">
@@ -265,14 +285,14 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
         </div>
 
         {/* Mobile Category Toggle (Bento Menu) */}
-        <div className="md:hidden flex items-center justify-between mb-12 px-2">
+        <div className="md:hidden flex items-center justify-between mb-8 px-2">
           <div className="flex flex-col">
             <span className="font-barlow text-[10px] text-ash/40 uppercase tracking-[0.3em] font-bold mb-1">Category</span>
             <span className="font-bebas text-2xl text-gold tracking-widest uppercase">{activeCategory}</span>
           </div>
           <button
             onClick={() => setShowMobileCategories(true)}
-            className="w-12 h-12 border border-ink/10 flex flex-wrap gap-1 p-3 items-center justify-center hover:border-gold/30 transition-colors"
+            className="w-11 h-11 border border-ink/10 flex flex-wrap gap-1 p-2.5 items-center justify-center hover:border-gold/30 transition-colors"
           >
             <div className="w-1.5 h-1.5 bg-gold/60" />
             <div className="w-1.5 h-1.5 bg-gold" />
@@ -349,7 +369,29 @@ export default function Portfolio({ onPreview }: { onPreview: (img: any, title: 
             <p className="text-ash font-barlow text-sm uppercase tracking-widest">No projects found in this category.</p>
           </div>
         )}
+
+        {/* Bottom Portfolio Conversion Callout Banner */}
+        <div className="mt-12 sm:mt-16 border border-gold/30 bg-gradient-to-r from-card/90 via-card/60 to-gold/10 p-6 sm:p-10 rounded-sm shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 relative overflow-hidden">
+          <div className="w-full flex-1 max-w-2xl space-y-2 sm:space-y-3 relative z-10">
+            <div className="flex items-center gap-2 text-gold font-barlow text-xs font-bold uppercase tracking-widest">
+              <Sparkles size={14} className="shrink-0" /> Ready to Build Your Solution?
+            </div>
+            <h4 className="font-barlow text-2xl md:text-3xl font-bold text-ink leading-tight">
+              Like what you see? Let’s build something great for your business.
+            </h4>
+            <p className="text-ash text-xs sm:text-sm leading-relaxed">
+              Whether you need a new website, learning academy, custom admin portal, or AI automation, I can help turn your idea into a launched product.
+            </p>
+          </div>
+          <a
+            href="mailto:johncarlosacrosalazar@gmail.com?subject=New%20Project%20Inquiry%20from%20Portfolio&body=Hi%20John%20Carlo,%0A%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20for%20my%20business."
+            className="inline-flex shrink-0 items-center justify-center gap-3 px-8 py-4 bg-gold text-void font-barlow text-xs font-extrabold tracking-widest uppercase rounded-sm hover:translate-y-[-2px] transition-all shadow-xl shadow-gold/15 relative z-10 w-full md:w-auto text-center whitespace-nowrap"
+          >
+            Get Custom Scope & Quote <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
     </section>
   );
 }
+

@@ -49,7 +49,7 @@ export default function Experience() {
   }, { scope: container });
 
   return (
-    <section id="experience" ref={container} className="relative bg-transparent py-24 px-8 overflow-hidden">
+    <section id="experience" ref={container} className="relative bg-transparent py-16 sm:py-24 px-4 sm:px-8 overflow-hidden">
       {/* Background Grid Pattern Accent */}
       <div className="absolute top-24 -left-64 w-[500px] h-[500px] opacity-[0.02] pointer-events-none z-0">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -67,15 +67,15 @@ export default function Experience() {
 
         <div className="exp-list relative space-y-6">
           {/* Base Vertical Line (The track) */}
-          <div className="absolute left-[8px] top-4 bottom-4 w-[2px] bg-ink/5 z-0" />
+          <div className="absolute left-[6px] sm:left-[8px] top-4 bottom-4 w-[2px] bg-ink/5 z-0" />
           
           {/* Animated Progress Line (The fill) */}
-          <div className="exp-progress-line absolute left-[8px] top-4 bottom-4 w-[2px] bg-gold z-0" />
+          <div className="exp-progress-line absolute left-[6px] sm:left-[8px] top-4 bottom-4 w-[2px] bg-gold z-0" />
           
           {experiences.map((exp, i) => (
             <div
               key={i}
-              className={`exp-item relative p-8 md:p-10 ml-8 md:ml-12 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-gold/15 hover:border-gold/30'
+              className={`exp-item relative p-6 sm:p-10 ml-6 sm:ml-12 rounded-sm border-l-4 transition-all hover:bg-card/40 overflow-hidden ${exp.highlight ? 'bg-gold/[0.02] border-gold' : 'bg-card/20 border-gold/15 hover:border-gold/30'
                 }`}
             >
               {/* Geometric Decorative Accent inside the card */}
