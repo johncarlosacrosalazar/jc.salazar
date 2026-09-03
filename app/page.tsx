@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import PortfolioLayout from './(portfolio)/layout';
-import PortfolioLandingPage from './(portfolio)/page';
+import ConversionPortfolio from '@/components/ConversionPortfolio';
 
-const title = 'John Carlo Salazar | Full-Stack Web Developer';
-const description = 'Philippines-based full-stack developer with 10+ years of experience building business websites, online academies, portals, e-commerce platforms, and AI automation.';
+const title = 'Web Designer & Developer for Growing Businesses | John Carlo Salazar';
+const description = 'Conversion-focused websites, e-commerce experiences, online academies, and custom web platforms designed and built by John Carlo Salazar.';
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -29,25 +28,16 @@ export const metadata: Metadata = {
     title,
     description,
     siteName: 'John Carlo Salazar Portfolio',
-    images: [
-      {
-        url: '/assets/images/hero.png',
-        alt: 'John Carlo Salazar, full-stack web developer and systems architect',
-      },
-    ],
+    images: [{ url: '/assets/images/TIQA.webp', alt: 'Selected website work by John Carlo Salazar' }],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
-    images: ['/assets/images/hero.png'],
+    images: ['/assets/images/TIQA.webp'],
   },
 };
 
 export default function HomePage() {
-  return (
-    <PortfolioLayout>
-      <PortfolioLandingPage />
-    </PortfolioLayout>
-  );
+  return <ConversionPortfolio />;
 }

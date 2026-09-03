@@ -39,6 +39,7 @@ import imgEroTaxEducation from '../public/assets/images/erotaxeducation.webp';
 import imgAxisProTaxAcademy from '../public/assets/images/axisprotaxacademy.webp';
 import imgAtpTaxAcademy from '../public/assets/images/atptaxacademycourses.webp';
 import imgScopeHomeAccess from '../public/assets/images/scopehomeaccess.png';
+import imgScopeHomeIntranet from '../public/assets/images/scopehome-intranet.png';
 
 /**
  * Career Experience Data
@@ -228,6 +229,13 @@ export const projects = [
         url: 'https://www.scopehomeaccess.com.au/',
         desc: 'A Laravel-powered service website for an Australian aged-care and disability support provider, helping people explore occupational therapy, home modifications, maintenance services, funding options, and local service availability.',
         image: imgScopeHomeAccess,
+        featured: false,
+      },
+      {
+        title: 'Scope Home Access Intranet',
+        url: '',
+        desc: 'A private Laravel-powered company intranet built for Scope Home Access staff. ScopeHUB centralizes internal forms, policies and procedures, knowledge-base content, company updates, staff profiles, messaging, and real-time colleague presence in one accessible workspace.',
+        image: imgScopeHomeIntranet,
         featured: false,
       },
       { title: 'The Knights Templar', url: 'https://web.archive.org/web/20220310161843/https://theknightstemplar.info/', desc: 'Historic chivalric order member portal and portal.', image: imgKnights, featured: false },
