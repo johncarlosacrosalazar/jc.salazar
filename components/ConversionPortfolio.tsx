@@ -5,21 +5,18 @@ import {
   ExternalLink,
   Layers3,
   Lightbulb,
-  MessageCircle,
   MoveRight,
   Rocket,
   ShoppingBag,
   Sparkles,
 } from 'lucide-react';
 import styles from './ConversionPortfolio.module.css';
+import ContactForm from './ContactForm';
 
 import taxIq from '@/public/assets/images/TIQA.webp';
 import pentagreen from '@/public/assets/images/pentagreen.png';
 import onePeople from '@/public/assets/images/onepeople.webp';
 import scopeHome from '@/public/assets/images/scopehomeaccess.png';
-
-const emailHref =
-  'mailto:johncarlosacrosalazar@gmail.com?subject=Website%20project%20inquiry&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20discuss%20a%20website%20project.%0A%0ABusiness%3A%0AWhat%20I%20need%3A%0ATimeline%3A%0ABudget%20range%3A';
 
 type CaseStudy = {
   number: string;
@@ -111,7 +108,7 @@ export default function ConversionPortfolio() {
         </nav>
         <div className={styles.headerActions}>
           <a className={styles.mobileCvLink} href="/cv">CV</a>
-          <a className={styles.headerCta} href={emailHref}>
+          <a className={styles.headerCta} href="#contact">
             Start a project <span><ArrowRight size={15} aria-hidden="true" /></span>
           </a>
         </div>
@@ -130,7 +127,7 @@ export default function ConversionPortfolio() {
             educators, and ambitious teams—without the agency runaround.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryButton} href={emailHref}>
+            <a className={styles.primaryButton} href="#contact">
               Tell me about your project <ArrowRight size={18} aria-hidden="true" />
             </a>
             <a className={styles.textLink} href="#work">
@@ -281,7 +278,7 @@ export default function ConversionPortfolio() {
         </div>
         <div className={styles.serviceNote}>
           <span><Lightbulb size={18} aria-hidden="true" /></span>
-          <p>Not sure which fits? <a href={emailHref}>Send me the rough idea</a> and I’ll point you in the right direction.</p>
+          <p>Not sure which fits? <a href="#contact">Send me the rough idea</a> and I’ll point you in the right direction.</p>
         </div>
       </section>
 
@@ -327,15 +324,7 @@ export default function ConversionPortfolio() {
           <h2>Let’s make your website your best salesperson.</h2>
           <p>Tell me what you’re building, what’s not working, and where you want to go. You’ll get a practical reply—not a sales script.</p>
         </div>
-        <div className={styles.contactActions}>
-          <a className={styles.primaryButton} href={emailHref}>
-            Start the conversation <ArrowRight size={18} />
-          </a>
-          <a className={styles.whatsappButton} href="https://wa.me/639273315906" target="_blank" rel="noreferrer">
-            <MessageCircle size={18} /> Message on WhatsApp
-          </a>
-          <small>Usually replies within 1 business day</small>
-        </div>
+        <ContactForm />
       </section>
 
       <footer className={styles.footer}>
